@@ -32,18 +32,22 @@
             this.buttonLogout = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBoxAppID = new System.Windows.Forms.TextBox();
-            this.buttonSettings = new System.Windows.Forms.Button();
-            this.listBoxPostComments = new System.Windows.Forms.ListBox();
             this.listBoxPosts = new System.Windows.Forms.ListBox();
-            this.buttonSetStatus = new System.Windows.Forms.Button();
-            this.textBoxStatus = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.linkPosts = new System.Windows.Forms.LinkLabel();
+            this.pictureBoxPage = new System.Windows.Forms.PictureBox();
+            this.listBoxPages = new System.Windows.Forms.ListBox();
+            this.linkPages = new System.Windows.Forms.LinkLabel();
+            this.pictureBoxAlbum = new System.Windows.Forms.PictureBox();
+            this.listBoxAlbums = new System.Windows.Forms.ListBox();
+            this.linkAlbums = new System.Windows.Forms.LinkLabel();
+            this.buttonSettings = new System.Windows.Forms.Button();
+            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
+            this.textBoxAppID = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,12 +87,14 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.listBoxPostComments);
             this.tabPage1.Controls.Add(this.listBoxPosts);
-            this.tabPage1.Controls.Add(this.buttonSetStatus);
-            this.tabPage1.Controls.Add(this.textBoxStatus);
-            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.linkPosts);
+            this.tabPage1.Controls.Add(this.pictureBoxPage);
+            this.tabPage1.Controls.Add(this.listBoxPages);
+            this.tabPage1.Controls.Add(this.linkPages);
+            this.tabPage1.Controls.Add(this.pictureBoxAlbum);
+            this.tabPage1.Controls.Add(this.listBoxAlbums);
+            this.tabPage1.Controls.Add(this.linkAlbums);
             this.tabPage1.Controls.Add(this.buttonSettings);
             this.tabPage1.Controls.Add(this.pictureBoxProfile);
             this.tabPage1.Controls.Add(this.textBoxAppID);
@@ -102,58 +108,6 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // pictureBoxProfile
-            // 
-            this.pictureBoxProfile.Location = new System.Drawing.Point(18, 203);
-            this.pictureBoxProfile.Name = "pictureBoxProfile";
-            this.pictureBoxProfile.Size = new System.Drawing.Size(79, 78);
-            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxProfile.TabIndex = 55;
-            this.pictureBoxProfile.TabStop = false;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 31);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1235, 662);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // textBoxAppID
-            // 
-            this.textBoxAppID.Location = new System.Drawing.Point(18, 92);
-            this.textBoxAppID.Name = "textBoxAppID";
-            this.textBoxAppID.Size = new System.Drawing.Size(237, 28);
-            this.textBoxAppID.TabIndex = 54;
-            this.textBoxAppID.Text = "1576031996471164";
-            // 
-            // buttonSettings
-            // 
-            this.buttonSettings.Location = new System.Drawing.Point(18, 57);
-            this.buttonSettings.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSettings.Name = "buttonSettings";
-            this.buttonSettings.Size = new System.Drawing.Size(208, 28);
-            this.buttonSettings.TabIndex = 56;
-            this.buttonSettings.Text = "Settings";
-            this.buttonSettings.UseVisualStyleBackColor = true;
-            // 
-            // listBoxPostComments
-            // 
-            this.listBoxPostComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxPostComments.BackColor = System.Drawing.SystemColors.Info;
-            this.listBoxPostComments.DisplayMember = "name";
-            this.listBoxPostComments.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxPostComments.FormattingEnabled = true;
-            this.listBoxPostComments.ItemHeight = 24;
-            this.listBoxPostComments.Location = new System.Drawing.Point(923, 142);
-            this.listBoxPostComments.Margin = new System.Windows.Forms.Padding(4);
-            this.listBoxPostComments.Name = "listBoxPostComments";
-            this.listBoxPostComments.Size = new System.Drawing.Size(276, 100);
-            this.listBoxPostComments.TabIndex = 62;
-            // 
             // listBoxPosts
             // 
             this.listBoxPosts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -166,53 +120,133 @@
             this.listBoxPosts.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxPosts.Name = "listBoxPosts";
             this.listBoxPosts.Size = new System.Drawing.Size(809, 148);
-            this.listBoxPosts.TabIndex = 57;
-            this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
-            // 
-            // buttonSetStatus
-            // 
-            this.buttonSetStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSetStatus.Location = new System.Drawing.Point(1113, 4);
-            this.buttonSetStatus.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSetStatus.Name = "buttonSetStatus";
-            this.buttonSetStatus.Size = new System.Drawing.Size(100, 28);
-            this.buttonSetStatus.TabIndex = 60;
-            this.buttonSetStatus.Text = "Post";
-            this.buttonSetStatus.UseVisualStyleBackColor = true;
-            // 
-            // textBoxStatus
-            // 
-            this.textBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxStatus.Location = new System.Drawing.Point(810, 6);
-            this.textBoxStatus.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxStatus.Name = "textBoxStatus";
-            this.textBoxStatus.Size = new System.Drawing.Size(293, 28);
-            this.textBoxStatus.TabIndex = 59;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(717, 10);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 24);
-            this.label3.TabIndex = 58;
-            this.label3.Text = "Post Status:";
+            this.listBoxPosts.TabIndex = 69;
             // 
             // linkPosts
             // 
             this.linkPosts.AutoSize = true;
             this.linkPosts.LinkArea = new System.Windows.Forms.LinkArea(0, 12);
-            this.linkPosts.Location = new System.Drawing.Point(403, 21);
+            this.linkPosts.Location = new System.Drawing.Point(403, 17);
             this.linkPosts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkPosts.Name = "linkPosts";
             this.linkPosts.Size = new System.Drawing.Size(345, 47);
-            this.linkPosts.TabIndex = 61;
+            this.linkPosts.TabIndex = 70;
             this.linkPosts.TabStop = true;
             this.linkPosts.Text = "Fetch Posts\r\n(Click on a post to view the comments!)\r\n";
             this.linkPosts.UseCompatibleTextRendering = true;
             this.linkPosts.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPosts_LinkClicked);
+            // 
+            // pictureBoxPage
+            // 
+            this.pictureBoxPage.BackColor = System.Drawing.Color.Gainsboro;
+            this.pictureBoxPage.Location = new System.Drawing.Point(573, 387);
+            this.pictureBoxPage.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxPage.Name = "pictureBoxPage";
+            this.pictureBoxPage.Size = new System.Drawing.Size(103, 84);
+            this.pictureBoxPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPage.TabIndex = 67;
+            this.pictureBoxPage.TabStop = false;
+            // 
+            // listBoxPages
+            // 
+            this.listBoxPages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxPages.DisplayMember = "name";
+            this.listBoxPages.FormattingEnabled = true;
+            this.listBoxPages.ItemHeight = 22;
+            this.listBoxPages.Location = new System.Drawing.Point(403, 291);
+            this.listBoxPages.Margin = new System.Windows.Forms.Padding(4);
+            this.listBoxPages.Name = "listBoxPages";
+            this.listBoxPages.Size = new System.Drawing.Size(273, 180);
+            this.listBoxPages.TabIndex = 66;
+            this.listBoxPages.SelectedIndexChanged += new System.EventHandler(this.listBoxPages_SelectedIndexChanged);
+            // 
+            // linkPages
+            // 
+            this.linkPages.AutoSize = true;
+            this.linkPages.LinkArea = new System.Windows.Forms.LinkArea(0, 17);
+            this.linkPages.Location = new System.Drawing.Point(403, 240);
+            this.linkPages.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.linkPages.Name = "linkPages";
+            this.linkPages.Size = new System.Drawing.Size(302, 47);
+            this.linkPages.TabIndex = 68;
+            this.linkPages.TabStop = true;
+            this.linkPages.Text = "Fetch Liked Pages \r\n(Click on a page to view it\'s picture)";
+            this.linkPages.UseCompatibleTextRendering = true;
+            this.linkPages.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPages_LinkClicked);
+            // 
+            // pictureBoxAlbum
+            // 
+            this.pictureBoxAlbum.BackColor = System.Drawing.Color.Gainsboro;
+            this.pictureBoxAlbum.Location = new System.Drawing.Point(188, 387);
+            this.pictureBoxAlbum.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxAlbum.Name = "pictureBoxAlbum";
+            this.pictureBoxAlbum.Size = new System.Drawing.Size(103, 84);
+            this.pictureBoxAlbum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxAlbum.TabIndex = 64;
+            this.pictureBoxAlbum.TabStop = false;
+            // 
+            // listBoxAlbums
+            // 
+            this.listBoxAlbums.FormattingEnabled = true;
+            this.listBoxAlbums.ItemHeight = 22;
+            this.listBoxAlbums.Location = new System.Drawing.Point(18, 291);
+            this.listBoxAlbums.Margin = new System.Windows.Forms.Padding(4);
+            this.listBoxAlbums.Name = "listBoxAlbums";
+            this.listBoxAlbums.Size = new System.Drawing.Size(273, 180);
+            this.listBoxAlbums.TabIndex = 63;
+            this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
+            // 
+            // linkAlbums
+            // 
+            this.linkAlbums.AutoSize = true;
+            this.linkAlbums.LinkArea = new System.Windows.Forms.LinkArea(0, 13);
+            this.linkAlbums.Location = new System.Drawing.Point(18, 240);
+            this.linkAlbums.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.linkAlbums.Name = "linkAlbums";
+            this.linkAlbums.Size = new System.Drawing.Size(344, 47);
+            this.linkAlbums.TabIndex = 65;
+            this.linkAlbums.TabStop = true;
+            this.linkAlbums.Text = "Fetch Albums\r\n(Click an album to view its cover picture)";
+            this.linkAlbums.UseCompatibleTextRendering = true;
+            this.linkAlbums.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAlbums_LinkClicked);
+            // 
+            // buttonSettings
+            // 
+            this.buttonSettings.Location = new System.Drawing.Point(18, 57);
+            this.buttonSettings.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSettings.Name = "buttonSettings";
+            this.buttonSettings.Size = new System.Drawing.Size(208, 28);
+            this.buttonSettings.TabIndex = 56;
+            this.buttonSettings.Text = "Settings";
+            this.buttonSettings.UseVisualStyleBackColor = true;
+            // 
+            // pictureBoxProfile
+            // 
+            this.pictureBoxProfile.Location = new System.Drawing.Point(18, 126);
+            this.pictureBoxProfile.Name = "pictureBoxProfile";
+            this.pictureBoxProfile.Size = new System.Drawing.Size(94, 94);
+            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxProfile.TabIndex = 55;
+            this.pictureBoxProfile.TabStop = false;
+            // 
+            // textBoxAppID
+            // 
+            this.textBoxAppID.Location = new System.Drawing.Point(18, 92);
+            this.textBoxAppID.Name = "textBoxAppID";
+            this.textBoxAppID.Size = new System.Drawing.Size(237, 28);
+            this.textBoxAppID.TabIndex = 54;
+            this.textBoxAppID.Text = "1576031996471164";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 31);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1235, 662);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 
@@ -228,6 +262,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.ResumeLayout(false);
 
@@ -243,11 +279,13 @@
         private System.Windows.Forms.PictureBox pictureBoxProfile;
         private System.Windows.Forms.TextBox textBoxAppID;
         private System.Windows.Forms.Button buttonSettings;
-        private System.Windows.Forms.ListBox listBoxPostComments;
+        private System.Windows.Forms.PictureBox pictureBoxAlbum;
+        private System.Windows.Forms.ListBox listBoxAlbums;
+        private System.Windows.Forms.LinkLabel linkAlbums;
+        private System.Windows.Forms.PictureBox pictureBoxPage;
+        private System.Windows.Forms.ListBox listBoxPages;
+        private System.Windows.Forms.LinkLabel linkPages;
         private System.Windows.Forms.ListBox listBoxPosts;
-        private System.Windows.Forms.Button buttonSetStatus;
-        private System.Windows.Forms.TextBox textBoxStatus;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel linkPosts;
     }
 }

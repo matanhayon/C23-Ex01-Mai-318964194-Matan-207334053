@@ -78,6 +78,7 @@ namespace BasicFacebookFeatures
             buttonLogout.Enabled = false;
         }
 
+
         private void linkPosts_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             fetchPosts();
@@ -109,11 +110,85 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void listBoxPosts_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        private void linkAlbums_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Post selected = m_LoggedInUser.Posts[listBoxPosts.SelectedIndex];
-            listBoxPostComments.DisplayMember = "Message";
-            listBoxPostComments.DataSource = selected.Comments;
+            fetchAlbums();
+        }
+
+        private void fetchAlbums()
+        {
+            listBoxAlbums.Items.Clear();
+            listBoxAlbums.DisplayMember = "Name";
+            foreach (Album album in m_LoggedInUser.Albums)
+            {
+                listBoxAlbums.Items.Add(album);
+                //album.ReFetch(DynamicWrapper.eLoadOptions.Full);
+            }
+
+            if (listBoxAlbums.Items.Count == 0)
+            {
+                MessageBox.Show("No Albums to retrieve :(");
+            }
+        }
+
+        private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            displaySelectedAlbum();
+        }
+
+        private void displaySelectedAlbum()
+        {
+            if (listBoxAlbums.SelectedItems.Count == 1)
+            {
+                Album selectedAlbum = listBoxAlbums.SelectedItem as Album;
+                if (selectedAlbum.PictureAlbumURL != null)
+                {
+                    pictureBoxAlbum.LoadAsync(selectedAlbum.PictureAlbumURL);
+                }
+                else
+                {
+                    pictureBoxProfile.Image = pictureBoxProfile.ErrorImage;
+                }
+            }
+        }
+
+        private void linkPages_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            fetchLikedPages();
+        }
+
+        private void fetchLikedPages()
+        {
+            listBoxPages.Items.Clear();
+            listBoxPages.DisplayMember = "Name";
+
+            try
+            {
+                foreach (Page page in m_LoggedInUser.LikedPages)
+                {
+                    listBoxPages.Items.Add(page);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            if (listBoxPages.Items.Count == 0)
+            {
+                MessageBox.Show("No liked pages to retrieve :(");
+            }
+        }
+
+        private void listBoxPages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxPages.SelectedItems.Count == 1)
+            {
+                Page selectedPage = listBoxPages.SelectedItem as Page;
+                pictureBoxPage.LoadAsync(selectedPage.PictureNormalURL);
+            }
         }
     }
 }

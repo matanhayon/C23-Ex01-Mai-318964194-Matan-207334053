@@ -13,26 +13,46 @@ namespace BasicFacebookFeatures
 {
     public partial class FormMain : Form
     {
+        FacebookWrapper.LoginResult m_LoginResult;
+        User m_LoggedInUser;
+        private int m_selectedAlbumIndex = -1;
+
+
         public FormMain()
         {
             InitializeComponent();
             FacebookWrapper.FacebookService.s_CollectionLimit = 25;
+            initializeAddedFeatures();
         }
 
-        FacebookWrapper.LoginResult m_LoginResult;
-        User m_LoggedInUser;
+        private void initializeAddedFeatures()
+        {
+            initializeComboBox();
+        }
 
+        private void initializeComboBox()
+        {
+            comboBoxSortOption.Items.Add("Newest");
+            comboBoxSortOption.Items.Add("Oldest");
+            comboBoxSortOption.Items.Add("Largest");
+            comboBoxSortOption.Items.Add("Smallest");
+            comboBoxSortOption.SelectedIndex = 0; // Set the default selected option
+        }
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             Clipboard.SetText("design.patterns");
 
-            if (m_LoginResult == null || string.IsNullOrEmpty(m_LoginResult.AccessToken))
+            if (!isLoggedIn())
             {
                 login();
             }
         }
 
+        private bool isLoggedIn()
+        {
+            return !(m_LoginResult == null || string.IsNullOrEmpty(m_LoginResult.AccessToken));
+        }
         private void login()
         {
             m_LoginResult = null;
@@ -121,10 +141,32 @@ namespace BasicFacebookFeatures
         {
             listBoxAlbums.Items.Clear();
             listBoxAlbums.DisplayMember = "Name";
-            foreach (Album album in m_LoggedInUser.Albums)
+
+            var sortingOption = comboBoxSortOption.SelectedItem.ToString();
+            IEnumerable<Album> sortedAlbums;
+
+            switch (sortingOption)
+            {
+                case "Newest":
+                    sortedAlbums = m_LoggedInUser.Albums.OrderByDescending(album => album.CreatedTime);
+                    break;
+                case "Oldest":
+                    sortedAlbums = m_LoggedInUser.Albums.OrderBy(album => album.CreatedTime);
+                    break;
+                case "Largest":
+                    sortedAlbums = m_LoggedInUser.Albums.OrderByDescending(album => album.Count);
+                    break;
+                case "Smallest":
+                    sortedAlbums = m_LoggedInUser.Albums.OrderBy(album => album.Count);
+                    break;
+                default:
+                    sortedAlbums = m_LoggedInUser.Albums; // Default sorting
+                    break;
+            }
+
+            foreach (Album album in sortedAlbums)
             {
                 listBoxAlbums.Items.Add(album);
-                //album.ReFetch(DynamicWrapper.eLoadOptions.Full);
             }
 
             if (listBoxAlbums.Items.Count == 0)
@@ -132,6 +174,7 @@ namespace BasicFacebookFeatures
                 MessageBox.Show("No Albums to retrieve :(");
             }
         }
+
 
         private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -145,7 +188,11 @@ namespace BasicFacebookFeatures
                 Album selectedAlbum = listBoxAlbums.SelectedItem as Album;
                 if (selectedAlbum.PictureAlbumURL != null)
                 {
+                    string firstPhotoUrl;
+                    m_selectedAlbumIndex = 0;
                     pictureBoxAlbum.LoadAsync(selectedAlbum.PictureAlbumURL);
+                    firstPhotoUrl = selectedAlbum.Photos[m_selectedAlbumIndex].PictureNormalURL;
+                    pictureBoxPhotos.LoadAsync(firstPhotoUrl);
                 }
                 else
                 {
@@ -188,6 +235,40 @@ namespace BasicFacebookFeatures
             {
                 Page selectedPage = listBoxPages.SelectedItem as Page;
                 pictureBoxPage.LoadAsync(selectedPage.PictureNormalURL);
+            }
+        }
+
+        private void comboBoxSortOption_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          if(isLoggedIn()) 
+             fetchAlbums();
+        }
+
+        private void buttonPrevious_Click(object sender, EventArgs e)
+        {
+            if (m_selectedAlbumIndex > 0)
+            {
+                m_selectedAlbumIndex--;
+                displaySelectedPhoto();
+            }
+        }
+
+        private void buttonNext_Click(object sender, EventArgs e)
+        {
+            Album selectedAlbum = listBoxAlbums.SelectedItem as Album;
+            if (selectedAlbum != null && m_selectedAlbumIndex < selectedAlbum.Photos.Count - 1)
+            {
+                m_selectedAlbumIndex++;
+                displaySelectedPhoto();
+            }
+        }
+
+        private void displaySelectedPhoto()
+        {
+            Album selectedAlbum = listBoxAlbums.SelectedItem as Album;
+            if (selectedAlbum != null && m_selectedAlbumIndex >= 0 && m_selectedAlbumIndex < selectedAlbum.Photos.Count)
+            {
+                pictureBoxPhotos.LoadAsync(selectedAlbum.Photos[m_selectedAlbumIndex].PictureNormalURL);
             }
         }
     }

@@ -32,6 +32,8 @@
             this.buttonLogout = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.SortByAlbumsLabel = new System.Windows.Forms.Label();
+            this.comboBoxSortOption = new System.Windows.Forms.ComboBox();
             this.listBoxPosts = new System.Windows.Forms.ListBox();
             this.linkPosts = new System.Windows.Forms.LinkLabel();
             this.pictureBoxPage = new System.Windows.Forms.PictureBox();
@@ -44,11 +46,15 @@
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.textBoxAppID = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pictureBoxPhotos = new System.Windows.Forms.PictureBox();
+            this.buttonPrevious = new System.Windows.Forms.Button();
+            this.buttonNext = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotos)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonLogin
@@ -87,6 +93,11 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.buttonNext);
+            this.tabPage1.Controls.Add(this.buttonPrevious);
+            this.tabPage1.Controls.Add(this.pictureBoxPhotos);
+            this.tabPage1.Controls.Add(this.SortByAlbumsLabel);
+            this.tabPage1.Controls.Add(this.comboBoxSortOption);
             this.tabPage1.Controls.Add(this.listBoxPosts);
             this.tabPage1.Controls.Add(this.linkPosts);
             this.tabPage1.Controls.Add(this.pictureBoxPage);
@@ -107,6 +118,25 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // SortByAlbumsLabel
+            // 
+            this.SortByAlbumsLabel.AutoSize = true;
+            this.SortByAlbumsLabel.Location = new System.Drawing.Point(14, 277);
+            this.SortByAlbumsLabel.Name = "SortByAlbumsLabel";
+            this.SortByAlbumsLabel.Size = new System.Drawing.Size(74, 24);
+            this.SortByAlbumsLabel.TabIndex = 72;
+            this.SortByAlbumsLabel.Text = "Sort By:";
+            // 
+            // comboBoxSortOption
+            // 
+            this.comboBoxSortOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSortOption.FormattingEnabled = true;
+            this.comboBoxSortOption.Location = new System.Drawing.Point(18, 307);
+            this.comboBoxSortOption.Name = "comboBoxSortOption";
+            this.comboBoxSortOption.Size = new System.Drawing.Size(273, 30);
+            this.comboBoxSortOption.TabIndex = 71;
+            this.comboBoxSortOption.SelectedIndexChanged += new System.EventHandler(this.comboBoxSortOption_SelectedIndexChanged);
             // 
             // listBoxPosts
             // 
@@ -178,7 +208,7 @@
             // pictureBoxAlbum
             // 
             this.pictureBoxAlbum.BackColor = System.Drawing.Color.Gainsboro;
-            this.pictureBoxAlbum.Location = new System.Drawing.Point(188, 387);
+            this.pictureBoxAlbum.Location = new System.Drawing.Point(188, 440);
             this.pictureBoxAlbum.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxAlbum.Name = "pictureBoxAlbum";
             this.pictureBoxAlbum.Size = new System.Drawing.Size(103, 84);
@@ -190,7 +220,7 @@
             // 
             this.listBoxAlbums.FormattingEnabled = true;
             this.listBoxAlbums.ItemHeight = 22;
-            this.listBoxAlbums.Location = new System.Drawing.Point(18, 291);
+            this.listBoxAlbums.Location = new System.Drawing.Point(18, 344);
             this.listBoxAlbums.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxAlbums.Name = "listBoxAlbums";
             this.listBoxAlbums.Size = new System.Drawing.Size(273, 180);
@@ -201,7 +231,7 @@
             // 
             this.linkAlbums.AutoSize = true;
             this.linkAlbums.LinkArea = new System.Windows.Forms.LinkArea(0, 13);
-            this.linkAlbums.Location = new System.Drawing.Point(18, 240);
+            this.linkAlbums.Location = new System.Drawing.Point(18, 230);
             this.linkAlbums.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkAlbums.Name = "linkAlbums";
             this.linkAlbums.Size = new System.Drawing.Size(344, 47);
@@ -248,6 +278,36 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // pictureBoxPhotos
+            // 
+            this.pictureBoxPhotos.BackColor = System.Drawing.Color.Gainsboro;
+            this.pictureBoxPhotos.Location = new System.Drawing.Point(58, 530);
+            this.pictureBoxPhotos.Name = "pictureBoxPhotos";
+            this.pictureBoxPhotos.Size = new System.Drawing.Size(197, 128);
+            this.pictureBoxPhotos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPhotos.TabIndex = 73;
+            this.pictureBoxPhotos.TabStop = false;
+            // 
+            // buttonPrevious
+            // 
+            this.buttonPrevious.Location = new System.Drawing.Point(18, 575);
+            this.buttonPrevious.Name = "buttonPrevious";
+            this.buttonPrevious.Size = new System.Drawing.Size(34, 40);
+            this.buttonPrevious.TabIndex = 74;
+            this.buttonPrevious.Text = "←";
+            this.buttonPrevious.UseVisualStyleBackColor = true;
+            this.buttonPrevious.Click += new System.EventHandler(this.buttonPrevious_Click);
+            // 
+            // buttonNext
+            // 
+            this.buttonNext.Location = new System.Drawing.Point(261, 575);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(34, 40);
+            this.buttonNext.TabIndex = 75;
+            this.buttonNext.Text = "→";
+            this.buttonNext.UseVisualStyleBackColor = true;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -265,6 +325,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -287,6 +348,11 @@
         private System.Windows.Forms.LinkLabel linkPages;
         private System.Windows.Forms.ListBox listBoxPosts;
         private System.Windows.Forms.LinkLabel linkPosts;
+        private System.Windows.Forms.ComboBox comboBoxSortOption;
+        private System.Windows.Forms.Label SortByAlbumsLabel;
+        private System.Windows.Forms.PictureBox pictureBoxPhotos;
+        private System.Windows.Forms.Button buttonNext;
+        private System.Windows.Forms.Button buttonPrevious;
     }
 }
 

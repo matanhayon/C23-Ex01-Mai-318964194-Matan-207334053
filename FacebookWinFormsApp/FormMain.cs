@@ -8,6 +8,10 @@ using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
+using System.IO;
+using System.Net;
+using System.Globalization;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace BasicFacebookFeatures
 {
@@ -102,6 +106,7 @@ namespace BasicFacebookFeatures
         private void linkPosts_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             fetchPosts();
+            InitializeComboBoxYears();
         }
 
         private void fetchPosts()
@@ -129,6 +134,83 @@ namespace BasicFacebookFeatures
                 MessageBox.Show("No Posts to retrieve :(");
             }
         }
+
+        private void PopulatePostCountByMonthChart()
+        {
+            if (isLoggedIn())
+            {
+                int selectedYear = (int)comboBoxYears.SelectedItem; // Get the selected year
+
+                Dictionary<int, int> postsByMonth = new Dictionary<int, int>();
+                foreach (Post post in m_LoggedInUser.Posts)
+                {
+                    int year = DateTime.Parse(post.CreatedTime.ToString()).Year;
+                    int month = DateTime.Parse(post.CreatedTime.ToString()).Month;
+                    if (year == selectedYear) // Use the selected year for analysis
+                    {
+                        if (postsByMonth.ContainsKey(month))
+                        {
+                            postsByMonth[month]++;
+                        }
+                        else
+                        {
+                            postsByMonth[month] = 1;
+                        }
+                    }
+                }
+
+                chartPostCountByMonth.Series.Clear();
+
+                Series series = new Series("Posts");
+                series.ChartType = SeriesChartType.Column;
+
+                for (int month = 1; month <= 12; month++)
+                {
+                    int count = postsByMonth.ContainsKey(month) ? postsByMonth[month] : 0;
+                    series.Points.AddXY(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month), count);
+                }
+
+                chartPostCountByMonth.ChartAreas.Clear();
+                ChartArea chartArea = new ChartArea();
+                chartArea.AxisY.IsStartedFromZero = true; 
+                chartArea.AxisY.Minimum = 0;
+                chartArea.AxisY.Interval = 1;
+                chartArea.AxisX.Interval = 1;
+
+                chartPostCountByMonth.ChartAreas.Add(chartArea);
+
+                chartPostCountByMonth.Series.Add(series);
+                chartPostCountByMonth.Titles.Clear();
+                chartPostCountByMonth.Titles.Add($"Post Count by Month in {selectedYear}");
+            }
+        }
+
+
+        private void InitializeComboBoxYears()
+        {
+            if (isLoggedIn())
+            {
+                comboBoxYears.Items.Clear();
+                HashSet<int> yearsWithPosts = new HashSet<int>();
+
+                foreach (Post post in m_LoggedInUser.Posts)
+                {
+                    int year = DateTime.Parse(post.CreatedTime.ToString()).Year;
+                    yearsWithPosts.Add(year);
+                }
+
+                foreach (int year in yearsWithPosts)
+                {
+                    comboBoxYears.Items.Add(year);
+                }
+
+                if (comboBoxYears.Items.Count > 0)
+                {
+                    comboBoxYears.SelectedIndex = 0; // Set the default selected year
+                }
+            }
+        }
+
 
 
 
@@ -186,17 +268,16 @@ namespace BasicFacebookFeatures
             if (listBoxAlbums.SelectedItems.Count == 1)
             {
                 Album selectedAlbum = listBoxAlbums.SelectedItem as Album;
-                if (selectedAlbum.PictureAlbumURL != null)
+                if (selectedAlbum.PictureAlbumURL != null && selectedAlbum.Photos.Count > 0)
                 {
                     string firstPhotoUrl;
                     m_selectedAlbumIndex = 0;
-                    pictureBoxAlbum.LoadAsync(selectedAlbum.PictureAlbumURL);
                     firstPhotoUrl = selectedAlbum.Photos[m_selectedAlbumIndex].PictureNormalURL;
                     pictureBoxPhotos.LoadAsync(firstPhotoUrl);
                 }
                 else
                 {
-                    pictureBoxProfile.Image = pictureBoxProfile.ErrorImage;
+                    pictureBoxPhotos.Image = pictureBoxPhotos.ErrorImage;
                 }
             }
         }
@@ -270,6 +351,50 @@ namespace BasicFacebookFeatures
             {
                 pictureBoxPhotos.LoadAsync(selectedAlbum.Photos[m_selectedAlbumIndex].PictureNormalURL);
             }
+        }
+
+        private void buttonDownloadAlbum_Click(object sender, EventArgs e)
+        {
+            downloadAlbum();
+        }
+
+        private void downloadAlbum()
+        {
+            Album selectedAlbum = listBoxAlbums.SelectedItem as Album;
+            if (selectedAlbum != null && selectedAlbum.Photos.Count > 0)
+            {
+                using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+                {
+                    DialogResult result = folderBrowserDialog.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        string destinationFolderPath = folderBrowserDialog.SelectedPath;
+                        string albumFolderPath = Path.Combine(destinationFolderPath, selectedAlbum.Name);
+                        Directory.CreateDirectory(albumFolderPath);
+                        for (int i = 0; i < selectedAlbum.Photos.Count; i++)
+                        {
+                            string photoUrl = selectedAlbum.Photos[i].PictureNormalURL;
+                            string photoFileName = $"{selectedAlbum.Name}_{i + 1}.jpg";
+                            string photoFilePath = Path.Combine(albumFolderPath, photoFileName);
+                            using (WebClient webClient = new WebClient())
+                            {
+                                webClient.DownloadFile(photoUrl, photoFilePath);
+                            }
+                        }
+
+                        MessageBox.Show("Album downloaded successfully!");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No album selected or the album is empty.");
+            }
+        }
+
+        private void buttonAnalyzePosts_Click(object sender, EventArgs e)
+        {
+            PopulatePostCountByMonthChart();
         }
     }
 }

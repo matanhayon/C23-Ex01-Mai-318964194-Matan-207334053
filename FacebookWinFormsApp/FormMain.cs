@@ -20,6 +20,7 @@ namespace BasicFacebookFeatures
         FacebookWrapper.LoginResult m_LoginResult;
         User m_LoggedInUser;
         private int m_selectedAlbumIndex = -1;
+        private FacebookManager m_facebookManager;
 
 
         public FormMain()
@@ -89,6 +90,7 @@ namespace BasicFacebookFeatures
                 buttonLogin.Enabled = false;
                 buttonLogout.Enabled = true;
                 m_LoggedInUser = m_LoginResult.LoggedInUser;
+                m_facebookManager = new FacebookManager(m_LoginResult);
             }
         }
 
@@ -185,7 +187,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-
         private void InitializeComboBoxYears()
         {
             if (isLoggedIn())
@@ -211,40 +212,20 @@ namespace BasicFacebookFeatures
             }
         }
 
-
-
-
         private void linkAlbums_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            fetchAlbums();
+            SortAlbums();
         }
 
-        private void fetchAlbums()
+    
+        private void SortAlbums()
         {
+            IEnumerable<Album> sortedAlbums;
+            var sortingOption = comboBoxSortOption.SelectedItem.ToString();
+
             listBoxAlbums.Items.Clear();
             listBoxAlbums.DisplayMember = "Name";
-
-            var sortingOption = comboBoxSortOption.SelectedItem.ToString();
-            IEnumerable<Album> sortedAlbums;
-
-            switch (sortingOption)
-            {
-                case "Newest":
-                    sortedAlbums = m_LoggedInUser.Albums.OrderByDescending(album => album.CreatedTime);
-                    break;
-                case "Oldest":
-                    sortedAlbums = m_LoggedInUser.Albums.OrderBy(album => album.CreatedTime);
-                    break;
-                case "Largest":
-                    sortedAlbums = m_LoggedInUser.Albums.OrderByDescending(album => album.Count);
-                    break;
-                case "Smallest":
-                    sortedAlbums = m_LoggedInUser.Albums.OrderBy(album => album.Count);
-                    break;
-                default:
-                    sortedAlbums = m_LoggedInUser.Albums; // Default sorting
-                    break;
-            }
+            sortedAlbums = m_facebookManager.Albums.SortAlbums(sortingOption);  
 
             foreach (Album album in sortedAlbums)
             {
@@ -256,8 +237,6 @@ namespace BasicFacebookFeatures
                 MessageBox.Show("No Albums to retrieve :(");
             }
         }
-
-
         private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
         {
             displaySelectedAlbum();
@@ -321,8 +300,10 @@ namespace BasicFacebookFeatures
 
         private void comboBoxSortOption_SelectedIndexChanged(object sender, EventArgs e)
         {
-          if(isLoggedIn()) 
-             fetchAlbums();
+            if (isLoggedIn())
+            {
+                SortAlbums();
+            }
         }
 
         private void buttonPrevious_Click(object sender, EventArgs e)

@@ -90,6 +90,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumsManager.cs" />
+    <Compile Include="FacebookManager.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>

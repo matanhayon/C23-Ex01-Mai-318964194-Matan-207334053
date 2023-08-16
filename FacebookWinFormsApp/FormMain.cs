@@ -396,5 +396,15 @@ namespace BasicFacebookFeatures
         {
             PopulatePostCountByMonthChart();
         }
+
+        private void pictureBoxPage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBoxPosts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

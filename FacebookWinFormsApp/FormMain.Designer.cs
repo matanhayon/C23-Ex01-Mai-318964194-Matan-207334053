@@ -36,6 +36,9 @@
             this.buttonLogout = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.comboBoxYears = new System.Windows.Forms.ComboBox();
+            this.buttonAnalyzePosts = new System.Windows.Forms.Button();
+            this.chartPostCountByMonth = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.buttonDownloadAlbum = new System.Windows.Forms.Button();
             this.buttonNext = new System.Windows.Forms.Button();
             this.buttonPrevious = new System.Windows.Forms.Button();
@@ -53,15 +56,12 @@
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.textBoxAppID = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.chartPostCountByMonth = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.buttonAnalyzePosts = new System.Windows.Forms.Button();
-            this.comboBoxYears = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartPostCountByMonth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartPostCountByMonth)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonLogin
@@ -129,6 +129,45 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // comboBoxYears
+            // 
+            this.comboBoxYears.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxYears.FormattingEnabled = true;
+            this.comboBoxYears.Location = new System.Drawing.Point(940, 234);
+            this.comboBoxYears.Name = "comboBoxYears";
+            this.comboBoxYears.Size = new System.Drawing.Size(121, 30);
+            this.comboBoxYears.TabIndex = 79;
+            // 
+            // buttonAnalyzePosts
+            // 
+            this.buttonAnalyzePosts.Location = new System.Drawing.Point(1067, 227);
+            this.buttonAnalyzePosts.Name = "buttonAnalyzePosts";
+            this.buttonAnalyzePosts.Size = new System.Drawing.Size(145, 43);
+            this.buttonAnalyzePosts.TabIndex = 78;
+            this.buttonAnalyzePosts.Text = "Analyze Posts";
+            this.buttonAnalyzePosts.UseVisualStyleBackColor = true;
+            this.buttonAnalyzePosts.Click += new System.EventHandler(this.buttonAnalyzePosts_Click);
+            // 
+            // chartPostCountByMonth
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartPostCountByMonth.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartPostCountByMonth.Legends.Add(legend1);
+            this.chartPostCountByMonth.Location = new System.Drawing.Point(726, 277);
+            this.chartPostCountByMonth.Name = "chartPostCountByMonth";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Posts";
+            series1.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chartPostCountByMonth.Series.Add(series1);
+            this.chartPostCountByMonth.Size = new System.Drawing.Size(665, 350);
+            this.chartPostCountByMonth.TabIndex = 77;
+            this.chartPostCountByMonth.Text = "chart1";
+            title1.Name = "Posts";
+            this.chartPostCountByMonth.Titles.Add(title1);
+            // 
             // buttonDownloadAlbum
             // 
             this.buttonDownloadAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -143,7 +182,7 @@
             // buttonNext
             // 
             this.buttonNext.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonNext.Location = new System.Drawing.Point(261, 575);
+            this.buttonNext.Location = new System.Drawing.Point(257, 619);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(34, 40);
             this.buttonNext.TabIndex = 75;
@@ -154,7 +193,7 @@
             // buttonPrevious
             // 
             this.buttonPrevious.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonPrevious.Location = new System.Drawing.Point(18, 575);
+            this.buttonPrevious.Location = new System.Drawing.Point(18, 616);
             this.buttonPrevious.Name = "buttonPrevious";
             this.buttonPrevious.Size = new System.Drawing.Size(34, 40);
             this.buttonPrevious.TabIndex = 74;
@@ -165,9 +204,9 @@
             // pictureBoxPhotos
             // 
             this.pictureBoxPhotos.BackColor = System.Drawing.Color.Gainsboro;
-            this.pictureBoxPhotos.Location = new System.Drawing.Point(58, 530);
+            this.pictureBoxPhotos.Location = new System.Drawing.Point(18, 443);
             this.pictureBoxPhotos.Name = "pictureBoxPhotos";
-            this.pictureBoxPhotos.Size = new System.Drawing.Size(197, 128);
+            this.pictureBoxPhotos.Size = new System.Drawing.Size(273, 215);
             this.pictureBoxPhotos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPhotos.TabIndex = 73;
             this.pictureBoxPhotos.TabStop = false;
@@ -204,6 +243,7 @@
             this.listBoxPosts.Name = "listBoxPosts";
             this.listBoxPosts.Size = new System.Drawing.Size(973, 148);
             this.listBoxPosts.TabIndex = 69;
+            this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
             // 
             // linkPosts
             // 
@@ -222,13 +262,14 @@
             // pictureBoxPage
             // 
             this.pictureBoxPage.BackColor = System.Drawing.Color.Gainsboro;
-            this.pictureBoxPage.Location = new System.Drawing.Point(573, 387);
+            this.pictureBoxPage.Location = new System.Drawing.Point(403, 479);
             this.pictureBoxPage.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxPage.Name = "pictureBoxPage";
-            this.pictureBoxPage.Size = new System.Drawing.Size(103, 84);
+            this.pictureBoxPage.Size = new System.Drawing.Size(302, 169);
             this.pictureBoxPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPage.TabIndex = 67;
             this.pictureBoxPage.TabStop = false;
+            this.pictureBoxPage.Click += new System.EventHandler(this.pictureBoxPage_Click);
             // 
             // listBoxPages
             // 
@@ -265,7 +306,7 @@
             this.listBoxAlbums.Location = new System.Drawing.Point(18, 344);
             this.listBoxAlbums.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxAlbums.Name = "listBoxAlbums";
-            this.listBoxAlbums.Size = new System.Drawing.Size(273, 180);
+            this.listBoxAlbums.Size = new System.Drawing.Size(273, 92);
             this.listBoxAlbums.TabIndex = 63;
             this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
             // 
@@ -315,49 +356,10 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 31);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1235, 662);
+            this.tabPage2.Size = new System.Drawing.Size(1399, 662);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // chartPostCountByMonth
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chartPostCountByMonth.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartPostCountByMonth.Legends.Add(legend1);
-            this.chartPostCountByMonth.Location = new System.Drawing.Point(726, 277);
-            this.chartPostCountByMonth.Name = "chartPostCountByMonth";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Posts";
-            series1.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chartPostCountByMonth.Series.Add(series1);
-            this.chartPostCountByMonth.Size = new System.Drawing.Size(665, 350);
-            this.chartPostCountByMonth.TabIndex = 77;
-            this.chartPostCountByMonth.Text = "chart1";
-            title1.Name = "Posts";
-            this.chartPostCountByMonth.Titles.Add(title1);
-            // 
-            // buttonAnalyzePosts
-            // 
-            this.buttonAnalyzePosts.Location = new System.Drawing.Point(1067, 227);
-            this.buttonAnalyzePosts.Name = "buttonAnalyzePosts";
-            this.buttonAnalyzePosts.Size = new System.Drawing.Size(145, 43);
-            this.buttonAnalyzePosts.TabIndex = 78;
-            this.buttonAnalyzePosts.Text = "Analyze Posts";
-            this.buttonAnalyzePosts.UseVisualStyleBackColor = true;
-            this.buttonAnalyzePosts.Click += new System.EventHandler(this.buttonAnalyzePosts_Click);
-            // 
-            // comboBoxYears
-            // 
-            this.comboBoxYears.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxYears.FormattingEnabled = true;
-            this.comboBoxYears.Location = new System.Drawing.Point(940, 234);
-            this.comboBoxYears.Name = "comboBoxYears";
-            this.comboBoxYears.Size = new System.Drawing.Size(121, 30);
-            this.comboBoxYears.TabIndex = 79;
             // 
             // FormMain
             // 
@@ -373,10 +375,10 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartPostCountByMonth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartPostCountByMonth)).EndInit();
             this.ResumeLayout(false);
 
         }

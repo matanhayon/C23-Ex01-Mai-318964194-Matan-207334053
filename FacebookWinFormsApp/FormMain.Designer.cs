@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.buttonLogout = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -44,7 +48,7 @@
             this.buttonPrevious = new System.Windows.Forms.Button();
             this.pictureBoxPhotos = new System.Windows.Forms.PictureBox();
             this.SortByAlbumsLabel = new System.Windows.Forms.Label();
-            this.comboBoxSortOption = new System.Windows.Forms.ComboBox();
+            this.comboBoxAlbumsSortOption = new System.Windows.Forms.ComboBox();
             this.listBoxPosts = new System.Windows.Forms.ListBox();
             this.linkPosts = new System.Windows.Forms.LinkLabel();
             this.pictureBoxPage = new System.Windows.Forms.PictureBox();
@@ -52,16 +56,16 @@
             this.linkPages = new System.Windows.Forms.LinkLabel();
             this.listBoxAlbums = new System.Windows.Forms.ListBox();
             this.linkAlbums = new System.Windows.Forms.LinkLabel();
-            this.buttonSettings = new System.Windows.Forms.Button();
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
-            this.textBoxAppID = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comboBoxPostsViewOption = new System.Windows.Forms.ComboBox();
+            this.chartTotalPosts = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartPostCountByMonth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTotalPosts)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonLogin
@@ -90,7 +94,6 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -100,6 +103,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.chartTotalPosts);
+            this.tabPage1.Controls.Add(this.comboBoxPostsViewOption);
             this.tabPage1.Controls.Add(this.comboBoxYears);
             this.tabPage1.Controls.Add(this.buttonAnalyzePosts);
             this.tabPage1.Controls.Add(this.chartPostCountByMonth);
@@ -108,7 +113,7 @@
             this.tabPage1.Controls.Add(this.buttonPrevious);
             this.tabPage1.Controls.Add(this.pictureBoxPhotos);
             this.tabPage1.Controls.Add(this.SortByAlbumsLabel);
-            this.tabPage1.Controls.Add(this.comboBoxSortOption);
+            this.tabPage1.Controls.Add(this.comboBoxAlbumsSortOption);
             this.tabPage1.Controls.Add(this.listBoxPosts);
             this.tabPage1.Controls.Add(this.linkPosts);
             this.tabPage1.Controls.Add(this.pictureBoxPage);
@@ -116,9 +121,7 @@
             this.tabPage1.Controls.Add(this.linkPages);
             this.tabPage1.Controls.Add(this.listBoxAlbums);
             this.tabPage1.Controls.Add(this.linkAlbums);
-            this.tabPage1.Controls.Add(this.buttonSettings);
             this.tabPage1.Controls.Add(this.pictureBoxProfile);
-            this.tabPage1.Controls.Add(this.textBoxAppID);
             this.tabPage1.Controls.Add(this.buttonLogout);
             this.tabPage1.Controls.Add(this.buttonLogin);
             this.tabPage1.Location = new System.Drawing.Point(4, 31);
@@ -126,21 +129,21 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1399, 662);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "FakeBook";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // comboBoxYears
             // 
             this.comboBoxYears.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxYears.FormattingEnabled = true;
-            this.comboBoxYears.Location = new System.Drawing.Point(940, 234);
+            this.comboBoxYears.Location = new System.Drawing.Point(853, 237);
             this.comboBoxYears.Name = "comboBoxYears";
             this.comboBoxYears.Size = new System.Drawing.Size(121, 30);
             this.comboBoxYears.TabIndex = 79;
             // 
             // buttonAnalyzePosts
             // 
-            this.buttonAnalyzePosts.Location = new System.Drawing.Point(1067, 227);
+            this.buttonAnalyzePosts.Location = new System.Drawing.Point(980, 230);
             this.buttonAnalyzePosts.Name = "buttonAnalyzePosts";
             this.buttonAnalyzePosts.Size = new System.Drawing.Size(145, 43);
             this.buttonAnalyzePosts.TabIndex = 78;
@@ -150,23 +153,23 @@
             // 
             // chartPostCountByMonth
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartPostCountByMonth.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartPostCountByMonth.Legends.Add(legend1);
+            chartArea6.Name = "ChartArea1";
+            this.chartPostCountByMonth.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chartPostCountByMonth.Legends.Add(legend6);
             this.chartPostCountByMonth.Location = new System.Drawing.Point(726, 277);
             this.chartPostCountByMonth.Name = "chartPostCountByMonth";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Posts";
-            series1.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chartPostCountByMonth.Series.Add(series1);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Posts";
+            series6.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series6.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chartPostCountByMonth.Series.Add(series6);
             this.chartPostCountByMonth.Size = new System.Drawing.Size(665, 350);
             this.chartPostCountByMonth.TabIndex = 77;
             this.chartPostCountByMonth.Text = "chart1";
-            title1.Name = "Posts";
-            this.chartPostCountByMonth.Titles.Add(title1);
+            title6.Name = "Posts";
+            this.chartPostCountByMonth.Titles.Add(title6);
             // 
             // buttonDownloadAlbum
             // 
@@ -188,7 +191,7 @@
             this.buttonNext.TabIndex = 75;
             this.buttonNext.Text = "→";
             this.buttonNext.UseVisualStyleBackColor = false;
-            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            this.buttonNext.Click += new System.EventHandler(this.buttonNextPhoto_Click);
             // 
             // buttonPrevious
             // 
@@ -199,7 +202,7 @@
             this.buttonPrevious.TabIndex = 74;
             this.buttonPrevious.Text = "←";
             this.buttonPrevious.UseVisualStyleBackColor = false;
-            this.buttonPrevious.Click += new System.EventHandler(this.buttonPrevious_Click);
+            this.buttonPrevious.Click += new System.EventHandler(this.buttonPreviousPhoto_Click);
             // 
             // pictureBoxPhotos
             // 
@@ -220,15 +223,15 @@
             this.SortByAlbumsLabel.TabIndex = 72;
             this.SortByAlbumsLabel.Text = "Sort By:";
             // 
-            // comboBoxSortOption
+            // comboBoxAlbumsSortOption
             // 
-            this.comboBoxSortOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSortOption.FormattingEnabled = true;
-            this.comboBoxSortOption.Location = new System.Drawing.Point(18, 307);
-            this.comboBoxSortOption.Name = "comboBoxSortOption";
-            this.comboBoxSortOption.Size = new System.Drawing.Size(273, 30);
-            this.comboBoxSortOption.TabIndex = 71;
-            this.comboBoxSortOption.SelectedIndexChanged += new System.EventHandler(this.comboBoxSortOption_SelectedIndexChanged);
+            this.comboBoxAlbumsSortOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAlbumsSortOption.FormattingEnabled = true;
+            this.comboBoxAlbumsSortOption.Location = new System.Drawing.Point(18, 307);
+            this.comboBoxAlbumsSortOption.Name = "comboBoxAlbumsSortOption";
+            this.comboBoxAlbumsSortOption.Size = new System.Drawing.Size(273, 30);
+            this.comboBoxAlbumsSortOption.TabIndex = 71;
+            this.comboBoxAlbumsSortOption.SelectedIndexChanged += new System.EventHandler(this.comboBoxAlbumsSortOption_SelectedIndexChanged);
             // 
             // listBoxPosts
             // 
@@ -243,7 +246,6 @@
             this.listBoxPosts.Name = "listBoxPosts";
             this.listBoxPosts.Size = new System.Drawing.Size(973, 148);
             this.listBoxPosts.TabIndex = 69;
-            this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
             // 
             // linkPosts
             // 
@@ -269,7 +271,6 @@
             this.pictureBoxPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPage.TabIndex = 67;
             this.pictureBoxPage.TabStop = false;
-            this.pictureBoxPage.Click += new System.EventHandler(this.pictureBoxPage_Click);
             // 
             // listBoxPages
             // 
@@ -324,42 +325,44 @@
             this.linkAlbums.UseCompatibleTextRendering = true;
             this.linkAlbums.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAlbums_LinkClicked);
             // 
-            // buttonSettings
-            // 
-            this.buttonSettings.Location = new System.Drawing.Point(18, 57);
-            this.buttonSettings.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSettings.Name = "buttonSettings";
-            this.buttonSettings.Size = new System.Drawing.Size(208, 28);
-            this.buttonSettings.TabIndex = 56;
-            this.buttonSettings.Text = "Settings";
-            this.buttonSettings.UseVisualStyleBackColor = true;
-            // 
             // pictureBoxProfile
             // 
-            this.pictureBoxProfile.Location = new System.Drawing.Point(18, 126);
+            this.pictureBoxProfile.Location = new System.Drawing.Point(18, 56);
             this.pictureBoxProfile.Name = "pictureBoxProfile";
-            this.pictureBoxProfile.Size = new System.Drawing.Size(94, 94);
+            this.pictureBoxProfile.Size = new System.Drawing.Size(160, 160);
             this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxProfile.TabIndex = 55;
             this.pictureBoxProfile.TabStop = false;
             // 
-            // textBoxAppID
+            // comboBoxPostsViewOption
             // 
-            this.textBoxAppID.Location = new System.Drawing.Point(18, 92);
-            this.textBoxAppID.Name = "textBoxAppID";
-            this.textBoxAppID.Size = new System.Drawing.Size(237, 28);
-            this.textBoxAppID.TabIndex = 54;
-            this.textBoxAppID.Text = "1576031996471164";
+            this.comboBoxPostsViewOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPostsViewOption.FormattingEnabled = true;
+            this.comboBoxPostsViewOption.Location = new System.Drawing.Point(726, 237);
+            this.comboBoxPostsViewOption.Name = "comboBoxPostsViewOption";
+            this.comboBoxPostsViewOption.Size = new System.Drawing.Size(121, 30);
+            this.comboBoxPostsViewOption.TabIndex = 80;
+            this.comboBoxPostsViewOption.SelectedIndexChanged += new System.EventHandler(this.comboBoxPostsViewOption_SelectedIndexChanged);
             // 
-            // tabPage2
+            // chartTotalPosts
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 31);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1399, 662);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            chartArea5.Name = "ChartArea1";
+            this.chartTotalPosts.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chartTotalPosts.Legends.Add(legend5);
+            this.chartTotalPosts.Location = new System.Drawing.Point(731, 277);
+            this.chartTotalPosts.Name = "chartTotalPosts";
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Posts";
+            series5.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chartTotalPosts.Series.Add(series5);
+            this.chartTotalPosts.Size = new System.Drawing.Size(665, 350);
+            this.chartTotalPosts.TabIndex = 81;
+            this.chartTotalPosts.Text = "chart1";
+            title5.Name = "Posts";
+            this.chartTotalPosts.Titles.Add(title5);
             // 
             // FormMain
             // 
@@ -371,7 +374,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Welcome to FakeBook";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -379,6 +382,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTotalPosts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -389,10 +393,7 @@
 		private System.Windows.Forms.Button buttonLogout;
 		private System.Windows.Forms.TabControl tabControl1;
 		private System.Windows.Forms.TabPage tabPage1;
-		private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.PictureBox pictureBoxProfile;
-        private System.Windows.Forms.TextBox textBoxAppID;
-        private System.Windows.Forms.Button buttonSettings;
         private System.Windows.Forms.ListBox listBoxAlbums;
         private System.Windows.Forms.LinkLabel linkAlbums;
         private System.Windows.Forms.PictureBox pictureBoxPage;
@@ -400,7 +401,7 @@
         private System.Windows.Forms.LinkLabel linkPages;
         private System.Windows.Forms.ListBox listBoxPosts;
         private System.Windows.Forms.LinkLabel linkPosts;
-        private System.Windows.Forms.ComboBox comboBoxSortOption;
+        private System.Windows.Forms.ComboBox comboBoxAlbumsSortOption;
         private System.Windows.Forms.Label SortByAlbumsLabel;
         private System.Windows.Forms.PictureBox pictureBoxPhotos;
         private System.Windows.Forms.Button buttonNext;
@@ -409,6 +410,8 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartPostCountByMonth;
         private System.Windows.Forms.Button buttonAnalyzePosts;
         private System.Windows.Forms.ComboBox comboBoxYears;
+        private System.Windows.Forms.ComboBox comboBoxPostsViewOption;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTotalPosts;
     }
 }
 

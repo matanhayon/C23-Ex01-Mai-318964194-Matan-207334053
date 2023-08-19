@@ -1,4 +1,5 @@
-﻿using FacebookWrapper.ObjectModel;
+﻿using FacebookWrapper;
+using FacebookWrapper.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,34 +10,42 @@ namespace BasicFacebookFeatures
 {
     internal class FacebookManager
     {
+        private FacebookWrapper.LoginResult m_LoginResult;
         private User m_LoggedInUser;
         private AlbumsManager m_albumsManager;
-
-
+        private PostsManager m_postsManager;
+        private PagesManager m_pagesManager;
+        private static bool m_IsLoggedIn = false;
+        
         public FacebookManager(FacebookWrapper.LoginResult i_LoginResult)
         {
+            m_LoginResult = i_LoginResult;
             m_LoggedInUser = i_LoginResult.LoggedInUser;
+            m_IsLoggedIn = true;
             m_albumsManager = new AlbumsManager(m_LoggedInUser.Albums);
-        }
-        /*
-        public bool Login(string appId, params string[] permissions)
-        {
-            // Perform Facebook login logic
+            m_postsManager = new PostsManager(m_LoggedInUser);
+            m_pagesManager = new PagesManager(m_LoggedInUser);
         }
 
-        public void Logout()
+        public static bool isLoggedIn()
         {
-            // Perform logout logic
+            return m_IsLoggedIn;
         }
-        */
-       
 
-        internal AlbumsManager Albums
+        public AlbumsManager Albums
         {
             get { return m_albumsManager; }
         }
 
-        // Other methods for working with data
+        public PostsManager Posts
+        {
+            get { return m_postsManager; }
+        }
+
+        public PagesManager LikedPages
+        {
+            get { return m_pagesManager; }
+        }
     }
 }
 

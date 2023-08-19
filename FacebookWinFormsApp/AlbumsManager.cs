@@ -9,7 +9,6 @@ namespace BasicFacebookFeatures
 {
     internal class AlbumsManager
     {
-        //private FacebookManager m_FacebookManager;
         private FacebookObjectCollection<Album> m_Albums;   
 
         public AlbumsManager(FacebookObjectCollection<Album> i_Albums)
@@ -35,7 +34,7 @@ namespace BasicFacebookFeatures
                     sortedAlbums = m_Albums.OrderBy(album => album.Count);
                     break;
                 default:
-                    sortedAlbums = m_Albums; // Default sorting
+                    sortedAlbums = m_Albums; 
                     break;
             }
             return sortedAlbums;
@@ -43,6 +42,6 @@ namespace BasicFacebookFeatures
 
 
 
-        // Other methods related to albums
+        
     }
 }

@@ -12,15 +12,14 @@ using System.IO;
 using System.Net;
 using System.Globalization;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Runtime.CompilerServices;
 
 namespace BasicFacebookFeatures
 {
     public partial class FormMain : Form
     {
-        FacebookWrapper.LoginResult m_LoginResult;
-        private int m_selectedAlbumIndex = -1;
         private FacebookManager m_facebookManager;
-
+        private int m_selectedPhotoIndex = -1;
 
         public FormMain()
         {
@@ -42,7 +41,6 @@ namespace BasicFacebookFeatures
             comboBoxPostsViewOption.SelectedIndex = 0;
         }
 
-
         private void initializeAlbumsSortingComboBox()
         {
             comboBoxAlbumsSortOption.Items.Add("Newest");
@@ -58,53 +56,75 @@ namespace BasicFacebookFeatures
             {
                 login();
             }
-
-            //if(isLoggedIn())
-            //{
-            //    loadData();
-            //}
         }
 
-        private void loadData()
-        {
-            fetchPosts();
-            fetchLikedPages();
-            SortAlbums();
-        }
         private bool isLoggedIn()
         {
-            return FacebookManager.isLoggedIn();
+            return m_facebookManager != null;
         }
+        
         private void login()
         {
-            m_LoginResult = FacebookService.Login(
+            FacebookWrapper.LoginResult loginResult = FacebookService.Login(
                 "1576031996471164", //our app id
                 /// requested permissions:
                 "email", "public_profile", "user_age_range", "user_birthday", "user_events",
                 "user_friends", "user_gender", "user_hometown", "user_likes", "user_link",
                 "user_location", "user_photos", "user_posts", "user_videos");
 
-            if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
+            if (!string.IsNullOrEmpty(loginResult.AccessToken))
             {
-                buttonLogin.Text = $"Logged in as {m_LoginResult.LoggedInUser.Name}";
+                buttonLogin.Text = $"Logged in as {loginResult.LoggedInUser.Name}";
                 buttonLogin.BackColor = Color.LightGreen;
-                pictureBoxProfile.ImageLocation = m_LoginResult.LoggedInUser.PictureNormalURL;
+                pictureBoxProfile.ImageLocation = loginResult.LoggedInUser.PictureNormalURL;
                 buttonLogin.Enabled = false;
                 buttonLogout.Enabled = true;
-                tabControl1.TabPages[0].Text = $"{m_LoginResult.LoggedInUser.Name.ToString()}'s wall";
-                m_facebookManager = new FacebookManager(m_LoginResult);
+                tabControl1.TabPages[0].Text = $"{loginResult.LoggedInUser.Name.ToString()}'s wall";
+                m_facebookManager = new FacebookManager(loginResult);
+                enableControlsAfterLoggedIn();
             }
+        }
+
+        private void enableControlsAfterLoggedIn()
+        {
+            linkPosts.Enabled = true;
+            linkAlbums.Enabled = true;
+            linkPages.Enabled = true;
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
+            logOut();
+        }
+
+        private void logOut()
+        {
             FacebookService.LogoutWithUI();
+            buttonLogin.Enabled = true;
             buttonLogin.Text = "Login";
             buttonLogin.BackColor = buttonLogout.BackColor;
-            m_LoginResult = null;
-            m_facebookManager = null;
-            buttonLogin.Enabled = true;
             buttonLogout.Enabled = false;
+            m_facebookManager = null;
+            disabbleControlsAfterLoggedOut();
+            listBoxAlbums.Items.Clear();
+            listBoxPages.Items.Clear();
+            listBoxPosts.Items.Clear();
+            chartPostCountByMonth.Series.Clear();
+            chartPostCountByMonth.Titles.Clear();
+            chartTotalPosts.Series.Clear();
+            chartTotalPosts.Titles.Clear();
+            pictureBoxPhotos.Image = null;
+            pictureBoxPage.Image = null;
+            pictureBoxProfile.Image = null;
+            tabControl1.TabPages[0].Text = "FakeBook";
+        }
+
+
+        private void disabbleControlsAfterLoggedOut()
+        {
+            disableAlbumsControl();
+            disablePagesControl();
+            disablePostsControl();
         }
 
         //Posts Methods:
@@ -144,9 +164,27 @@ namespace BasicFacebookFeatures
                 {
                     MessageBox.Show("No Posts to retrieve :(");
                 }
-
-                InitializeComboBoxPostsYears();
+                else
+                {
+                    enablePostsControl();
+                    InitializeComboBoxPostsYears();
+                }
             }
+        }
+
+        private void enablePostsControl()
+        {
+            comboBoxPostsViewOption.Enabled = true;
+            comboBoxYears.Enabled = true;
+            buttonAnalyzePosts.Enabled = true;
+        }
+
+        private void disablePostsControl()
+        {
+            linkPosts.Enabled = false;
+            comboBoxPostsViewOption.Enabled = false;
+            comboBoxYears.Enabled = false;
+            buttonAnalyzePosts.Enabled = false;
         }
 
         private void CalculatePostCountByMonthChart()
@@ -212,14 +250,94 @@ namespace BasicFacebookFeatures
                 }
             }
         }
+       
+        private void comboBoxPostsViewOption_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxPostsViewOption.SelectedIndex == 0)
+            {
+                comboBoxYears.Visible = true;
+                buttonAnalyzePosts.Visible = true;
+                chartPostCountByMonth.Visible = true;
+                chartTotalPosts.Visible = false;
+            }
+            else if (comboBoxPostsViewOption.SelectedIndex == 1)
+            {
+                comboBoxYears.Visible = false;
+                buttonAnalyzePosts.Visible = false;
+                chartPostCountByMonth.Visible = false;
+                chartTotalPosts.Visible = true;
+
+                CalculateTotalPostsChart();
+            }
+        }
+
+        private void CalculateTotalPostsChart()
+        {
+            if (isLoggedIn())
+            {
+                Dictionary<int, int> totalPostsByYear = m_facebookManager.Posts.CalculateTotalPostsByYear();
+                UpdateTotalPostsChart(totalPostsByYear);
+            }
+        }
+
+        private void UpdateTotalPostsChart(Dictionary<int, int> totalPostsByYear)
+        {
+            chartTotalPosts.Series.Clear();
+
+            Series series = new Series("Total Posts");
+            series.ChartType = SeriesChartType.Line;
+            series.BorderWidth = 3;
+            series.Color = Color.Red;
+            int totalPosts = 0; 
+            foreach (var entry in totalPostsByYear)
+            {
+                DataPoint dataPoint = new DataPoint(entry.Key, entry.Value);
+                dataPoint.Label = entry.Value.ToString();
+                series.Points.Add(dataPoint);
+                totalPosts += entry.Value;
+            }
+
+            chartTotalPosts.ChartAreas.Clear();
+            ChartArea chartArea = new ChartArea();
+            chartArea.AxisY.IsStartedFromZero = true;
+            chartArea.AxisY.Minimum = 0;
+            chartArea.AxisY.Interval = 1;
+            chartArea.AxisX.Interval = 1;
+            chartArea.AxisX.MajorGrid.Enabled = false;
+            chartArea.AxisY.MajorGrid.Enabled = false;
+            chartTotalPosts.ChartAreas.Add(chartArea);
+            chartTotalPosts.Series.Add(series);
+            chartTotalPosts.Titles.Clear();
+            chartTotalPosts.Titles.Add("Total Posts posted: " + totalPosts);
+            chartTotalPosts.ChartAreas[0].AxisY.LabelStyle.Enabled = false; // Disable y-axis labels
+        }
+
 
         //Albums Methods:
         private void linkAlbums_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (isLoggedIn())
             {
+                enableAlbumsControl();
                 SortAlbums();
             }
+        }
+
+        private void enableAlbumsControl()
+        {
+            buttonDownloadAlbum.Enabled = true;
+            comboBoxAlbumsSortOption.Enabled = true;
+            buttonNextPhoto.Enabled = true;
+            buttonPreviousPhoto.Enabled = true;
+        }
+        
+        private void disableAlbumsControl()
+        {
+            linkAlbums.Enabled = false;
+            buttonDownloadAlbum.Enabled = false;
+            comboBoxAlbumsSortOption.Enabled = false;
+            buttonNextPhoto.Enabled = false;
+            buttonPreviousPhoto.Enabled = false;
         }
         private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -233,9 +351,9 @@ namespace BasicFacebookFeatures
 
         private void buttonPreviousPhoto_Click(object sender, EventArgs e)
         {
-            if (m_selectedAlbumIndex > 0)
+            if (m_selectedPhotoIndex > 0)
             {
-                m_selectedAlbumIndex--;
+                m_selectedPhotoIndex--;
                 displaySelectedPhoto();
             }
         }
@@ -243,9 +361,9 @@ namespace BasicFacebookFeatures
         private void buttonNextPhoto_Click(object sender, EventArgs e)
         {
             Album selectedAlbum = listBoxAlbums.SelectedItem as Album;
-            if (selectedAlbum != null && m_selectedAlbumIndex < selectedAlbum.Photos.Count - 1)
+            if (selectedAlbum != null && m_selectedPhotoIndex < selectedAlbum.Photos.Count - 1)
             {
-                m_selectedAlbumIndex++;
+                m_selectedPhotoIndex++;
                 displaySelectedPhoto();
             }
         }
@@ -288,8 +406,8 @@ namespace BasicFacebookFeatures
                 if (selectedAlbum.PictureAlbumURL != null && selectedAlbum.Photos.Count > 0)
                 {
                     string firstPhotoUrl;
-                    m_selectedAlbumIndex = 0;
-                    firstPhotoUrl = selectedAlbum.Photos[m_selectedAlbumIndex].PictureNormalURL;
+                    m_selectedPhotoIndex = 0;
+                    firstPhotoUrl = selectedAlbum.Photos[m_selectedPhotoIndex].PictureNormalURL;
                     pictureBoxPhotos.LoadAsync(firstPhotoUrl);
                 }
                 else
@@ -302,9 +420,9 @@ namespace BasicFacebookFeatures
         private void displaySelectedPhoto()
         {
             Album selectedAlbum = listBoxAlbums.SelectedItem as Album;
-            if (selectedAlbum != null && m_selectedAlbumIndex >= 0 && m_selectedAlbumIndex < selectedAlbum.Photos.Count)
+            if (selectedAlbum != null && m_selectedPhotoIndex >= 0 && m_selectedPhotoIndex < selectedAlbum.Photos.Count)
             {
-                pictureBoxPhotos.LoadAsync(selectedAlbum.Photos[m_selectedAlbumIndex].PictureNormalURL);
+                pictureBoxPhotos.LoadAsync(selectedAlbum.Photos[m_selectedPhotoIndex].PictureNormalURL);
             }
         }
 
@@ -346,8 +464,18 @@ namespace BasicFacebookFeatures
         private void linkPages_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             fetchLikedPages();
+            enablePagesControl();
         }
 
+        private void enablePagesControl()
+        {
+            listBoxPages.Enabled = true;
+        }
+        private void disablePagesControl()
+        {
+            linkPages.Enabled = false;
+            listBoxPages.Enabled = false;
+        }
         private void listBoxPages_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxPages.SelectedItems.Count == 1)
@@ -359,94 +487,29 @@ namespace BasicFacebookFeatures
 
         private void fetchLikedPages()
         {
-            listBoxPages.Items.Clear();
-            listBoxPages.DisplayMember = "Name";
-            List<Page> likedPages = m_facebookManager.LikedPages.AllPages;
-            try
+            if(isLoggedIn())
             {
-                foreach (Page page in likedPages)
+                listBoxPages.Items.Clear();
+                listBoxPages.DisplayMember = "Name";
+                List<Page> likedPages = m_facebookManager.LikedPages.AllPages;
+                try
                 {
-                    listBoxPages.Items.Add(page);
+                    foreach (Page page in likedPages)
+                    {
+                        listBoxPages.Items.Add(page);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                if (listBoxPages.Items.Count == 0)
+                {
+                    MessageBox.Show("No liked pages to retrieve :(");
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            if (listBoxPages.Items.Count == 0)
-            {
-                MessageBox.Show("No liked pages to retrieve :(");
-            }
         }
-
-        private void comboBoxPostsViewOption_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxPostsViewOption.SelectedIndex == 0)
-            {
-                comboBoxYears.Visible = true;
-                buttonAnalyzePosts.Visible = true;
-                chartPostCountByMonth.Visible = true;
-                chartTotalPosts.Visible = false;
-            }
-            else if (comboBoxPostsViewOption.SelectedIndex == 1)
-            {
-                comboBoxYears.Visible = false;
-                buttonAnalyzePosts.Visible = false;
-                chartPostCountByMonth.Visible = false;
-                chartTotalPosts.Visible = true;
-
-                CalculateTotalPostsChart();
-            }
-        }
-
-        private void CalculateTotalPostsChart()
-        {
-            if (isLoggedIn())
-            {
-                Dictionary<int, int> totalPostsByYear = m_facebookManager.Posts.CalculateTotalPostsByYear();
-                UpdateTotalPostsChart(totalPostsByYear);
-            }
-        }
-
-        private void UpdateTotalPostsChart(Dictionary<int, int> totalPostsByYear)
-        {
-            chartTotalPosts.Series.Clear();
-
-            Series series = new Series("Total Posts");
-            series.ChartType = SeriesChartType.Line;
-            series.BorderWidth = 3;
-            series.Color = Color.Red;
-
-            foreach (var entry in totalPostsByYear)
-            {
-                DataPoint dataPoint = new DataPoint(entry.Key, entry.Value);
-                dataPoint.Label = entry.Value.ToString(); // Set the y-value as the label
-                series.Points.Add(dataPoint);
-            }
-
-            chartTotalPosts.ChartAreas.Clear();
-            ChartArea chartArea = new ChartArea();
-            chartArea.AxisY.IsStartedFromZero = true;
-            chartArea.AxisY.Minimum = 0;
-            chartArea.AxisY.Interval = 1;
-            chartArea.AxisX.Interval = 1;
-
-            chartArea.AxisX.MajorGrid.Enabled = false;
-            chartArea.AxisY.MajorGrid.Enabled = false;
-
-            chartTotalPosts.ChartAreas.Add(chartArea);
-
-            chartTotalPosts.Series.Add(series);
-            chartTotalPosts.Titles.Clear();
-            chartTotalPosts.Titles.Add("Total Posts per Year");
-
-            chartTotalPosts.ChartAreas[0].AxisY.LabelStyle.Enabled = false; // Disable y-axis labels
-        }
-
-
-
-
 
     }
 }

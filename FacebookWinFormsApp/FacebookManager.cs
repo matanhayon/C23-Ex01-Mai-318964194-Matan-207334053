@@ -11,25 +11,16 @@ namespace BasicFacebookFeatures
     internal class FacebookManager
     {
         private FacebookWrapper.LoginResult m_LoginResult;
-        private User m_LoggedInUser;
         private AlbumsManager m_albumsManager;
         private PostsManager m_postsManager;
         private PagesManager m_pagesManager;
-        private static bool m_IsLoggedIn = false;
         
         public FacebookManager(FacebookWrapper.LoginResult i_LoginResult)
         {
             m_LoginResult = i_LoginResult;
-            m_LoggedInUser = i_LoginResult.LoggedInUser;
-            m_IsLoggedIn = true;
-            m_albumsManager = new AlbumsManager(m_LoggedInUser.Albums);
-            m_postsManager = new PostsManager(m_LoggedInUser);
-            m_pagesManager = new PagesManager(m_LoggedInUser);
-        }
-
-        public static bool isLoggedIn()
-        {
-            return m_IsLoggedIn;
+            m_albumsManager = new AlbumsManager(i_LoginResult.LoggedInUser.Albums);
+            m_postsManager = new PostsManager(i_LoginResult.LoggedInUser);
+            m_pagesManager = new PagesManager(i_LoginResult.LoggedInUser);
         }
 
         public AlbumsManager Albums

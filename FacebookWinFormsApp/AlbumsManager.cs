@@ -39,9 +39,5 @@ namespace BasicFacebookFeatures
             }
             return sortedAlbums;
         }
-
-
-
-        
     }
 }

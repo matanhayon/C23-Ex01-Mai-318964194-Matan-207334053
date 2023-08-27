@@ -59,15 +59,5 @@ namespace BasicFacebookFeatures.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loadingPicture {
-            get {
-                object obj = ResourceManager.GetObject("loadingPicture", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

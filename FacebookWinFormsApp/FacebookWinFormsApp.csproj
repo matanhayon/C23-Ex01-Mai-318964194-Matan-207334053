@@ -92,6 +92,13 @@
   <ItemGroup>
     <Compile Include="AlbumsManager.cs" />
     <Compile Include="FacebookManager.cs" />
+    <Compile Include="FakeBookLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FakeBookLoginForm.Designer.cs">
+      <DependentUpon>FakeBookLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormComposer.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +109,9 @@
     <Compile Include="PostsManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FakeBookLoginForm.resx">
+      <DependentUpon>FakeBookLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>

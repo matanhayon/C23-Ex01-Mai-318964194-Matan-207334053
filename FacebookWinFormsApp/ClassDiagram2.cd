@@ -27,7 +27,8 @@
       <Field Name="pictureBoxPhotos" Hidden="true" />
       <Field Name="pictureBoxProfile" Hidden="true" />
       <Field Name="SortByAlbumsLabel" Hidden="true" />
-      <Field Name="tabControl1" Hidden="true" />
+      <Field Name="
+			 " Hidden="true" />
       <Field Name="tabPage1" Hidden="true" />
     </Members>
     <TypeIdentifier>

@@ -13,13 +13,16 @@ using BasicFacebookFeatures.BasicFacebookFeatures;
 
 namespace BasicFacebookFeatures
 {
-    public partial class FormMain : Form
+    internal partial class FormMain : Form
     {
         private FacebookManager m_facebookManager;
+        private FormComposer m_FormComposer;
         private int m_selectedPhotoIndex = -1;
 
-        public FormMain()
+        public FormMain(FormComposer i_FormComposer, FacebookManager i_facebookManager)
         {
+            m_FormComposer = i_FormComposer;
+            m_facebookManager = i_facebookManager;
             InitializeComponent();
             FacebookWrapper.FacebookService.s_CollectionLimit = Int32.MaxValue;
             initializeAddedFeatures();
@@ -27,8 +30,23 @@ namespace BasicFacebookFeatures
 
         private void initializeAddedFeatures()
         {
+            
             initializeAlbumsSortingComboBox();
             initializePostsViewOptionComboBox();
+            initializeTabs();
+        }
+
+        private void initializeTabs()
+        {
+            foreach (TabPage tabPage in tabControl1.TabPages)
+            {
+                if ((!m_FormComposer.IsShowAlbums && tabPage.Text == "Albums") ||
+                    (!m_FormComposer.IsShowPages && tabPage.Text == "Pages") ||
+                    (!m_FormComposer.IsShowPosts && tabPage.Text == "Posts"))
+                {
+                    tabControl1.TabPages.Remove(tabPage);
+                }
+            }
         }
 
         private void initializePostsViewOptionComboBox()
@@ -44,7 +62,6 @@ namespace BasicFacebookFeatures
             comboBoxAlbumsSortOption.Items.Add("Oldest");
             comboBoxAlbumsSortOption.Items.Add("Largest");
             comboBoxAlbumsSortOption.Items.Add("Smallest");
-            comboBoxAlbumsSortOption.SelectedIndex = 0;
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -69,18 +86,18 @@ namespace BasicFacebookFeatures
                 "user_friends", "user_gender", "user_hometown", "user_likes", "user_link",
                 "user_location", "user_photos", "user_posts", "user_videos");
 
-            if (!string.IsNullOrEmpty(loginResult.AccessToken))
-            {
-                buttonLogin.Text = $"Logged in as {loginResult.LoggedInUser.Name}";
-                buttonLogin.BackColor = Color.LightGreen;
-                pictureBoxProfile.ImageLocation = loginResult.LoggedInUser.PictureNormalURL;
-                buttonLogin.Enabled = false;
-                buttonLogout.Enabled = true;
-                tabControl1.TabPages[0].Text = $"{loginResult.LoggedInUser.Name.ToString()}'s wall";
-                FacebookManager.Initialize(loginResult);
-                m_facebookManager = FacebookManager.Instance;
-                enableControlsAfterLoggedIn();
-            }
+            //if (!string.IsNullOrEmpty(loginResult.AccessToken))
+            //{
+            //    buttonLogin.Text = $"Logged in as {loginResult.LoggedInUser.Name}";
+            //    buttonLogin.BackColor = Color.LightGreen;
+            //    pictureBoxProfile.ImageLocation = loginResult.LoggedInUser.PictureNormalURL;
+            //    buttonLogin.Enabled = false;
+            //    buttonLogout.Enabled = true;
+            //    tabControl1.TabPages[0].Text = $"{loginResult.LoggedInUser.Name.ToString()}'s wall";
+            //    FacebookManager.Initialize(loginResult);
+            //    m_facebookManager = FacebookManager.Instance;
+            //    enableControlsAfterLoggedIn();
+            //}
         }
 
         private void enableControlsAfterLoggedIn()
@@ -97,24 +114,24 @@ namespace BasicFacebookFeatures
 
         private void logOut()
         {
-            FacebookService.LogoutWithUI();
-            buttonLogin.Enabled = true;
-            buttonLogin.Text = "Login";
-            buttonLogin.BackColor = buttonLogout.BackColor;
-            buttonLogout.Enabled = false;
-            m_facebookManager = null;
-            disabbleControlsAfterLoggedOut();
-            listBoxAlbums.Items.Clear();
-            listBoxPages.Items.Clear();
-            listBoxPosts.Items.Clear();
-            chartPostCountByMonth.Series.Clear();
-            chartPostCountByMonth.Titles.Clear();
-            chartTotalPosts.Series.Clear();
-            chartTotalPosts.Titles.Clear();
-            pictureBoxPhotos.Image = null;
-            pictureBoxPage.Image = null;
-            pictureBoxProfile.Image = null;
-            tabControl1.TabPages[0].Text = "FakeBook";
+            //FacebookService.LogoutWithUI();
+            //buttonLogin.Enabled = true;
+            //buttonLogin.Text = "Login";
+            //buttonLogin.BackColor = buttonLogout.BackColor;
+            //buttonLogout.Enabled = false;
+            //m_facebookManager = null;
+            //disabbleControlsAfterLoggedOut();
+            //listBoxAlbums.Items.Clear();
+            //listBoxPages.Items.Clear();
+            //listBoxPosts.Items.Clear();
+            //chartPostCountByMonth.Series.Clear();
+            //chartPostCountByMonth.Titles.Clear();
+            //chartTotalPosts.Series.Clear();
+            //chartTotalPosts.Titles.Clear();
+            //pictureBoxPhotos.Image = null;
+            //pictureBoxPage.Image = null;
+            //pictureBoxProfile.Image = null;
+            //tabControl1.TabPages[0].Text = "FakeBook";
         }
 
 
@@ -379,7 +396,15 @@ namespace BasicFacebookFeatures
             if (isLoggedIn())
             {
                 IEnumerable<Album> sortedAlbums;
-                string sortingOption = comboBoxAlbumsSortOption.SelectedItem.ToString();
+                string sortingOption;
+                if(comboBoxAlbumsSortOption.SelectedItem == null)
+                {
+                    sortingOption = "Newest";
+                }
+                else
+                {
+                    sortingOption = comboBoxAlbumsSortOption.SelectedItem.ToString();
+                }
                 listBoxAlbums.Items.Clear();
                 listBoxAlbums.DisplayMember = "Name";
                 sortedAlbums = m_facebookManager.Albums.SortAlbums(sortingOption);
@@ -508,6 +533,7 @@ namespace BasicFacebookFeatures
                 }
             }
         }
+
 
     }
 }

@@ -1,10 +1,4 @@
-﻿using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
@@ -16,7 +10,7 @@ namespace BasicFacebookFeatures
         private PostsManager m_postsManager;
         private PagesManager m_pagesManager;
         private static bool m_IsLoggedIn = false;
-        
+
         public FacebookManager(FacebookWrapper.LoginResult i_LoginResult)
         {
             m_LoginResult = i_LoginResult;

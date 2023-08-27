@@ -1,9 +1,6 @@
 ﻿using FacebookWrapper.ObjectModel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BasicFacebookFeatures
 {
@@ -11,7 +8,7 @@ namespace BasicFacebookFeatures
     {
         private User m_LoggedInUser;
         private List<Post> m_posts;
-        
+
         public PostsManager(User loggedInUser)
         {
             m_LoggedInUser = loggedInUser;
@@ -33,7 +30,7 @@ namespace BasicFacebookFeatures
         {
             get
             {
-                if(m_posts == null)
+                if (m_posts == null)
                 {
                     m_posts = FetchAllPosts();
                 }

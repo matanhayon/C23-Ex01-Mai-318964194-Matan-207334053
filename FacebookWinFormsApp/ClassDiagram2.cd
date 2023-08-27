@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BasicFacebookFeatures.FormMain">
+    <Position X="1.75" Y="0.5" Width="3.75" />
+    <Members>
+      <Field Name="buttonAnalyzePosts" Hidden="true" />
+      <Field Name="buttonDownloadAlbum" Hidden="true" />
+      <Field Name="buttonLogin" Hidden="true" />
+      <Field Name="buttonLogout" Hidden="true" />
+      <Field Name="buttonNext" Hidden="true" />
+      <Field Name="buttonPrevious" Hidden="true" />
+      <Field Name="chartPostCountByMonth" Hidden="true" />
+      <Field Name="chartTotalPosts" Hidden="true" />
+      <Field Name="comboBoxAlbumsSortOption" Hidden="true" />
+      <Field Name="comboBoxPostsViewOption" Hidden="true" />
+      <Field Name="comboBoxYears" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="linkAlbums" Hidden="true" />
+      <Field Name="linkPages" Hidden="true" />
+      <Field Name="linkPosts" Hidden="true" />
+      <Field Name="listBoxAlbums" Hidden="true" />
+      <Field Name="listBoxPages" Hidden="true" />
+      <Field Name="listBoxPosts" Hidden="true" />
+      <Field Name="pictureBoxPage" Hidden="true" />
+      <Field Name="pictureBoxPhotos" Hidden="true" />
+      <Field Name="pictureBoxProfile" Hidden="true" />
+      <Field Name="SortByAlbumsLabel" Hidden="true" />
+      <Field Name="tabControl1" Hidden="true" />
+      <Field Name="tabPage1" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>pQgKJBAAHDBAAYCZAALBAQAzACIAJkKEkAJAURSBPgQ=</HashCode>
+      <FileName>FormMain.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_LoginResult" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BasicFacebookFeatures.AlbumsManager">
+    <Position X="9" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AlbumsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BasicFacebookFeatures.FacebookManager">
+    <Position X="6.75" Y="5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAABAABAAICAAAAQAEAAIAACAAAAgA=</HashCode>
+      <FileName>FacebookManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_LoggedInUser" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BasicFacebookFeatures.PagesManager">
+    <Position X="8" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAIAAAAAAAAAAAAQAACAA=</HashCode>
+      <FileName>PagesManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BasicFacebookFeatures.PostsManager">
+    <Position X="9.75" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAIAAAAAAAQAAAAIAAAAAAgAAAAAAIAAAAAA=</HashCode>
+      <FileName>PostsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BasicFacebookFeatures.Properties.Resources">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BasicFacebookFeatures.Properties.Settings" Collapsed="true">
+    <Position X="12.5" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.Form">
+    <Position X="10" Y="8.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="System.Windows.Forms.Form.ControlCollection" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="FacebookWrapper.LoginResult">
+    <Position X="6.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="FacebookWrapper.ObjectModel.User">
+    <Position X="12.5" Y="5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="FacebookWrapper.ObjectModel.User.eGender" Collapsed="true">
+        <TypeIdentifier />
+      </Enum>
+      <Enum Name="FacebookWrapper.ObjectModel.User.eRelationshipStatus" Collapsed="true">
+        <TypeIdentifier />
+      </Enum>
+      <Enum Name="FacebookWrapper.ObjectModel.User.eOnlineStatus" Collapsed="true">
+        <TypeIdentifier />
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

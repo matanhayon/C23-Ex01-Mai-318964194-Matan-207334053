@@ -1,18 +1,15 @@
 ﻿using FacebookWrapper.ObjectModel;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BasicFacebookFeatures
 {
     internal class AlbumsManager
     {
-        private FacebookObjectCollection<Album> m_Albums;   
+        private FacebookObjectCollection<Album> m_Albums;
 
         public AlbumsManager(FacebookObjectCollection<Album> i_Albums)
-        { 
+        {
             m_Albums = i_Albums;
         }
 
@@ -34,14 +31,10 @@ namespace BasicFacebookFeatures
                     sortedAlbums = m_Albums.OrderBy(album => album.Count);
                     break;
                 default:
-                    sortedAlbums = m_Albums; 
+                    sortedAlbums = m_Albums;
                     break;
             }
             return sortedAlbums;
         }
-
-
-
-        
     }
 }

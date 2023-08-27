@@ -1,9 +1,5 @@
 ﻿using FacebookWrapper.ObjectModel;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BasicFacebookFeatures
 {
@@ -33,7 +29,7 @@ namespace BasicFacebookFeatures
         {
             get
             {
-                if(m_pages == null)
+                if (m_pages == null)
                 {
                     m_pages = FetchAllPages();
                 }

@@ -9,6 +9,7 @@ using System.Net;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Runtime.CompilerServices;
+using BasicFacebookFeatures.BasicFacebookFeatures;
 
 namespace BasicFacebookFeatures
 {
@@ -76,7 +77,8 @@ namespace BasicFacebookFeatures
                 buttonLogin.Enabled = false;
                 buttonLogout.Enabled = true;
                 tabControl1.TabPages[0].Text = $"{loginResult.LoggedInUser.Name.ToString()}'s wall";
-                m_facebookManager = new FacebookManager(loginResult);
+                FacebookManager.Initialize(loginResult);
+                m_facebookManager = FacebookManager.Instance;
                 enableControlsAfterLoggedIn();
             }
         }

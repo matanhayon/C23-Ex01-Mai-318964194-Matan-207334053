@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
-using FacebookWrapper;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Net;
-using System.Globalization;
+using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Runtime.CompilerServices;
 
@@ -47,7 +43,7 @@ namespace BasicFacebookFeatures
             comboBoxAlbumsSortOption.Items.Add("Oldest");
             comboBoxAlbumsSortOption.Items.Add("Largest");
             comboBoxAlbumsSortOption.Items.Add("Smallest");
-            comboBoxAlbumsSortOption.SelectedIndex = 0; 
+            comboBoxAlbumsSortOption.SelectedIndex = 0;
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -378,7 +374,7 @@ namespace BasicFacebookFeatures
 
         private void SortAlbums()
         {
-            if(isLoggedIn())
+            if (isLoggedIn())
             {
                 IEnumerable<Album> sortedAlbums;
                 string sortingOption = comboBoxAlbumsSortOption.SelectedItem.ToString();
@@ -416,7 +412,7 @@ namespace BasicFacebookFeatures
                 }
             }
         }
-        
+
         private void displaySelectedPhoto()
         {
             Album selectedAlbum = listBoxAlbums.SelectedItem as Album;

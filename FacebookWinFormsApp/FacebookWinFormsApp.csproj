@@ -90,6 +90,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractForm.cs" />
     <Compile Include="AlbumsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,9 +120,16 @@
       <DependentUpon>PagesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PagesManager.cs" />
+    <Compile Include="PostsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostsForm.Designer.cs">
+      <DependentUpon>PostsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PostsManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaticFormFactory.cs" />
     <EmbeddedResource Include="AlbumsForm.resx">
       <DependentUpon>AlbumsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PagesForm.resx">
       <DependentUpon>PagesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostsForm.resx">
+      <DependentUpon>PostsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -148,6 +159,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Album.datasource" />
     <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Page.datasource" />
+    <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Post.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

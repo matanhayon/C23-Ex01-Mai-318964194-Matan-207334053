@@ -24,13 +24,40 @@ namespace BasicFacebookFeatures
             if (FacebookManager.Instance != null)
             {
                 m_loggedInUser = FacebookManager.Instance.getUser();
+                initializeAddedFeatures();
             }
+        }
+
+        private void initializeAddedFeatures()
+        {
+            initializeAlbumsSortingComboBox();
+        }
+
+        private void initializeAlbumsSortingComboBox()
+        {
+            comboBoxAlbumsSortOption.Items.Add("Newest");
+            comboBoxAlbumsSortOption.Items.Add("Oldest");
+            comboBoxAlbumsSortOption.Items.Add("Largest");
+            comboBoxAlbumsSortOption.Items.Add("Smallest");
         }
 
         private void linkAlbums_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            albumBindingSource.DataSource = m_loggedInUser.Albums;
+            fetchAlbums();
+        }
 
+        private void fetchAlbums()
+        {
+            enableAlbumsControl();
+            albumBindingSource.DataSource = m_loggedInUser.Albums;
+        }
+
+        private void enableAlbumsControl()
+        {
+            buttonDownloadAlbum.Enabled = true;
+            comboBoxAlbumsSortOption.Enabled = true;
+            buttonNextPhoto.Enabled = true;
+            buttonPreviousPhoto.Enabled = true;
         }
 
         private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
@@ -106,14 +133,9 @@ namespace BasicFacebookFeatures
                 {
                     sortingOption = comboBoxAlbumsSortOption.SelectedItem.ToString();
                 }
-                listBoxAlbums.Items.Clear();
-                listBoxAlbums.DisplayMember = "Name";
-                sortedAlbums = FacebookManager.Instance.Albums.SortAlbums(sortingOption);
 
-                foreach (Album album in sortedAlbums)
-                {
-                    listBoxAlbums.Items.Add(album);
-                }
+                sortedAlbums = FacebookManager.Instance.Albums.SortAlbums(sortingOption);
+                albumBindingSource.DataSource = sortedAlbums;
 
                 if (listBoxAlbums.Items.Count == 0)
                 {

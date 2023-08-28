@@ -2,36 +2,25 @@
 {
     public class FormComposer
     {
+        private FormBuilder m_formBuilder;
         public bool IsShowAlbums { get; set; }
         public bool IsShowPages { get; set; }
         public bool IsShowPosts { get; set; }
 
-        public class Builder
+
+        public FormComposer(bool i_isShowAlbums, bool i_isShowPages, bool i_isShowPosts)
         {
-            private FormComposer m_formComposer = new FormComposer();
-
-            public Builder ShowAlbums(bool show)
-            {
-                m_formComposer.IsShowAlbums = show;
-                return this;
-            }
-
-            public Builder ShowPages(bool show)
-            {
-                m_formComposer.IsShowPages = show;
-                return this;
-            }
-
-            public Builder ShowPosts(bool show)
-            {
-                m_formComposer.IsShowPosts = show;
-                return this;
-            }
-
-            public FormComposer Build()
-            {
-                return m_formComposer;
-            }
+            IsShowAlbums = i_isShowAlbums;
+            IsShowPages = i_isShowPages;
+            IsShowPosts = i_isShowPosts;
+            m_formBuilder = new FormBuilder(this);
         }
+
+        public FormMain Build()
+        {
+            return m_formBuilder.Build();
+        }
+
+
     }
 }

@@ -13,16 +13,14 @@ using BasicFacebookFeatures.BasicFacebookFeatures;
 
 namespace BasicFacebookFeatures
 {
-    internal partial class FormMain : Form
+    public partial class FormMain : Form
     {
-        private FacebookManager m_facebookManager;
+        private FacebookManager m_facebookManager = FacebookManager.Instance;
         private FormComposer m_FormComposer;
         private int m_selectedPhotoIndex = -1;
 
-        public FormMain(FormComposer i_FormComposer, FacebookManager i_facebookManager)
+        public FormMain()
         {
-            m_FormComposer = i_FormComposer;
-            m_facebookManager = i_facebookManager;
             InitializeComponent();
             FacebookWrapper.FacebookService.s_CollectionLimit = Int32.MaxValue;
             initializeAddedFeatures();
@@ -33,20 +31,6 @@ namespace BasicFacebookFeatures
             
             initializeAlbumsSortingComboBox();
             initializePostsViewOptionComboBox();
-            initializeTabs();
-        }
-
-        private void initializeTabs()
-        {
-            foreach (TabPage tabPage in tabControl1.TabPages)
-            {
-                if ((!m_FormComposer.IsShowAlbums && tabPage.Text == "Albums") ||
-                    (!m_FormComposer.IsShowPages && tabPage.Text == "Pages") ||
-                    (!m_FormComposer.IsShowPosts && tabPage.Text == "Posts"))
-                {
-                    tabControl1.TabPages.Remove(tabPage);
-                }
-            }
         }
 
         private void initializePostsViewOptionComboBox()

@@ -25,6 +25,11 @@ namespace BasicFacebookFeatures
                 m_pagesManager = new PagesManager(i_LoginResult.LoggedInUser);
             }
 
+            public User getUser()
+            {
+                return m_LoginResult.LoggedInUser;
+            }
+
             public static FacebookManager Instance
             {
                 get

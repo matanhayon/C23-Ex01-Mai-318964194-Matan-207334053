@@ -76,13 +76,8 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                FormComposer formComposer = new FormComposer.Builder()
-                    .ShowAlbums(showAlbums)
-                    .ShowPages(showPages)
-                    .ShowPosts(showPosts)
-                    .Build();
-
-                FormMain formMain = new FormMain(formComposer, m_facebookManager);
+                FormComposer formComposer = new FormComposer(showAlbums, showPages, showPosts);
+                FormMain formMain = formComposer.Build();
                 formMain.Show();
             }
         }

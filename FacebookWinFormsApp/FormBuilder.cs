@@ -24,17 +24,17 @@ namespace BasicFacebookFeatures
 
             if (m_formComposer.IsShowPages)
             {
-                BuildTab(StaticFormFactory.CreateProduct("PagesForm"));
+                BuildTab(StaticFormFactory.CreateProduct(eFormType.Pages));
             }
 
             if (m_formComposer.IsShowAlbums)
             {
-                BuildTab(StaticFormFactory.CreateProduct("AlbumsForm"));
+                BuildTab(StaticFormFactory.CreateProduct(eFormType.Albums));
             }
 
             if (m_formComposer.IsShowPosts)
             {
-                BuildTab(StaticFormFactory.CreateProduct("PostsForm"));
+                BuildTab(StaticFormFactory.CreateProduct(eFormType.Posts));
             }
 
             return m_builtForm;
@@ -47,29 +47,6 @@ namespace BasicFacebookFeatures
             {
                 TabControl productTabControl = i_Form.GetTabControl();
                 mainTabControl.Controls.Add(productTabControl.TabPages[0]);
-            }
-        }
-
-
-        private void buildAlbumsTab()
-        {
-            AlbumsForm AlbumForm = new AlbumsForm();
-            TabControl mainTabControl = m_builtForm.Controls.OfType<TabControl>().FirstOrDefault();
-            if (mainTabControl != null)
-            {
-                TabControl AlbumsTabControl = AlbumForm.Controls.OfType<TabControl>().FirstOrDefault();
-                mainTabControl.Controls.Add(AlbumsTabControl.TabPages[0]);
-            }
-        }
-
-        private void buildPagesTab()
-        {
-            PagesForm pagesForm = new PagesForm();
-            TabControl mainTabControl = m_builtForm.Controls.OfType<TabControl>().FirstOrDefault();
-            if (mainTabControl != null)
-            {
-                TabControl pagesTabControl = pagesForm.Controls.OfType<TabControl>().FirstOrDefault();
-                mainTabControl.Controls.Add(pagesTabControl.TabPages[0]);
             }
         }
     }   

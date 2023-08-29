@@ -98,6 +98,7 @@
       <DependentUpon>AlbumsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AlbumsManager.cs" />
+    <Compile Include="eFormType.cs" />
     <Compile Include="FacebookManager.cs" />
     <Compile Include="FakeBookLoginForm.cs">
       <SubType>Form</SubType>

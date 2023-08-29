@@ -8,15 +8,15 @@ namespace BasicFacebookFeatures
 {
     public static class StaticFormFactory
     {
-        public static AbstractForm CreateProduct(string productType)
+        public static AbstractForm CreateProduct(eFormType i_eFormType)
         {
-            switch (productType)
+            switch (i_eFormType)
             {
-                case "AlbumsForm":
+                case eFormType.Albums:
                     return new AlbumsFormProduct();
-                case "PagesForm":
+                case eFormType.Pages:
                     return new PagesFormProduct();
-                case "PostsForm":
+                case eFormType.Posts:
                     return new PostsFormProduct();
                 default:
                     throw new ArgumentException("Invalid product type");

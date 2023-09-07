@@ -117,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 322);
+            this.ClientSize = new System.Drawing.Size(318, 331);
             this.Controls.Add(this.buttonContinue);
             this.Controls.Add(this.checkBoxAlbums);
             this.Controls.Add(this.checkBoxPages);

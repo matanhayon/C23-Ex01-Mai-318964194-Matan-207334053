@@ -92,9 +92,9 @@
             // 
             this.buttonDownloadAlbum.Enabled = false;
             this.buttonDownloadAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDownloadAlbum.Location = new System.Drawing.Point(849, 61);
+            this.buttonDownloadAlbum.Location = new System.Drawing.Point(23, 166);
             this.buttonDownloadAlbum.Name = "buttonDownloadAlbum";
-            this.buttonDownloadAlbum.Size = new System.Drawing.Size(187, 79);
+            this.buttonDownloadAlbum.Size = new System.Drawing.Size(150, 48);
             this.buttonDownloadAlbum.TabIndex = 84;
             this.buttonDownloadAlbum.Text = "Download Album";
             this.buttonDownloadAlbum.UseVisualStyleBackColor = true;
@@ -104,7 +104,7 @@
             // 
             this.buttonNextPhoto.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonNextPhoto.Enabled = false;
-            this.buttonNextPhoto.Location = new System.Drawing.Point(706, 386);
+            this.buttonNextPhoto.Location = new System.Drawing.Point(921, 421);
             this.buttonNextPhoto.Name = "buttonNextPhoto";
             this.buttonNextPhoto.Size = new System.Drawing.Size(80, 71);
             this.buttonNextPhoto.TabIndex = 83;
@@ -116,7 +116,7 @@
             // 
             this.buttonPreviousPhoto.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonPreviousPhoto.Enabled = false;
-            this.buttonPreviousPhoto.Location = new System.Drawing.Point(47, 396);
+            this.buttonPreviousPhoto.Location = new System.Drawing.Point(316, 421);
             this.buttonPreviousPhoto.Name = "buttonPreviousPhoto";
             this.buttonPreviousPhoto.Size = new System.Drawing.Size(80, 71);
             this.buttonPreviousPhoto.TabIndex = 82;
@@ -139,10 +139,10 @@
             this.listBoxAlbums.DisplayMember = "Name";
             this.listBoxAlbums.FormattingEnabled = true;
             this.listBoxAlbums.ItemHeight = 16;
-            this.listBoxAlbums.Location = new System.Drawing.Point(375, 27);
+            this.listBoxAlbums.Location = new System.Drawing.Point(441, 27);
             this.listBoxAlbums.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxAlbums.Name = "listBoxAlbums";
-            this.listBoxAlbums.Size = new System.Drawing.Size(431, 132);
+            this.listBoxAlbums.Size = new System.Drawing.Size(441, 132);
             this.listBoxAlbums.TabIndex = 77;
             this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
             // 
@@ -154,7 +154,7 @@
             // 
             this.linkAlbums.AutoSize = true;
             this.linkAlbums.LinkArea = new System.Windows.Forms.LinkArea(0, 13);
-            this.linkAlbums.Location = new System.Drawing.Point(23, 27);
+            this.linkAlbums.Location = new System.Drawing.Point(22, 27);
             this.linkAlbums.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkAlbums.Name = "linkAlbums";
             this.linkAlbums.Size = new System.Drawing.Size(244, 35);
@@ -179,7 +179,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1067, 518);
+            this.tabPage3.Size = new System.Drawing.Size(1297, 518);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Albums";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -187,9 +187,9 @@
             // pictureBoxPhotos
             // 
             this.pictureBoxPhotos.BackColor = System.Drawing.Color.Gainsboro;
-            this.pictureBoxPhotos.Location = new System.Drawing.Point(177, 181);
+            this.pictureBoxPhotos.Location = new System.Drawing.Point(441, 181);
             this.pictureBoxPhotos.Name = "pictureBoxPhotos";
-            this.pictureBoxPhotos.Size = new System.Drawing.Size(441, 270);
+            this.pictureBoxPhotos.Size = new System.Drawing.Size(441, 311);
             this.pictureBoxPhotos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPhotos.TabIndex = 86;
             this.pictureBoxPhotos.TabStop = false;
@@ -200,23 +200,23 @@
             this.panel1.Controls.Add(this.createdTimeDateTimePicker);
             this.panel1.Controls.Add(descriptionLabel);
             this.panel1.Controls.Add(this.descriptionTextBox);
-            this.panel1.Location = new System.Drawing.Point(643, 166);
+            this.panel1.Location = new System.Drawing.Point(901, 27);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(393, 148);
             this.panel1.TabIndex = 85;
             // 
             // createdTimeDateTimePicker
             // 
-            this.createdTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.albumBindingSource, "CreatedTime", true));
-            this.createdTimeDateTimePicker.Location = new System.Drawing.Point(120, 15);
+            this.createdTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.albumBindingSource, "CreatedTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "[No Description]"));
+            this.createdTimeDateTimePicker.Location = new System.Drawing.Point(190, 15);
             this.createdTimeDateTimePicker.Name = "createdTimeDateTimePicker";
             this.createdTimeDateTimePicker.Size = new System.Drawing.Size(200, 22);
             this.createdTimeDateTimePicker.TabIndex = 1;
             // 
             // descriptionTextBox
             // 
-            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.albumBindingSource, "Description", true));
-            this.descriptionTextBox.Location = new System.Drawing.Point(120, 43);
+            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.albumBindingSource, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "[No Description]"));
+            this.descriptionTextBox.Location = new System.Drawing.Point(190, 46);
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(200, 22);
             this.descriptionTextBox.TabIndex = 3;
@@ -239,7 +239,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1075, 547);
+            this.tabControl1.Size = new System.Drawing.Size(1305, 547);
             this.tabControl1.TabIndex = 55;
             // 
             // albumBindingNavigator
@@ -270,7 +270,7 @@
             this.albumBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.albumBindingNavigator.Name = "albumBindingNavigator";
             this.albumBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.albumBindingNavigator.Size = new System.Drawing.Size(1075, 27);
+            this.albumBindingNavigator.Size = new System.Drawing.Size(1305, 27);
             this.albumBindingNavigator.TabIndex = 56;
             this.albumBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -373,7 +373,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1075, 547);
+            this.ClientSize = new System.Drawing.Size(1305, 547);
             this.Controls.Add(this.albumBindingNavigator);
             this.Controls.Add(this.tabControl1);
             this.Name = "AlbumsForm";
@@ -403,7 +403,6 @@
         private System.Windows.Forms.LinkLabel linkAlbums;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.ComboBox comboBoxAlbumsSortOption;
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.BindingSource albumBindingSource;
         private System.Windows.Forms.BindingNavigator albumBindingNavigator;
@@ -422,5 +421,6 @@
         private System.Windows.Forms.PictureBox pictureBoxPhotos;
         private System.Windows.Forms.DateTimePicker createdTimeDateTimePicker;
         private System.Windows.Forms.TextBox descriptionTextBox;
+        public System.Windows.Forms.TabControl tabControl1;
     }
 }

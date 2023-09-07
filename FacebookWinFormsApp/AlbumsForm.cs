@@ -12,6 +12,7 @@ using FacebookWrapper.ObjectModel;
 using BasicFacebookFeatures.BasicFacebookFeatures;
 using System.IO;
 using System.Net;
+using System.Threading;
 
 namespace BasicFacebookFeatures
 {
@@ -45,13 +46,23 @@ namespace BasicFacebookFeatures
 
         private void linkAlbums_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            fetchAlbums();
+            new Thread(fetchAlbums).Start();
         }
 
         private void fetchAlbums()
         {
-            enableAlbumsControl();
-            albumBindingSource.DataSource = m_loggedInUser.Albums;
+            if(!listBoxAlbums.InvokeRequired)
+            {
+                albumBindingSource.DataSource = m_loggedInUser.Albums;
+            }
+            else
+            {
+                listBoxAlbums.Invoke(new Action(() =>
+                {
+                    enableAlbumsControl();
+                    albumBindingSource.DataSource = m_loggedInUser.Albums;
+                }));
+            }
         }
 
         private void enableAlbumsControl()

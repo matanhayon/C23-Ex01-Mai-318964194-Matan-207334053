@@ -20,6 +20,7 @@ namespace BasicFacebookFeatures
         public FakeBookLoginForm()
         {
             InitializeComponent();
+            this.BackColor = Color.LightBlue;
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)

@@ -72,8 +72,11 @@
             // 
             // categoryLabel
             // 
+            categoryLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             categoryLabel.AutoSize = true;
-            categoryLabel.Location = new System.Drawing.Point(41, 70);
+            categoryLabel.Location = new System.Drawing.Point(14, 64);
             categoryLabel.Name = "categoryLabel";
             categoryLabel.Size = new System.Drawing.Size(65, 16);
             categoryLabel.TabIndex = 0;
@@ -81,8 +84,11 @@
             // 
             // imageLargeLabel
             // 
+            imageLargeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             imageLargeLabel.AutoSize = true;
-            imageLargeLabel.Location = new System.Drawing.Point(41, 116);
+            imageLargeLabel.Location = new System.Drawing.Point(14, 92);
             imageLargeLabel.Name = "imageLargeLabel";
             imageLargeLabel.Size = new System.Drawing.Size(86, 16);
             imageLargeLabel.TabIndex = 2;
@@ -90,8 +96,11 @@
             // 
             // likesCountLabel
             // 
+            likesCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             likesCountLabel.AutoSize = true;
-            likesCountLabel.Location = new System.Drawing.Point(41, 175);
+            likesCountLabel.Location = new System.Drawing.Point(14, 340);
             likesCountLabel.Name = "likesCountLabel";
             likesCountLabel.Size = new System.Drawing.Size(79, 16);
             likesCountLabel.TabIndex = 4;
@@ -99,8 +108,11 @@
             // 
             // nameLabel
             // 
+            nameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(41, 39);
+            nameLabel.Location = new System.Drawing.Point(14, 13);
             nameLabel.Name = "nameLabel";
             nameLabel.Size = new System.Drawing.Size(47, 16);
             nameLabel.TabIndex = 6;
@@ -144,16 +156,20 @@
             this.panel1.Controls.Add(this.nameTextBox);
             this.panel1.Location = new System.Drawing.Point(718, 59);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(439, 217);
+            this.panel1.Size = new System.Drawing.Size(439, 371);
             this.panel1.TabIndex = 56;
             // 
             // categoryTextBox
             // 
-            this.categoryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Category", true));
-            this.categoryTextBox.Location = new System.Drawing.Point(133, 64);
+            this.categoryTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.categoryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Category", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "[No Category]"));
+            this.categoryTextBox.Location = new System.Drawing.Point(133, 58);
             this.categoryTextBox.Name = "categoryTextBox";
             this.categoryTextBox.Size = new System.Drawing.Size(282, 22);
             this.categoryTextBox.TabIndex = 1;
+            this.categoryTextBox.TextChanged += new System.EventHandler(this.categoryTextBox_TextChanged);
             // 
             // pageBindingSource
             // 
@@ -161,28 +177,38 @@
             // 
             // imageLargePictureBox
             // 
+            this.imageLargePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.imageLargePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.pageBindingSource, "ImageLarge", true));
             this.imageLargePictureBox.Location = new System.Drawing.Point(133, 92);
             this.imageLargePictureBox.Name = "imageLargePictureBox";
-            this.imageLargePictureBox.Size = new System.Drawing.Size(282, 74);
+            this.imageLargePictureBox.Size = new System.Drawing.Size(282, 213);
             this.imageLargePictureBox.TabIndex = 3;
             this.imageLargePictureBox.TabStop = false;
             // 
             // likesCountTextBox
             // 
+            this.likesCountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.likesCountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "LikesCount", true));
-            this.likesCountTextBox.Location = new System.Drawing.Point(133, 172);
+            this.likesCountTextBox.Location = new System.Drawing.Point(133, 340);
             this.likesCountTextBox.Name = "likesCountTextBox";
             this.likesCountTextBox.Size = new System.Drawing.Size(282, 22);
             this.likesCountTextBox.TabIndex = 5;
             // 
             // nameTextBox
             // 
-            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Name", true));
-            this.nameTextBox.Location = new System.Drawing.Point(133, 36);
+            this.nameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "[No Name]"));
+            this.nameTextBox.Location = new System.Drawing.Point(133, 13);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(282, 22);
             this.nameTextBox.TabIndex = 7;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // listBoxPages
             // 
@@ -193,7 +219,7 @@
             this.listBoxPages.Location = new System.Drawing.Point(25, 59);
             this.listBoxPages.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxPages.Name = "listBoxPages";
-            this.listBoxPages.Size = new System.Drawing.Size(193, 356);
+            this.listBoxPages.Size = new System.Drawing.Size(271, 356);
             this.listBoxPages.TabIndex = 69;
             // 
             // linkPages
@@ -294,6 +320,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";

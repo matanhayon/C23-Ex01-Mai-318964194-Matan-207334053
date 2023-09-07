@@ -35,25 +35,29 @@ namespace BasicFacebookFeatures
 
         private void fetchPosts()
         {
-
-            listBoxPosts.Invoke(new Action(() =>
+            if(!listBoxPosts.InvokeRequired)
             {
-                listBoxPosts.DisplayMember = "Name";
-                List<Post> posts = FacebookManager.Instance.Posts.AllPosts;
-                postBindingSource.DataSource = posts;
-                listBoxPosts.DataSource = postBindingSource;
-                if (listBoxPosts.Items.Count == 0)
+                postBindingSource.DataSource = FacebookManager.Instance.Posts.AllPosts;
+            }
+            else
+            {
+                listBoxPosts.Invoke(new Action(() =>
                 {
-                    MessageBox.Show("No Posts to retrieve :(");
-                }
-                else
-                {
-                    enablePostsControl();
-                    InitializeComboBoxPostsYears();
-                }
-            }));
-
-
+                    listBoxPosts.DisplayMember = "Name";
+                    List<Post> posts = FacebookManager.Instance.Posts.AllPosts;
+                    postBindingSource.DataSource = posts;
+                    listBoxPosts.DataSource = postBindingSource;
+                    if (listBoxPosts.Items.Count == 0)
+                    {
+                        MessageBox.Show("No Posts to retrieve :(");
+                    }
+                    else
+                    {
+                        enablePostsControl();
+                        InitializeComboBoxPostsYears();
+                    }
+                }));
+            }
         }
 
         private void enablePostsControl()
@@ -192,5 +196,9 @@ namespace BasicFacebookFeatures
             chartPostCountByMonth.Titles.Add($"Total Posts in {selectedYear}: {totalPostsCount}");
         }
 
+        private void captionTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

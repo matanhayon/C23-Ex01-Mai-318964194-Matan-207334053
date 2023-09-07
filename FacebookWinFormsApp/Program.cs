@@ -12,10 +12,10 @@ namespace BasicFacebookFeatures
         [STAThread]
         static void Main()
         {
-            FacebookService.s_UseForamttedToStrings = true;
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FakeBookLoginForm());
+                FacebookService.s_UseForamttedToStrings = true;
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new FakeBookLoginForm());
 
         }
     }

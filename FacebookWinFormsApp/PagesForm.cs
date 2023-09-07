@@ -32,15 +32,30 @@ namespace BasicFacebookFeatures
 
         private void fetchPages()
         {
-            listBoxPages.Invoke(new Action(() =>
+            if(!listBoxPages.InvokeRequired)
             {
-                listBoxPages.DisplayMember = "Name";
-                List<Page> pages = FacebookManager.Instance.LikedPages.AllPages;
-                pageBindingSource.DataSource = pages;
-                listBoxPages.DataSource = pageBindingSource;
-            }));
+                pageBindingSource.DataSource = FacebookManager.Instance.LikedPages.AllPages;
+            }
+            else
+            {
+                listBoxPages.Invoke(new Action(() =>
+                {
+                    listBoxPages.DisplayMember = "Name";
+                    List<Page> pages = FacebookManager.Instance.LikedPages.AllPages;
+                    pageBindingSource.DataSource = pages;
+                    listBoxPages.DataSource = pageBindingSource;
+                }));
+            }
         }
 
+        private void nameTextBox_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void categoryTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

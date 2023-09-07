@@ -24,9 +24,16 @@ namespace BasicFacebookFeatures
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if (!isLoggedIn())
+            try
             {
-                login();
+                if (!isLoggedIn())
+                {
+                    login();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Login failed");
             }
         }
 
@@ -78,7 +85,7 @@ namespace BasicFacebookFeatures
             {
                 FormComposer formComposer = new FormComposer(showAlbums, showPages, showPosts);
                 FormMain formMain = formComposer.Build();
-                formMain.Show();
+                formMain.ShowDialog();
             }
         }
 

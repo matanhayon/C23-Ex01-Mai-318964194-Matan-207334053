@@ -35,43 +35,32 @@ namespace BasicFacebookFeatures
 
         private void fetchPosts()
         {
-            //this.Invoke(new Action(() => 
-            //{
-            //    postBindingSource.DataSource = FacebookManager.Instance.Posts.AllPosts;
 
-            //    if (listBoxPosts.Items.Count == 0)
-            //    {
-            //        MessageBox.Show("No Posts to retrieve :(");
-            //    }
-            //    else
-            //    {
-            //        enablePostsControl();
-            //        InitializeComboBoxPostsYears();
-            //    }
-            //}));
+            listBoxPosts.Invoke(new Action(() =>
+            {
+                listBoxPosts.DisplayMember = "Name";
+                List<Post> posts = FacebookManager.Instance.Posts.AllPosts;
+                postBindingSource.DataSource = posts;
+                listBoxPosts.DataSource = postBindingSource;
+                if (listBoxPosts.Items.Count == 0)
+                {
+                    MessageBox.Show("No Posts to retrieve :(");
+                }
+                else
+                {
+                    enablePostsControl();
+                    InitializeComboBoxPostsYears();
+                }
+            }));
 
-            List<Post> posts = FacebookManager.Instance.Posts.AllPosts;
-            postBindingSource.DataSource = posts;
-            
-            if (listBoxPosts.Items.Count == 0)
-            {
-                MessageBox.Show("No Posts to retrieve :(");
-            }
-            else
-            {
-                enablePostsControl();
-                InitializeComboBoxPostsYears();
-            }
+
         }
 
         private void enablePostsControl()
         {
-            this.Invoke(new Action(() => 
-            {
-                comboBoxPostsViewOption.Enabled = true;
-                comboBoxYears.Enabled = true;
-                buttonAnalyzePosts.Enabled = true;
-            }));
+            comboBoxPostsViewOption.Invoke(new Action(() => comboBoxPostsViewOption.Enabled = true));
+            comboBoxYears.Invoke(new Action(() => comboBoxYears.Enabled = true));
+            buttonAnalyzePosts.Invoke(new Action(() => buttonAnalyzePosts.Enabled = true));
         }
 
         private void initializePostsViewOptionComboBox()
@@ -83,27 +72,24 @@ namespace BasicFacebookFeatures
 
         private void InitializeComboBoxPostsYears()
         {
-            this.Invoke(new Action(() => 
+            comboBoxYears.Items.Clear();
+            HashSet<int> yearsWithPosts = new HashSet<int>();
+            List<Post> posts = FacebookManager.Instance.Posts.AllPosts;
+            foreach (Post post in posts)
             {
-                comboBoxYears.Items.Clear();
-                HashSet<int> yearsWithPosts = new HashSet<int>();
-                List<Post> posts = FacebookManager.Instance.Posts.AllPosts;
-                foreach (Post post in posts)
-                {
-                    int year = DateTime.Parse(post.CreatedTime.ToString()).Year;
-                    yearsWithPosts.Add(year);
-                }
+                int year = DateTime.Parse(post.CreatedTime.ToString()).Year;
+                yearsWithPosts.Add(year);
+            }
 
-                foreach (int year in yearsWithPosts)
-                {
-                    comboBoxYears.Items.Add(year);
-                }
+            foreach (int year in yearsWithPosts)
+            {
+                comboBoxYears.Invoke(new Action(() => { comboBoxYears.Items.Add(year); }));
+            }
 
-                if (comboBoxYears.Items.Count > 0)
-                {
-                    comboBoxYears.SelectedIndex = 0;
-                }
-            }));
+            if (comboBoxYears.Items.Count > 0)
+            {
+                comboBoxYears.Invoke(new Action(()=> { comboBoxYears.SelectedIndex = 0; }));
+            }
         }
 
         private void comboBoxPostsViewOption_SelectedIndexChanged(object sender, EventArgs e)
@@ -205,5 +191,6 @@ namespace BasicFacebookFeatures
             chartPostCountByMonth.Titles.Clear();
             chartPostCountByMonth.Titles.Add($"Total Posts in {selectedYear}: {totalPostsCount}");
         }
+
     }
 }

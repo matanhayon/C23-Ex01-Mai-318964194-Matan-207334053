@@ -29,18 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlbumsForm));
             System.Windows.Forms.Label createdTimeLabel;
             System.Windows.Forms.Label descriptionLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlbumsForm));
             this.buttonDownloadAlbum = new System.Windows.Forms.Button();
             this.buttonNextPhoto = new System.Windows.Forms.Button();
             this.buttonPreviousPhoto = new System.Windows.Forms.Button();
             this.SortByAlbumsLabel = new System.Windows.Forms.Label();
             this.listBoxAlbums = new System.Windows.Forms.ListBox();
+            this.albumBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.linkAlbums = new System.Windows.Forms.LinkLabel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pictureBoxPhotos = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.createdTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.comboBoxAlbumsSortOption = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.albumBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
@@ -56,19 +59,34 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.albumBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.albumBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.createdTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.descriptionTextBox = new System.Windows.Forms.TextBox();
             createdTimeLabel = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotos)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingNavigator)).BeginInit();
             this.albumBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // createdTimeLabel
+            // 
+            createdTimeLabel.AutoSize = true;
+            createdTimeLabel.Location = new System.Drawing.Point(22, 19);
+            createdTimeLabel.Name = "createdTimeLabel";
+            createdTimeLabel.Size = new System.Drawing.Size(92, 16);
+            createdTimeLabel.TabIndex = 0;
+            createdTimeLabel.Text = "Created Time:";
+            // 
+            // descriptionLabel
+            // 
+            descriptionLabel.AutoSize = true;
+            descriptionLabel.Location = new System.Drawing.Point(22, 46);
+            descriptionLabel.Name = "descriptionLabel";
+            descriptionLabel.Size = new System.Drawing.Size(78, 16);
+            descriptionLabel.TabIndex = 2;
+            descriptionLabel.Text = "Description:";
             // 
             // buttonDownloadAlbum
             // 
@@ -80,6 +98,7 @@
             this.buttonDownloadAlbum.TabIndex = 84;
             this.buttonDownloadAlbum.Text = "Download Album";
             this.buttonDownloadAlbum.UseVisualStyleBackColor = true;
+            this.buttonDownloadAlbum.Click += new System.EventHandler(this.buttonDownloadAlbum_Click);
             // 
             // buttonNextPhoto
             // 
@@ -126,6 +145,10 @@
             this.listBoxAlbums.Size = new System.Drawing.Size(431, 132);
             this.listBoxAlbums.TabIndex = 77;
             this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
+            // 
+            // albumBindingSource
+            // 
+            this.albumBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Album);
             // 
             // linkAlbums
             // 
@@ -181,6 +204,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(393, 148);
             this.panel1.TabIndex = 85;
+            // 
+            // createdTimeDateTimePicker
+            // 
+            this.createdTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.albumBindingSource, "CreatedTime", true));
+            this.createdTimeDateTimePicker.Location = new System.Drawing.Point(120, 15);
+            this.createdTimeDateTimePicker.Name = "createdTimeDateTimePicker";
+            this.createdTimeDateTimePicker.Size = new System.Drawing.Size(200, 22);
+            this.createdTimeDateTimePicker.TabIndex = 1;
+            // 
+            // descriptionTextBox
+            // 
+            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.albumBindingSource, "Description", true));
+            this.descriptionTextBox.Location = new System.Drawing.Point(120, 43);
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.Size = new System.Drawing.Size(200, 22);
+            this.descriptionTextBox.TabIndex = 3;
             // 
             // comboBoxAlbumsSortOption
             // 
@@ -330,44 +369,6 @@
             this.albumBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
             this.albumBindingNavigatorSaveItem.Text = "Save Data";
             // 
-            // albumBindingSource
-            // 
-            this.albumBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Album);
-            // 
-            // createdTimeLabel
-            // 
-            createdTimeLabel.AutoSize = true;
-            createdTimeLabel.Location = new System.Drawing.Point(22, 19);
-            createdTimeLabel.Name = "createdTimeLabel";
-            createdTimeLabel.Size = new System.Drawing.Size(92, 16);
-            createdTimeLabel.TabIndex = 0;
-            createdTimeLabel.Text = "Created Time:";
-            // 
-            // createdTimeDateTimePicker
-            // 
-            this.createdTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.albumBindingSource, "CreatedTime", true));
-            this.createdTimeDateTimePicker.Location = new System.Drawing.Point(120, 15);
-            this.createdTimeDateTimePicker.Name = "createdTimeDateTimePicker";
-            this.createdTimeDateTimePicker.Size = new System.Drawing.Size(200, 22);
-            this.createdTimeDateTimePicker.TabIndex = 1;
-            // 
-            // descriptionLabel
-            // 
-            descriptionLabel.AutoSize = true;
-            descriptionLabel.Location = new System.Drawing.Point(22, 46);
-            descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new System.Drawing.Size(78, 16);
-            descriptionLabel.TabIndex = 2;
-            descriptionLabel.Text = "Description:";
-            // 
-            // descriptionTextBox
-            // 
-            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.albumBindingSource, "Description", true));
-            this.descriptionTextBox.Location = new System.Drawing.Point(120, 43);
-            this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(200, 22);
-            this.descriptionTextBox.TabIndex = 3;
-            // 
             // AlbumsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -377,6 +378,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "AlbumsForm";
             this.Text = "AlbumsForm";
+            ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotos)).EndInit();
@@ -386,7 +388,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingNavigator)).EndInit();
             this.albumBindingNavigator.ResumeLayout(false);
             this.albumBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

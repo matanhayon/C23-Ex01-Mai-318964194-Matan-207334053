@@ -30,9 +30,17 @@ namespace BasicFacebookFeatures
             new Thread(fetchPages).Start();
         }
 
-        private void fetchPages() 
+        private void fetchPages()
         {
-            pageBindingSource.DataSource = m_loggedInUser.LikedPages;
+            listBoxPages.Invoke(new Action(() =>
+            {
+                listBoxPages.DisplayMember = "Name";
+                List<Page> pages = FacebookManager.Instance.LikedPages.AllPages;
+                pageBindingSource.DataSource = pages;
+                listBoxPages.DataSource = pageBindingSource;
+            }));
         }
+
+
     }
 }

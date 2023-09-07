@@ -16,13 +16,13 @@ namespace BasicFacebookFeatures
     public partial class FormMain : Form
     {
         private FacebookManager m_facebookManager = FacebookManager.Instance;
-        private FormComposer m_FormComposer;
         private int m_selectedPhotoIndex = -1;
+        private int countityToFetch = 50;
 
         public FormMain()
         {
             InitializeComponent();
-            FacebookWrapper.FacebookService.s_CollectionLimit = Int32.MaxValue;
+            FacebookWrapper.FacebookService.s_CollectionLimit = countityToFetch;
             initializeAddedFeatures();
         }
 

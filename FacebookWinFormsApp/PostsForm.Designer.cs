@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label captionLabel;
             System.Windows.Forms.Label createdTimeLabel;
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PostsForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -127,7 +127,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(captionLabel);
             this.panel1.Controls.Add(this.captionTextBox);
             this.panel1.Controls.Add(createdTimeLabel);
@@ -162,23 +163,23 @@
             this.chartTotalPosts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chartTotalPosts.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartTotalPosts.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chartTotalPosts.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartTotalPosts.Legends.Add(legend3);
             this.chartTotalPosts.Location = new System.Drawing.Point(38, 286);
             this.chartTotalPosts.Name = "chartTotalPosts";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Posts";
-            series1.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chartTotalPosts.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Posts";
+            series3.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chartTotalPosts.Series.Add(series3);
             this.chartTotalPosts.Size = new System.Drawing.Size(878, 109);
             this.chartTotalPosts.TabIndex = 86;
             this.chartTotalPosts.Text = "chart1";
-            title1.Name = "Posts";
-            this.chartTotalPosts.Titles.Add(title1);
+            title3.Name = "Posts";
+            this.chartTotalPosts.Titles.Add(title3);
             // 
             // comboBoxPostsViewOption
             // 
@@ -217,23 +218,23 @@
             this.chartPostCountByMonth.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.chartPostCountByMonth.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartPostCountByMonth.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.chartPostCountByMonth.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartPostCountByMonth.Legends.Add(legend4);
             this.chartPostCountByMonth.Location = new System.Drawing.Point(33, 290);
             this.chartPostCountByMonth.Name = "chartPostCountByMonth";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Posts";
-            series2.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chartPostCountByMonth.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Posts";
+            series4.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series4.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chartPostCountByMonth.Series.Add(series4);
             this.chartPostCountByMonth.Size = new System.Drawing.Size(878, 109);
             this.chartPostCountByMonth.TabIndex = 82;
             this.chartPostCountByMonth.Text = "chart1";
-            title2.Name = "Posts";
-            this.chartPostCountByMonth.Titles.Add(title2);
+            title4.Name = "Posts";
+            this.chartPostCountByMonth.Titles.Add(title4);
             // 
             // listBoxPosts
             // 

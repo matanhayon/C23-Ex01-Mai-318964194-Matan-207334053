@@ -1,6 +1,9 @@
 ﻿using FacebookWrapper.ObjectModel;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Windows.Forms;
 
 namespace BasicFacebookFeatures
 {
@@ -35,6 +38,39 @@ namespace BasicFacebookFeatures
                     break;
             }
             return sortedAlbums;
+        }
+
+        public void DownloadAlbum(Album selectedAlbum)
+        {
+            if (selectedAlbum != null && selectedAlbum.Photos.Count > 0)
+            {
+                using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+                {
+                    DialogResult result = folderBrowserDialog.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        string destinationFolderPath = folderBrowserDialog.SelectedPath;
+                        string albumFolderPath = Path.Combine(destinationFolderPath, selectedAlbum.Name);
+                        Directory.CreateDirectory(albumFolderPath);
+                        for (int i = 0; i < selectedAlbum.Photos.Count; i++)
+                        {
+                            string photoUrl = selectedAlbum.Photos[i].PictureNormalURL;
+                            string photoFileName = $"{selectedAlbum.Name}_{i + 1}.jpg";
+                            string photoFilePath = Path.Combine(albumFolderPath, photoFileName);
+                            using (WebClient webClient = new WebClient())
+                            {
+                                webClient.DownloadFile(photoUrl, photoFilePath);
+                            }
+                        }
+
+                        MessageBox.Show("Album downloaded successfully!");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No album selected or the album is empty.");
+            }
         }
     }
 }

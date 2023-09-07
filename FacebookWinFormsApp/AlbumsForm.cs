@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using BasicFacebookFeatures.BasicFacebookFeatures;
+using System.IO;
+using System.Net;
 
 namespace BasicFacebookFeatures
 {
@@ -140,6 +142,17 @@ namespace BasicFacebookFeatures
                     MessageBox.Show("No Albums to retrieve :(");
                 }
             }
+        }
+
+        private void buttonDownloadAlbum_Click(object sender, EventArgs e)
+        {
+            downloadAlbum();
+        }
+
+        private void downloadAlbum()
+        {
+            Album album = listBoxAlbums.SelectedItem as Album;
+            FacebookManager.Instance.Albums.DownloadAlbum(album);
         }
     }
 }

@@ -72,10 +72,8 @@ namespace BasicFacebookFeatures
                 Album selectedAlbum = listBoxAlbums.SelectedItem as Album;
                 if (selectedAlbum.PictureAlbumURL != null && selectedAlbum.Photos.Count > 0)
                 {
-                    string firstPhotoUrl;
                     m_selectedPhotoIndex = 0;
-                    firstPhotoUrl = selectedAlbum.Photos[m_selectedPhotoIndex].PictureNormalURL;
-                    pictureBoxPhotos.LoadAsync(firstPhotoUrl);
+                    displaySelectedPhoto();
                 }
                 else
                 {

@@ -8,9 +8,10 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+
 
 namespace BasicFacebookFeatures
 {
@@ -29,13 +30,29 @@ namespace BasicFacebookFeatures
 
         private void linkPosts_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            fetchPosts();
+            new Thread(fetchPosts).Start();
         }
 
         private void fetchPosts()
         {
-            postBindingSource.DataSource = FacebookManager.Instance.Posts.AllPosts;
+            //this.Invoke(new Action(() => 
+            //{
+            //    postBindingSource.DataSource = FacebookManager.Instance.Posts.AllPosts;
 
+            //    if (listBoxPosts.Items.Count == 0)
+            //    {
+            //        MessageBox.Show("No Posts to retrieve :(");
+            //    }
+            //    else
+            //    {
+            //        enablePostsControl();
+            //        InitializeComboBoxPostsYears();
+            //    }
+            //}));
+
+            List<Post> posts = FacebookManager.Instance.Posts.AllPosts;
+            postBindingSource.DataSource = posts;
+            
             if (listBoxPosts.Items.Count == 0)
             {
                 MessageBox.Show("No Posts to retrieve :(");
@@ -49,9 +66,12 @@ namespace BasicFacebookFeatures
 
         private void enablePostsControl()
         {
-            comboBoxPostsViewOption.Enabled = true;
-            comboBoxYears.Enabled = true;
-            buttonAnalyzePosts.Enabled = true;
+            this.Invoke(new Action(() => 
+            {
+                comboBoxPostsViewOption.Enabled = true;
+                comboBoxYears.Enabled = true;
+                buttonAnalyzePosts.Enabled = true;
+            }));
         }
 
         private void initializePostsViewOptionComboBox()
@@ -63,24 +83,27 @@ namespace BasicFacebookFeatures
 
         private void InitializeComboBoxPostsYears()
         {
-            comboBoxYears.Items.Clear();
-            HashSet<int> yearsWithPosts = new HashSet<int>();
-            List<Post> posts = FacebookManager.Instance.Posts.AllPosts;
-            foreach (Post post in posts)
+            this.Invoke(new Action(() => 
             {
-                int year = DateTime.Parse(post.CreatedTime.ToString()).Year;
-                yearsWithPosts.Add(year);
-            }
+                comboBoxYears.Items.Clear();
+                HashSet<int> yearsWithPosts = new HashSet<int>();
+                List<Post> posts = FacebookManager.Instance.Posts.AllPosts;
+                foreach (Post post in posts)
+                {
+                    int year = DateTime.Parse(post.CreatedTime.ToString()).Year;
+                    yearsWithPosts.Add(year);
+                }
 
-            foreach (int year in yearsWithPosts)
-            {
-                comboBoxYears.Items.Add(year);
-            }
+                foreach (int year in yearsWithPosts)
+                {
+                    comboBoxYears.Items.Add(year);
+                }
 
-            if (comboBoxYears.Items.Count > 0)
-            {
-                comboBoxYears.SelectedIndex = 0;
-            }
+                if (comboBoxYears.Items.Count > 0)
+                {
+                    comboBoxYears.SelectedIndex = 0;
+                }
+            }));
         }
 
         private void comboBoxPostsViewOption_SelectedIndexChanged(object sender, EventArgs e)

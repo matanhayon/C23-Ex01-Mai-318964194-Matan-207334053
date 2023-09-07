@@ -24,23 +24,23 @@ namespace BasicFacebookFeatures
 
             if (m_formComposer.IsShowPages)
             {
-                BuildTab(StaticFormFactory.CreateProduct(eFormType.Pages));
+                ExtarctTabFromFormAndAttach(StaticFormFactory.CreateForm(eFormType.Pages));
             }
 
             if (m_formComposer.IsShowAlbums)
             {
-                BuildTab(StaticFormFactory.CreateProduct(eFormType.Albums));
+                ExtarctTabFromFormAndAttach(StaticFormFactory.CreateForm(eFormType.Albums));
             }
 
             if (m_formComposer.IsShowPosts)
             {
-                BuildTab(StaticFormFactory.CreateProduct(eFormType.Posts));
+                ExtarctTabFromFormAndAttach(StaticFormFactory.CreateForm(eFormType.Posts));
             }
 
             return m_builtForm;
         }
 
-        private void BuildTab(AbstractForm i_Form)
+        private void ExtarctTabFromFormAndAttach(AbstractForm i_Form)
         {
             TabControl mainTabControl = m_builtForm.Controls.OfType<TabControl>().FirstOrDefault();
             if (mainTabControl != null)

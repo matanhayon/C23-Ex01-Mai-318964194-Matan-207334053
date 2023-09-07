@@ -8,7 +8,7 @@ namespace BasicFacebookFeatures
 {
     public static class StaticFormFactory
     {
-        public static AbstractForm CreateProduct(eFormType i_eFormType)
+        public static AbstractForm CreateForm(eFormType i_eFormType)
         {
             switch (i_eFormType)
             {

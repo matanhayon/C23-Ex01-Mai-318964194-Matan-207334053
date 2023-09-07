@@ -28,7 +28,6 @@ namespace BasicFacebookFeatures
 
         private void initializeAddedFeatures()
         {
-            
             initializeAlbumsSortingComboBox();
             initializePostsViewOptionComboBox();
         }

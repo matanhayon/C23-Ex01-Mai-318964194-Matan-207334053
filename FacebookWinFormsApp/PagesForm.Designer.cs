@@ -88,11 +88,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             imageLargeLabel.AutoSize = true;
-            imageLargeLabel.Location = new System.Drawing.Point(14, 92);
+            imageLargeLabel.Location = new System.Drawing.Point(14, 142);
             imageLargeLabel.Name = "imageLargeLabel";
-            imageLargeLabel.Size = new System.Drawing.Size(86, 16);
+            imageLargeLabel.Size = new System.Drawing.Size(48, 16);
             imageLargeLabel.TabIndex = 2;
-            imageLargeLabel.Text = "Image Large:";
+            imageLargeLabel.Text = "Image:";
             // 
             // likesCountLabel
             // 
@@ -100,7 +100,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             likesCountLabel.AutoSize = true;
-            likesCountLabel.Location = new System.Drawing.Point(14, 340);
+            likesCountLabel.Location = new System.Drawing.Point(14, 100);
             likesCountLabel.Name = "likesCountLabel";
             likesCountLabel.Size = new System.Drawing.Size(79, 16);
             likesCountLabel.TabIndex = 4;
@@ -125,7 +125,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1238, 540);
+            this.tabControl1.Size = new System.Drawing.Size(1182, 553);
             this.tabControl1.TabIndex = 55;
             // 
             // tabPage4
@@ -136,16 +136,14 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1230, 511);
+            this.tabPage4.Size = new System.Drawing.Size(1174, 524);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Pages";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(categoryLabel);
             this.panel1.Controls.Add(this.categoryTextBox);
             this.panel1.Controls.Add(imageLargeLabel);
@@ -154,9 +152,9 @@
             this.panel1.Controls.Add(this.likesCountTextBox);
             this.panel1.Controls.Add(nameLabel);
             this.panel1.Controls.Add(this.nameTextBox);
-            this.panel1.Location = new System.Drawing.Point(718, 59);
+            this.panel1.Location = new System.Drawing.Point(608, 59);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(439, 371);
+            this.panel1.Size = new System.Drawing.Size(545, 388);
             this.panel1.TabIndex = 56;
             // 
             // categoryTextBox
@@ -167,7 +165,7 @@
             this.categoryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Category", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "[No Category]"));
             this.categoryTextBox.Location = new System.Drawing.Point(133, 58);
             this.categoryTextBox.Name = "categoryTextBox";
-            this.categoryTextBox.Size = new System.Drawing.Size(282, 22);
+            this.categoryTextBox.Size = new System.Drawing.Size(388, 22);
             this.categoryTextBox.TabIndex = 1;
             this.categoryTextBox.TextChanged += new System.EventHandler(this.categoryTextBox_TextChanged);
             // 
@@ -181,9 +179,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.imageLargePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.pageBindingSource, "ImageLarge", true));
-            this.imageLargePictureBox.Location = new System.Drawing.Point(133, 92);
+            this.imageLargePictureBox.Location = new System.Drawing.Point(133, 142);
             this.imageLargePictureBox.Name = "imageLargePictureBox";
-            this.imageLargePictureBox.Size = new System.Drawing.Size(282, 213);
+            this.imageLargePictureBox.Size = new System.Drawing.Size(388, 230);
             this.imageLargePictureBox.TabIndex = 3;
             this.imageLargePictureBox.TabStop = false;
             // 
@@ -193,9 +191,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.likesCountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "LikesCount", true));
-            this.likesCountTextBox.Location = new System.Drawing.Point(133, 340);
+            this.likesCountTextBox.Location = new System.Drawing.Point(133, 100);
             this.likesCountTextBox.Name = "likesCountTextBox";
-            this.likesCountTextBox.Size = new System.Drawing.Size(282, 22);
+            this.likesCountTextBox.Size = new System.Drawing.Size(388, 22);
             this.likesCountTextBox.TabIndex = 5;
             // 
             // nameTextBox
@@ -206,7 +204,7 @@
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "[No Name]"));
             this.nameTextBox.Location = new System.Drawing.Point(133, 13);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(282, 22);
+            this.nameTextBox.Size = new System.Drawing.Size(388, 22);
             this.nameTextBox.TabIndex = 7;
             this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
@@ -219,7 +217,7 @@
             this.listBoxPages.Location = new System.Drawing.Point(25, 59);
             this.listBoxPages.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxPages.Name = "listBoxPages";
-            this.listBoxPages.Size = new System.Drawing.Size(271, 356);
+            this.listBoxPages.Size = new System.Drawing.Size(566, 388);
             this.listBoxPages.TabIndex = 69;
             // 
             // linkPages
@@ -229,10 +227,10 @@
             this.linkPages.Location = new System.Drawing.Point(4, 13);
             this.linkPages.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkPages.Name = "linkPages";
-            this.linkPages.Size = new System.Drawing.Size(214, 35);
+            this.linkPages.Size = new System.Drawing.Size(213, 35);
             this.linkPages.TabIndex = 71;
             this.linkPages.TabStop = true;
-            this.linkPages.Text = "Fetch Liked Pages \r\n(Click on a page to view it\'s picture)";
+            this.linkPages.Text = "Fetch Liked Pages \r\n(Click on a page to view it\'s details)";
             this.linkPages.UseCompatibleTextRendering = true;
             this.linkPages.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPages_LinkClicked);
             // 
@@ -257,14 +255,14 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.pageBindingNavigatorSaveItem});
-            this.pageBindingNavigator.Location = new System.Drawing.Point(0, 513);
+            this.pageBindingNavigator.Location = new System.Drawing.Point(0, 526);
             this.pageBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.pageBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.pageBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.pageBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.pageBindingNavigator.Name = "pageBindingNavigator";
             this.pageBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.pageBindingNavigator.Size = new System.Drawing.Size(1238, 27);
+            this.pageBindingNavigator.Size = new System.Drawing.Size(1182, 27);
             this.pageBindingNavigator.TabIndex = 56;
             this.pageBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -367,7 +365,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1238, 540);
+            this.ClientSize = new System.Drawing.Size(1182, 553);
             this.Controls.Add(this.pageBindingNavigator);
             this.Controls.Add(this.tabControl1);
             this.Name = "PagesForm";

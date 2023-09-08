@@ -28,392 +28,299 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.pictureBoxPage = new System.Windows.Forms.PictureBox();
-            this.listBoxPages = new System.Windows.Forms.ListBox();
-            this.linkPages = new System.Windows.Forms.LinkLabel();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.buttonDownloadAlbum = new System.Windows.Forms.Button();
-            this.buttonNextPhoto = new System.Windows.Forms.Button();
-            this.buttonPreviousPhoto = new System.Windows.Forms.Button();
-            this.pictureBoxPhotos = new System.Windows.Forms.PictureBox();
-            this.SortByAlbumsLabel = new System.Windows.Forms.Label();
-            this.comboBoxAlbumsSortOption = new System.Windows.Forms.ComboBox();
-            this.listBoxAlbums = new System.Windows.Forms.ListBox();
-            this.linkAlbums = new System.Windows.Forms.LinkLabel();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.chartTotalPosts = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.comboBoxPostsViewOption = new System.Windows.Forms.ComboBox();
-            this.comboBoxYears = new System.Windows.Forms.ComboBox();
-            this.buttonAnalyzePosts = new System.Windows.Forms.Button();
-            this.chartPostCountByMonth = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.listBoxPosts = new System.Windows.Forms.ListBox();
-            this.linkPosts = new System.Windows.Forms.LinkLabel();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label birthdayLabel;
+            System.Windows.Forms.Label emailLabel;
+            System.Windows.Forms.Label firstNameLabel;
+            System.Windows.Forms.Label lastNameLabel;
+            System.Windows.Forms.Label localeLabel;
+            System.Windows.Forms.Label middleNameLabel;
+            System.Windows.Forms.Label religionLabel;
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotos)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartTotalPosts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartPostCountByMonth)).BeginInit();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Wall = new System.Windows.Forms.TabPage();
+            this.birthdayLabel1 = new System.Windows.Forms.Label();
+            this.emailLabel1 = new System.Windows.Forms.Label();
+            this.firstNameLabel1 = new System.Windows.Forms.Label();
+            this.imageLargePictureBox = new System.Windows.Forms.PictureBox();
+            this.lastNameLabel1 = new System.Windows.Forms.Label();
+            this.localeLabel1 = new System.Windows.Forms.Label();
+            this.middleNameLabel1 = new System.Windows.Forms.Label();
+            this.religionLabel1 = new System.Windows.Forms.Label();
+            this.wallPostsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.wallPostsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.coverPictureBox = new System.Windows.Forms.PictureBox();
+            birthdayLabel = new System.Windows.Forms.Label();
+            emailLabel = new System.Windows.Forms.Label();
+            firstNameLabel = new System.Windows.Forms.Label();
+            lastNameLabel = new System.Windows.Forms.Label();
+            localeLabel = new System.Windows.Forms.Label();
+            middleNameLabel = new System.Windows.Forms.Label();
+            religionLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            this.Wall.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageLargePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wallPostsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wallPostsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coverPictureBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.pictureBoxPage);
-            this.tabPage4.Controls.Add(this.listBoxPages);
-            this.tabPage4.Controls.Add(this.linkPages);
-            this.tabPage4.Location = new System.Drawing.Point(4, 31);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1399, 662);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Pages";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // pictureBoxPage
-            // 
-            this.pictureBoxPage.BackColor = System.Drawing.Color.Gainsboro;
-            this.pictureBoxPage.Location = new System.Drawing.Point(25, 153);
-            this.pictureBoxPage.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxPage.Name = "pictureBoxPage";
-            this.pictureBoxPage.Size = new System.Drawing.Size(1185, 419);
-            this.pictureBoxPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxPage.TabIndex = 70;
-            this.pictureBoxPage.TabStop = false;
-            // 
-            // listBoxPages
-            // 
-            this.listBoxPages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxPages.DisplayMember = "name";
-            this.listBoxPages.FormattingEnabled = true;
-            this.listBoxPages.ItemHeight = 22;
-            this.listBoxPages.Location = new System.Drawing.Point(25, 75);
-            this.listBoxPages.Margin = new System.Windows.Forms.Padding(4);
-            this.listBoxPages.Name = "listBoxPages";
-            this.listBoxPages.Size = new System.Drawing.Size(1185, 70);
-            this.listBoxPages.TabIndex = 69;
-            this.listBoxPages.SelectedIndexChanged += new System.EventHandler(this.listBoxPages_SelectedIndexChanged);
-            // 
-            // linkPages
-            // 
-            this.linkPages.AutoSize = true;
-            this.linkPages.LinkArea = new System.Windows.Forms.LinkArea(0, 17);
-            this.linkPages.Location = new System.Drawing.Point(25, 15);
-            this.linkPages.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.linkPages.Name = "linkPages";
-            this.linkPages.Size = new System.Drawing.Size(302, 47);
-            this.linkPages.TabIndex = 71;
-            this.linkPages.TabStop = true;
-            this.linkPages.Text = "Fetch Liked Pages \r\n(Click on a page to view it\'s picture)";
-            this.linkPages.UseCompatibleTextRendering = true;
-            this.linkPages.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPages_LinkClicked);
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.buttonDownloadAlbum);
-            this.tabPage3.Controls.Add(this.buttonNextPhoto);
-            this.tabPage3.Controls.Add(this.buttonPreviousPhoto);
-            this.tabPage3.Controls.Add(this.pictureBoxPhotos);
-            this.tabPage3.Controls.Add(this.SortByAlbumsLabel);
-            this.tabPage3.Controls.Add(this.comboBoxAlbumsSortOption);
-            this.tabPage3.Controls.Add(this.listBoxAlbums);
-            this.tabPage3.Controls.Add(this.linkAlbums);
-            this.tabPage3.Location = new System.Drawing.Point(4, 31);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1399, 662);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Albums";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // buttonDownloadAlbum
-            // 
-            this.buttonDownloadAlbum.Enabled = false;
-            this.buttonDownloadAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDownloadAlbum.Location = new System.Drawing.Point(1151, 53);
-            this.buttonDownloadAlbum.Name = "buttonDownloadAlbum";
-            this.buttonDownloadAlbum.Size = new System.Drawing.Size(187, 79);
-            this.buttonDownloadAlbum.TabIndex = 84;
-            this.buttonDownloadAlbum.Text = "Download Album";
-            this.buttonDownloadAlbum.UseVisualStyleBackColor = true;
-            this.buttonDownloadAlbum.Click += new System.EventHandler(this.buttonDownloadAlbum_Click);
-            // 
-            // buttonNextPhoto
-            // 
-            this.buttonNextPhoto.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonNextPhoto.Enabled = false;
-            this.buttonNextPhoto.Location = new System.Drawing.Point(1260, 552);
-            this.buttonNextPhoto.Name = "buttonNextPhoto";
-            this.buttonNextPhoto.Size = new System.Drawing.Size(80, 71);
-            this.buttonNextPhoto.TabIndex = 83;
-            this.buttonNextPhoto.Text = "→";
-            this.buttonNextPhoto.UseVisualStyleBackColor = false;
-            this.buttonNextPhoto.Click += new System.EventHandler(this.buttonNextPhoto_Click);
-            // 
-            // buttonPreviousPhoto
-            // 
-            this.buttonPreviousPhoto.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonPreviousPhoto.Enabled = false;
-            this.buttonPreviousPhoto.Location = new System.Drawing.Point(39, 552);
-            this.buttonPreviousPhoto.Name = "buttonPreviousPhoto";
-            this.buttonPreviousPhoto.Size = new System.Drawing.Size(80, 71);
-            this.buttonPreviousPhoto.TabIndex = 82;
-            this.buttonPreviousPhoto.Text = "←";
-            this.buttonPreviousPhoto.UseVisualStyleBackColor = false;
-            this.buttonPreviousPhoto.Click += new System.EventHandler(this.buttonPreviousPhoto_Click);
-            // 
-            // pictureBoxPhotos
-            // 
-            this.pictureBoxPhotos.BackColor = System.Drawing.Color.Gainsboro;
-            this.pictureBoxPhotos.Location = new System.Drawing.Point(151, 185);
-            this.pictureBoxPhotos.Name = "pictureBoxPhotos";
-            this.pictureBoxPhotos.Size = new System.Drawing.Size(1078, 438);
-            this.pictureBoxPhotos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxPhotos.TabIndex = 81;
-            this.pictureBoxPhotos.TabStop = false;
-            // 
-            // SortByAlbumsLabel
-            // 
-            this.SortByAlbumsLabel.AutoSize = true;
-            this.SortByAlbumsLabel.Location = new System.Drawing.Point(19, 92);
-            this.SortByAlbumsLabel.Name = "SortByAlbumsLabel";
-            this.SortByAlbumsLabel.Size = new System.Drawing.Size(74, 24);
-            this.SortByAlbumsLabel.TabIndex = 80;
-            this.SortByAlbumsLabel.Text = "Sort By:";
-            // 
-            // comboBoxAlbumsSortOption
-            // 
-            this.comboBoxAlbumsSortOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxAlbumsSortOption.Enabled = false;
-            this.comboBoxAlbumsSortOption.FormattingEnabled = true;
-            this.comboBoxAlbumsSortOption.Location = new System.Drawing.Point(23, 122);
-            this.comboBoxAlbumsSortOption.Name = "comboBoxAlbumsSortOption";
-            this.comboBoxAlbumsSortOption.Size = new System.Drawing.Size(273, 30);
-            this.comboBoxAlbumsSortOption.TabIndex = 79;
-            this.comboBoxAlbumsSortOption.SelectedIndexChanged += new System.EventHandler(this.comboBoxAlbumsSortOption_SelectedIndexChanged);
-            // 
-            // listBoxAlbums
-            // 
-            this.listBoxAlbums.FormattingEnabled = true;
-            this.listBoxAlbums.ItemHeight = 22;
-            this.listBoxAlbums.Location = new System.Drawing.Point(375, 27);
-            this.listBoxAlbums.Margin = new System.Windows.Forms.Padding(4);
-            this.listBoxAlbums.Name = "listBoxAlbums";
-            this.listBoxAlbums.Size = new System.Drawing.Size(725, 136);
-            this.listBoxAlbums.TabIndex = 77;
-            this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
-            // 
-            // linkAlbums
-            // 
-            this.linkAlbums.AutoSize = true;
-            this.linkAlbums.LinkArea = new System.Windows.Forms.LinkArea(0, 13);
-            this.linkAlbums.Location = new System.Drawing.Point(23, 27);
-            this.linkAlbums.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.linkAlbums.Name = "linkAlbums";
-            this.linkAlbums.Size = new System.Drawing.Size(344, 47);
-            this.linkAlbums.TabIndex = 78;
-            this.linkAlbums.TabStop = true;
-            this.linkAlbums.Text = "Fetch Albums\r\n(Click an album to view its cover picture)";
-            this.linkAlbums.UseCompatibleTextRendering = true;
-            this.linkAlbums.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAlbums_LinkClicked);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.chartTotalPosts);
-            this.tabPage2.Controls.Add(this.comboBoxPostsViewOption);
-            this.tabPage2.Controls.Add(this.comboBoxYears);
-            this.tabPage2.Controls.Add(this.buttonAnalyzePosts);
-            this.tabPage2.Controls.Add(this.chartPostCountByMonth);
-            this.tabPage2.Controls.Add(this.listBoxPosts);
-            this.tabPage2.Controls.Add(this.linkPosts);
-            this.tabPage2.Location = new System.Drawing.Point(4, 31);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1399, 662);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Posts";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // chartTotalPosts
-            // 
-            this.chartTotalPosts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chartTotalPosts.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartTotalPosts.Legends.Add(legend1);
-            this.chartTotalPosts.Location = new System.Drawing.Point(38, 286);
-            this.chartTotalPosts.Name = "chartTotalPosts";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Posts";
-            series1.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chartTotalPosts.Series.Add(series1);
-            this.chartTotalPosts.Size = new System.Drawing.Size(1341, 350);
-            this.chartTotalPosts.TabIndex = 86;
-            this.chartTotalPosts.Text = "chart1";
-            title1.Name = "Posts";
-            this.chartTotalPosts.Titles.Add(title1);
-            // 
-            // comboBoxPostsViewOption
-            // 
-            this.comboBoxPostsViewOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPostsViewOption.Enabled = false;
-            this.comboBoxPostsViewOption.FormattingEnabled = true;
-            this.comboBoxPostsViewOption.Location = new System.Drawing.Point(194, 250);
-            this.comboBoxPostsViewOption.Name = "comboBoxPostsViewOption";
-            this.comboBoxPostsViewOption.Size = new System.Drawing.Size(155, 30);
-            this.comboBoxPostsViewOption.TabIndex = 85;
-            this.comboBoxPostsViewOption.SelectedIndexChanged += new System.EventHandler(this.comboBoxPostsViewOption_SelectedIndexChanged);
-            // 
-            // comboBoxYears
-            // 
-            this.comboBoxYears.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxYears.Enabled = false;
-            this.comboBoxYears.FormattingEnabled = true;
-            this.comboBoxYears.Location = new System.Drawing.Point(33, 250);
-            this.comboBoxYears.Name = "comboBoxYears";
-            this.comboBoxYears.Size = new System.Drawing.Size(155, 30);
-            this.comboBoxYears.TabIndex = 84;
-            // 
-            // buttonAnalyzePosts
-            // 
-            this.buttonAnalyzePosts.Enabled = false;
-            this.buttonAnalyzePosts.Location = new System.Drawing.Point(355, 241);
-            this.buttonAnalyzePosts.Name = "buttonAnalyzePosts";
-            this.buttonAnalyzePosts.Size = new System.Drawing.Size(145, 43);
-            this.buttonAnalyzePosts.TabIndex = 83;
-            this.buttonAnalyzePosts.Text = "Analyze Posts";
-            this.buttonAnalyzePosts.UseVisualStyleBackColor = true;
-            this.buttonAnalyzePosts.Click += new System.EventHandler(this.buttonAnalyzePosts_Click);
-            // 
-            // chartPostCountByMonth
-            // 
-            this.chartPostCountByMonth.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.chartPostCountByMonth.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartPostCountByMonth.Legends.Add(legend2);
-            this.chartPostCountByMonth.Location = new System.Drawing.Point(33, 290);
-            this.chartPostCountByMonth.Name = "chartPostCountByMonth";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Posts";
-            series2.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chartPostCountByMonth.Series.Add(series2);
-            this.chartPostCountByMonth.Size = new System.Drawing.Size(1341, 350);
-            this.chartPostCountByMonth.TabIndex = 82;
-            this.chartPostCountByMonth.Text = "chart1";
-            title2.Name = "Posts";
-            this.chartPostCountByMonth.Titles.Add(title2);
-            // 
-            // listBoxPosts
-            // 
-            this.listBoxPosts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxPosts.DisplayMember = "name";
-            this.listBoxPosts.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxPosts.FormattingEnabled = true;
-            this.listBoxPosts.ItemHeight = 24;
-            this.listBoxPosts.Location = new System.Drawing.Point(38, 81);
-            this.listBoxPosts.Margin = new System.Windows.Forms.Padding(4);
-            this.listBoxPosts.Name = "listBoxPosts";
-            this.listBoxPosts.Size = new System.Drawing.Size(726, 148);
-            this.listBoxPosts.TabIndex = 71;
-            // 
-            // linkPosts
-            // 
-            this.linkPosts.AutoSize = true;
-            this.linkPosts.LinkArea = new System.Windows.Forms.LinkArea(0, 12);
-            this.linkPosts.Location = new System.Drawing.Point(38, 26);
-            this.linkPosts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.linkPosts.Name = "linkPosts";
-            this.linkPosts.Size = new System.Drawing.Size(345, 47);
-            this.linkPosts.TabIndex = 72;
-            this.linkPosts.TabStop = true;
-            this.linkPosts.Text = "Fetch Posts\r\n(Click on a post to view the comments!)\r\n";
-            this.linkPosts.UseCompatibleTextRendering = true;
-            this.linkPosts.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPosts_LinkClicked);
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.Wall);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1407, 697);
+            this.tabControl1.Size = new System.Drawing.Size(1182, 553);
             this.tabControl1.TabIndex = 54;
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.User);
+            // 
+            // Wall
+            // 
+            this.Wall.AutoScroll = true;
+            this.Wall.BackColor = System.Drawing.Color.LightBlue;
+            this.Wall.Controls.Add(this.coverPictureBox);
+            this.Wall.Controls.Add(birthdayLabel);
+            this.Wall.Controls.Add(this.birthdayLabel1);
+            this.Wall.Controls.Add(emailLabel);
+            this.Wall.Controls.Add(this.emailLabel1);
+            this.Wall.Controls.Add(firstNameLabel);
+            this.Wall.Controls.Add(this.firstNameLabel1);
+            this.Wall.Controls.Add(this.imageLargePictureBox);
+            this.Wall.Controls.Add(lastNameLabel);
+            this.Wall.Controls.Add(this.lastNameLabel1);
+            this.Wall.Controls.Add(localeLabel);
+            this.Wall.Controls.Add(this.localeLabel1);
+            this.Wall.Controls.Add(middleNameLabel);
+            this.Wall.Controls.Add(this.middleNameLabel1);
+            this.Wall.Controls.Add(religionLabel);
+            this.Wall.Controls.Add(this.religionLabel1);
+            this.Wall.Location = new System.Drawing.Point(4, 31);
+            this.Wall.Name = "Wall";
+            this.Wall.Size = new System.Drawing.Size(1174, 518);
+            this.Wall.TabIndex = 0;
+            this.Wall.Text = "Wall";
+            // 
+            // birthdayLabel
+            // 
+            birthdayLabel.AutoSize = true;
+            birthdayLabel.ForeColor = System.Drawing.Color.Black;
+            birthdayLabel.Location = new System.Drawing.Point(510, 407);
+            birthdayLabel.Name = "birthdayLabel";
+            birthdayLabel.Size = new System.Drawing.Size(82, 24);
+            birthdayLabel.TabIndex = 0;
+            birthdayLabel.Text = "Birthday:";
+            // 
+            // birthdayLabel1
+            // 
+            this.birthdayLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "Birthday", true));
+            this.birthdayLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.birthdayLabel1.ForeColor = System.Drawing.Color.Black;
+            this.birthdayLabel1.Location = new System.Drawing.Point(644, 407);
+            this.birthdayLabel1.Name = "birthdayLabel1";
+            this.birthdayLabel1.Size = new System.Drawing.Size(352, 23);
+            this.birthdayLabel1.TabIndex = 1;
+            this.birthdayLabel1.Text = "label1";
+            // 
+            // emailLabel
+            // 
+            emailLabel.AutoSize = true;
+            emailLabel.ForeColor = System.Drawing.Color.Black;
+            emailLabel.Location = new System.Drawing.Point(510, 370);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new System.Drawing.Size(62, 24);
+            emailLabel.TabIndex = 2;
+            emailLabel.Text = "Email:";
+            // 
+            // emailLabel1
+            // 
+            this.emailLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "Email", true));
+            this.emailLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailLabel1.ForeColor = System.Drawing.Color.Black;
+            this.emailLabel1.Location = new System.Drawing.Point(644, 370);
+            this.emailLabel1.Name = "emailLabel1";
+            this.emailLabel1.Size = new System.Drawing.Size(262, 23);
+            this.emailLabel1.TabIndex = 3;
+            this.emailLabel1.Text = "label1";
+            // 
+            // firstNameLabel
+            // 
+            firstNameLabel.AutoSize = true;
+            firstNameLabel.ForeColor = System.Drawing.Color.Black;
+            firstNameLabel.Location = new System.Drawing.Point(510, 268);
+            firstNameLabel.Name = "firstNameLabel";
+            firstNameLabel.Size = new System.Drawing.Size(106, 24);
+            firstNameLabel.TabIndex = 4;
+            firstNameLabel.Text = "First Name:";
+            // 
+            // firstNameLabel1
+            // 
+            this.firstNameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "FirstName", true));
+            this.firstNameLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstNameLabel1.ForeColor = System.Drawing.Color.Black;
+            this.firstNameLabel1.Location = new System.Drawing.Point(644, 268);
+            this.firstNameLabel1.Name = "firstNameLabel1";
+            this.firstNameLabel1.Size = new System.Drawing.Size(352, 23);
+            this.firstNameLabel1.TabIndex = 5;
+            this.firstNameLabel1.Text = "label1";
+            // 
+            // imageLargePictureBox
+            // 
+            this.imageLargePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.userBindingSource, "ImageLarge", true));
+            this.imageLargePictureBox.Location = new System.Drawing.Point(255, 268);
+            this.imageLargePictureBox.Name = "imageLargePictureBox";
+            this.imageLargePictureBox.Size = new System.Drawing.Size(240, 240);
+            this.imageLargePictureBox.TabIndex = 7;
+            this.imageLargePictureBox.TabStop = false;
+            // 
+            // lastNameLabel
+            // 
+            lastNameLabel.AutoSize = true;
+            lastNameLabel.ForeColor = System.Drawing.Color.Black;
+            lastNameLabel.Location = new System.Drawing.Point(510, 334);
+            lastNameLabel.Name = "lastNameLabel";
+            lastNameLabel.Size = new System.Drawing.Size(104, 24);
+            lastNameLabel.TabIndex = 8;
+            lastNameLabel.Text = "Last Name:";
+            // 
+            // lastNameLabel1
+            // 
+            this.lastNameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "LastName", true));
+            this.lastNameLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameLabel1.ForeColor = System.Drawing.Color.Black;
+            this.lastNameLabel1.Location = new System.Drawing.Point(644, 334);
+            this.lastNameLabel1.Name = "lastNameLabel1";
+            this.lastNameLabel1.Size = new System.Drawing.Size(352, 23);
+            this.lastNameLabel1.TabIndex = 9;
+            this.lastNameLabel1.Text = "label1";
+            // 
+            // localeLabel
+            // 
+            localeLabel.AutoSize = true;
+            localeLabel.ForeColor = System.Drawing.Color.Black;
+            localeLabel.Location = new System.Drawing.Point(510, 445);
+            localeLabel.Name = "localeLabel";
+            localeLabel.Size = new System.Drawing.Size(71, 24);
+            localeLabel.TabIndex = 10;
+            localeLabel.Text = "Locale:";
+            // 
+            // localeLabel1
+            // 
+            this.localeLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "Locale", true));
+            this.localeLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.localeLabel1.ForeColor = System.Drawing.Color.Black;
+            this.localeLabel1.Location = new System.Drawing.Point(644, 445);
+            this.localeLabel1.Name = "localeLabel1";
+            this.localeLabel1.Size = new System.Drawing.Size(352, 23);
+            this.localeLabel1.TabIndex = 11;
+            this.localeLabel1.Text = "label1";
+            // 
+            // middleNameLabel
+            // 
+            middleNameLabel.AutoSize = true;
+            middleNameLabel.ForeColor = System.Drawing.Color.Black;
+            middleNameLabel.Location = new System.Drawing.Point(510, 298);
+            middleNameLabel.Name = "middleNameLabel";
+            middleNameLabel.Size = new System.Drawing.Size(128, 24);
+            middleNameLabel.TabIndex = 12;
+            middleNameLabel.Text = "Middle Name:";
+            // 
+            // middleNameLabel1
+            // 
+            this.middleNameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "MiddleName", true));
+            this.middleNameLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleNameLabel1.ForeColor = System.Drawing.Color.Black;
+            this.middleNameLabel1.Location = new System.Drawing.Point(644, 298);
+            this.middleNameLabel1.Name = "middleNameLabel1";
+            this.middleNameLabel1.Size = new System.Drawing.Size(352, 23);
+            this.middleNameLabel1.TabIndex = 13;
+            this.middleNameLabel1.Text = "label1";
+            // 
+            // religionLabel
+            // 
+            religionLabel.AutoSize = true;
+            religionLabel.ForeColor = System.Drawing.Color.Black;
+            religionLabel.Location = new System.Drawing.Point(510, 482);
+            religionLabel.Name = "religionLabel";
+            religionLabel.Size = new System.Drawing.Size(84, 24);
+            religionLabel.TabIndex = 16;
+            religionLabel.Text = "Religion:";
+            // 
+            // religionLabel1
+            // 
+            this.religionLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "Religion", true));
+            this.religionLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.religionLabel1.ForeColor = System.Drawing.Color.Black;
+            this.religionLabel1.Location = new System.Drawing.Point(644, 482);
+            this.religionLabel1.Name = "religionLabel1";
+            this.religionLabel1.Size = new System.Drawing.Size(352, 23);
+            this.religionLabel1.TabIndex = 17;
+            this.religionLabel1.Text = "label1";
+            // 
+            // wallPostsBindingSource
+            // 
+            this.wallPostsBindingSource.DataMember = "WallPosts";
+            this.wallPostsBindingSource.DataSource = this.userBindingSource;
+            // 
+            // wallPostsBindingSource1
+            // 
+            this.wallPostsBindingSource1.DataMember = "WallPosts";
+            this.wallPostsBindingSource1.DataSource = this.userBindingSource;
+            // 
+            // coverPictureBox
+            // 
+            this.coverPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.userBindingSource, "ImageLarge", true));
+            this.coverPictureBox.Location = new System.Drawing.Point(255, 3);
+            this.coverPictureBox.Name = "coverPictureBox";
+            this.coverPictureBox.Size = new System.Drawing.Size(686, 260);
+            this.coverPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.coverPictureBox.TabIndex = 18;
+            this.coverPictureBox.TabStop = false;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1407, 697);
+            this.ClientSize = new System.Drawing.Size(1182, 553);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome to FakeBook";
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotos)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartTotalPosts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartPostCountByMonth)).EndInit();
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            this.Wall.ResumeLayout(false);
+            this.Wall.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageLargePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wallPostsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wallPostsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coverPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.PictureBox pictureBoxPage;
-        private System.Windows.Forms.ListBox listBoxPages;
-        private System.Windows.Forms.LinkLabel linkPages;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button buttonDownloadAlbum;
-        private System.Windows.Forms.Button buttonNextPhoto;
-        private System.Windows.Forms.Button buttonPreviousPhoto;
-        private System.Windows.Forms.PictureBox pictureBoxPhotos;
-        private System.Windows.Forms.Label SortByAlbumsLabel;
-        private System.Windows.Forms.ComboBox comboBoxAlbumsSortOption;
-        private System.Windows.Forms.ListBox listBoxAlbums;
-        private System.Windows.Forms.LinkLabel linkAlbums;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartTotalPosts;
-        private System.Windows.Forms.ComboBox comboBoxPostsViewOption;
-        private System.Windows.Forms.ComboBox comboBoxYears;
-        private System.Windows.Forms.Button buttonAnalyzePosts;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartPostCountByMonth;
-        private System.Windows.Forms.ListBox listBoxPosts;
-        private System.Windows.Forms.LinkLabel linkPosts;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.BindingSource userBindingSource;
+        private System.Windows.Forms.TabPage Wall;
+        private System.Windows.Forms.Label birthdayLabel1;
+        private System.Windows.Forms.Label emailLabel1;
+        private System.Windows.Forms.Label firstNameLabel1;
+        private System.Windows.Forms.PictureBox imageLargePictureBox;
+        private System.Windows.Forms.Label lastNameLabel1;
+        private System.Windows.Forms.Label localeLabel1;
+        private System.Windows.Forms.Label middleNameLabel1;
+        private System.Windows.Forms.Label religionLabel1;
+        private System.Windows.Forms.BindingSource wallPostsBindingSource;
+        private System.Windows.Forms.BindingSource wallPostsBindingSource1;
+        private System.Windows.Forms.PictureBox coverPictureBox;
     }
 }
 

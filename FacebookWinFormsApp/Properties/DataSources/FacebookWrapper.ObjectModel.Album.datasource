@@ -7,7 +7,8 @@
 -->
 <GenericObjectDataSource DisplayName="Album" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
    <Children>
-      <GenericObjectDataSource DisplayName="CoverPhoto" Version="1.0">
+      <GenericObjectDataSource DisplayName="
+							   Photo" Version="1.0">
          <TypeInfo>FacebookWrapper.ObjectModel.Photo, FbGraphApiWrapper, Version=8.0.2.2, Culture=neutral, PublicKeyToken=null</TypeInfo>
          <TypeUISetting>
             <PropertyUISettings>

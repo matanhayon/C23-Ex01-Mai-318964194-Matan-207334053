@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label captionLabel;
             System.Windows.Forms.Label createdTimeLabel;
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title15 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title16 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PostsForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -103,7 +103,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1270, 450);
+            this.tabControl1.Size = new System.Drawing.Size(1182, 553);
             this.tabControl1.TabIndex = 55;
             // 
             // tabPage2
@@ -120,32 +120,30 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1262, 421);
+            this.tabPage2.Size = new System.Drawing.Size(1174, 524);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Posts";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(captionLabel);
             this.panel1.Controls.Add(this.captionTextBox);
             this.panel1.Controls.Add(createdTimeLabel);
             this.panel1.Controls.Add(this.createdTimeDateTimePicker);
-            this.panel1.Location = new System.Drawing.Point(677, 71);
+            this.panel1.Location = new System.Drawing.Point(640, 71);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(579, 148);
+            this.panel1.Size = new System.Drawing.Size(489, 148);
             this.panel1.TabIndex = 87;
             // 
             // captionTextBox
             // 
             this.captionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postBindingSource, "Caption", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "[No Caption]"));
-            this.captionTextBox.Location = new System.Drawing.Point(255, 22);
+            this.captionTextBox.Location = new System.Drawing.Point(143, 22);
             this.captionTextBox.Name = "captionTextBox";
             this.captionTextBox.Size = new System.Drawing.Size(310, 22);
             this.captionTextBox.TabIndex = 1;
-            this.captionTextBox.TextChanged += new System.EventHandler(this.captionTextBox_TextChanged);
             // 
             // postBindingSource
             // 
@@ -154,7 +152,7 @@
             // createdTimeDateTimePicker
             // 
             this.createdTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.postBindingSource, "CreatedTime", true));
-            this.createdTimeDateTimePicker.Location = new System.Drawing.Point(255, 61);
+            this.createdTimeDateTimePicker.Location = new System.Drawing.Point(143, 61);
             this.createdTimeDateTimePicker.Name = "createdTimeDateTimePicker";
             this.createdTimeDateTimePicker.Size = new System.Drawing.Size(310, 22);
             this.createdTimeDateTimePicker.TabIndex = 3;
@@ -164,23 +162,23 @@
             this.chartTotalPosts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea7.Name = "ChartArea1";
-            this.chartTotalPosts.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.chartTotalPosts.Legends.Add(legend7);
+            chartArea15.Name = "ChartArea1";
+            this.chartTotalPosts.ChartAreas.Add(chartArea15);
+            legend15.Name = "Legend1";
+            this.chartTotalPosts.Legends.Add(legend15);
             this.chartTotalPosts.Location = new System.Drawing.Point(38, 286);
             this.chartTotalPosts.Name = "chartTotalPosts";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Posts";
-            series7.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series7.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chartTotalPosts.Series.Add(series7);
-            this.chartTotalPosts.Size = new System.Drawing.Size(1204, 109);
+            series15.ChartArea = "ChartArea1";
+            series15.Legend = "Legend1";
+            series15.Name = "Posts";
+            series15.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series15.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chartTotalPosts.Series.Add(series15);
+            this.chartTotalPosts.Size = new System.Drawing.Size(1116, 212);
             this.chartTotalPosts.TabIndex = 86;
             this.chartTotalPosts.Text = "chart1";
-            title7.Name = "Posts";
-            this.chartTotalPosts.Titles.Add(title7);
+            title15.Name = "Posts";
+            this.chartTotalPosts.Titles.Add(title15);
             // 
             // comboBoxPostsViewOption
             // 
@@ -219,37 +217,36 @@
             this.chartPostCountByMonth.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea8.Name = "ChartArea1";
-            this.chartPostCountByMonth.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.chartPostCountByMonth.Legends.Add(legend8);
+            chartArea16.Name = "ChartArea1";
+            this.chartPostCountByMonth.ChartAreas.Add(chartArea16);
+            legend16.Name = "Legend1";
+            this.chartPostCountByMonth.Legends.Add(legend16);
             this.chartPostCountByMonth.Location = new System.Drawing.Point(33, 290);
             this.chartPostCountByMonth.Name = "chartPostCountByMonth";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Posts";
-            series8.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series8.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chartPostCountByMonth.Series.Add(series8);
-            this.chartPostCountByMonth.Size = new System.Drawing.Size(1204, 109);
+            series16.ChartArea = "ChartArea1";
+            series16.Legend = "Legend1";
+            series16.Name = "Posts";
+            series16.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series16.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chartPostCountByMonth.Series.Add(series16);
+            this.chartPostCountByMonth.Size = new System.Drawing.Size(1116, 212);
             this.chartPostCountByMonth.TabIndex = 82;
             this.chartPostCountByMonth.Text = "chart1";
-            title8.Name = "Posts";
-            this.chartPostCountByMonth.Titles.Add(title8);
+            title16.Name = "Posts";
+            this.chartPostCountByMonth.Titles.Add(title16);
             // 
             // listBoxPosts
             // 
             this.listBoxPosts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxPosts.DataSource = this.postBindingSource;
-            this.listBoxPosts.DisplayMember = "Description";
             this.listBoxPosts.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxPosts.FormattingEnabled = true;
             this.listBoxPosts.ItemHeight = 24;
             this.listBoxPosts.Location = new System.Drawing.Point(19, 71);
             this.listBoxPosts.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxPosts.Name = "listBoxPosts";
-            this.listBoxPosts.Size = new System.Drawing.Size(796, 148);
+            this.listBoxPosts.Size = new System.Drawing.Size(563, 148);
             this.listBoxPosts.TabIndex = 71;
             // 
             // linkPosts
@@ -259,10 +256,10 @@
             this.linkPosts.Location = new System.Drawing.Point(19, 17);
             this.linkPosts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkPosts.Name = "linkPosts";
-            this.linkPosts.Size = new System.Drawing.Size(245, 35);
+            this.linkPosts.Size = new System.Drawing.Size(219, 35);
             this.linkPosts.TabIndex = 72;
             this.linkPosts.TabStop = true;
-            this.linkPosts.Text = "Fetch Posts\r\n(Click on a post to view the comments!)\r\n";
+            this.linkPosts.Text = "Fetch Posts\r\n(Click on a post to view it\'s details!)\r\n";
             this.linkPosts.UseCompatibleTextRendering = true;
             this.linkPosts.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPosts_LinkClicked);
             // 
@@ -287,14 +284,14 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.postBindingNavigatorSaveItem});
-            this.postBindingNavigator.Location = new System.Drawing.Point(0, 423);
+            this.postBindingNavigator.Location = new System.Drawing.Point(0, 522);
             this.postBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.postBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.postBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.postBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.postBindingNavigator.Name = "postBindingNavigator";
             this.postBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.postBindingNavigator.Size = new System.Drawing.Size(1270, 27);
+            this.postBindingNavigator.Size = new System.Drawing.Size(1182, 31);
             this.postBindingNavigator.TabIndex = 56;
             this.postBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -304,7 +301,7 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
@@ -350,6 +347,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -396,7 +394,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1270, 450);
+            this.ClientSize = new System.Drawing.Size(1182, 553);
             this.Controls.Add(this.postBindingNavigator);
             this.Controls.Add(this.tabControl1);
             this.Name = "PostsForm";

@@ -43,7 +43,6 @@ namespace BasicFacebookFeatures
             {
                 listBoxPosts.Invoke(new Action(() =>
                 {
-                    listBoxPosts.DisplayMember = "Name";
                     List<Post> posts = FacebookManager.Instance.Posts.AllPosts;
                     postBindingSource.DataSource = posts;
                     listBoxPosts.DataSource = postBindingSource;
@@ -194,11 +193,6 @@ namespace BasicFacebookFeatures
             chartPostCountByMonth.Series.Add(series);
             chartPostCountByMonth.Titles.Clear();
             chartPostCountByMonth.Titles.Add($"Total Posts in {selectedYear}: {totalPostsCount}");
-        }
-
-        private void captionTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

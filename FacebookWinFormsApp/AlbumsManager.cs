@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 
 namespace BasicFacebookFeatures
 {
@@ -71,6 +72,20 @@ namespace BasicFacebookFeatures
             {
                 MessageBox.Show("No album selected or the album is empty.");
             }
+        }
+
+        public string GetCoverPhotoUrl()
+        {
+            string defaultUrl = "https://designshack.net/wp-content/uploads/facebook-cover-image-tips.png";
+            foreach (Album album in m_Albums)
+            {
+                if(album.Name == "Cover photos")
+                {
+                    return album.Photos[0].PictureNormalURL;
+                }
+            }
+
+            return defaultUrl;
         }
     }
 }

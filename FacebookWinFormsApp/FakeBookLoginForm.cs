@@ -20,7 +20,6 @@ namespace BasicFacebookFeatures
         public FakeBookLoginForm()
         {
             InitializeComponent();
-            this.BackColor = Color.LightBlue;
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -32,9 +31,9 @@ namespace BasicFacebookFeatures
                     login();
                 }
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                MessageBox.Show("Login failed");
+                MessageBox.Show("Login failed: " + exception.Message);
             }
         }
 
@@ -54,9 +53,9 @@ namespace BasicFacebookFeatures
 
             if (!string.IsNullOrEmpty(loginResult.AccessToken))
             {
-                buttonLogin.Text = $"Logged in as {loginResult.LoggedInUser.Name}";
+                buttonLogin.Text = $"Logged in";
                 buttonLogin.BackColor = Color.LightGreen;
-                pictureBoxProfile.ImageLocation = loginResult.LoggedInUser.PictureNormalURL;
+                pictureBoxProfile.ImageLocation = loginResult.LoggedInUser.PictureLargeURL;
                 buttonLogin.Enabled = false;
                 buttonLogout.Enabled = true;
                 FacebookManager.Initialize(loginResult);

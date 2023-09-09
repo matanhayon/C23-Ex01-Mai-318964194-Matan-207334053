@@ -10,6 +10,6 @@ namespace BasicFacebookFeatures
     {
         Albums,
         Pages,
-        Posts
+        Posts,
     }
 }

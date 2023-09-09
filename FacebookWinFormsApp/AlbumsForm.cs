@@ -1,5 +1,4 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,25 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FacebookWrapper.ObjectModel;
-using BasicFacebookFeatures.BasicFacebookFeatures;
 using System.IO;
 using System.Net;
 using System.Threading;
+using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
-
     public partial class AlbumsForm : Form
     {
-        private User m_loggedInUser;
-        private int m_selectedPhotoIndex;
+        private User m_LoggedInUser;
+        private int m_SelectedPhotoIndex;
+
         public AlbumsForm()
         {
             InitializeComponent();
             if (FacebookManager.Instance != null)
             {
-                m_loggedInUser = FacebookManager.Instance.getUser();
+                m_LoggedInUser = FacebookManager.Instance.User;
                 initializeAddedFeatures();
             }
         }
@@ -51,16 +49,16 @@ namespace BasicFacebookFeatures
 
         private void fetchAlbums()
         {
-            if(!listBoxAlbums.InvokeRequired)
+            if (!listBoxAlbums.InvokeRequired)
             {
-                albumBindingSource.DataSource = m_loggedInUser.Albums;
+                albumBindingSource.DataSource = m_LoggedInUser.Albums;
             }
             else
             {
                 listBoxAlbums.Invoke(new Action(() =>
                 {
                     enableAlbumsControl();
-                    albumBindingSource.DataSource = m_loggedInUser.Albums;
+                    albumBindingSource.DataSource = m_LoggedInUser.Albums;
                 }));
             }
         }
@@ -85,7 +83,7 @@ namespace BasicFacebookFeatures
                 Album selectedAlbum = listBoxAlbums.SelectedItem as Album;
                 if (selectedAlbum.PictureAlbumURL != null && selectedAlbum.Photos.Count > 0)
                 {
-                    m_selectedPhotoIndex = 0;
+                    m_SelectedPhotoIndex = 0;
                     displaySelectedPhoto();
                 }
                 else
@@ -97,9 +95,9 @@ namespace BasicFacebookFeatures
 
         private void buttonPreviousPhoto_Click(object sender, EventArgs e)
         {
-            if (m_selectedPhotoIndex > 0)
+            if (m_SelectedPhotoIndex > 0)
             {
-                m_selectedPhotoIndex--;
+                m_SelectedPhotoIndex--;
                 displaySelectedPhoto();
             }
         }
@@ -107,23 +105,21 @@ namespace BasicFacebookFeatures
         private void displaySelectedPhoto()
         {
             Album selectedAlbum = listBoxAlbums.SelectedItem as Album;
-            if (selectedAlbum != null && m_selectedPhotoIndex >= 0 && m_selectedPhotoIndex < selectedAlbum.Photos.Count)
+            if (selectedAlbum != null && m_SelectedPhotoIndex >= 0 && m_SelectedPhotoIndex < selectedAlbum.Photos.Count)
             {
-                pictureBoxPhotos.LoadAsync(selectedAlbum.Photos[m_selectedPhotoIndex].PictureNormalURL);
+                pictureBoxPhotos.LoadAsync(selectedAlbum.Photos[m_SelectedPhotoIndex].PictureNormalURL);
             }
         }
 
         private void buttonNextPhoto_Click(object sender, EventArgs e)
         {
             Album selectedAlbum = listBoxAlbums.SelectedItem as Album;
-            if (selectedAlbum != null && m_selectedPhotoIndex < selectedAlbum.Photos.Count - 1)
+            if (selectedAlbum != null && m_SelectedPhotoIndex < selectedAlbum.Photos.Count - 1)
             {
-                m_selectedPhotoIndex++;
+                m_SelectedPhotoIndex++;
                 displaySelectedPhoto();
             }
         }
-
-
 
         private void comboBoxAlbumsSortOption_SelectedIndexChanged(object sender, EventArgs e)
         {

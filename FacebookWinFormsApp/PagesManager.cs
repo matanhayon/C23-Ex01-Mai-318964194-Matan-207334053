@@ -1,19 +1,32 @@
-﻿using FacebookWrapper.ObjectModel;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
     internal class PagesManager
     {
         private User m_LoggedInUser;
-        private List<Page> m_pages;
+        private List<Page> m_Pages;
 
-        public PagesManager(User loggedInUser)
+        public PagesManager(User i_LoggedInUser)
         {
-            m_LoggedInUser = loggedInUser;
+            m_LoggedInUser = i_LoggedInUser;
         }
 
-        private List<Page> FetchAllPages()
+        public List<Page> AllPages
+        {
+            get
+            {
+                if (m_Pages == null)
+                {
+                    m_Pages = fetchAllPages();
+                }
+
+                return m_Pages;
+            }
+        }
+
+        private List<Page> fetchAllPages()
         {
             List<Page> allPosts = new List<Page>();
 
@@ -23,20 +36,6 @@ namespace BasicFacebookFeatures
             }
 
             return allPosts;
-        }
-
-        public List<Page> AllPages
-        {
-            get
-            {
-                if (m_pages == null)
-                {
-                    m_pages = FetchAllPages();
-                }
-
-                return m_pages;
-            }
-
         }
     }
 }

@@ -130,6 +130,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.BackColor = System.Drawing.Color.LightBlue;
             this.tabPage4.Controls.Add(this.panel1);
             this.tabPage4.Controls.Add(this.listBoxPages);
             this.tabPage4.Controls.Add(this.linkPages);
@@ -139,7 +140,6 @@
             this.tabPage4.Size = new System.Drawing.Size(1174, 524);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Pages";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -162,12 +162,12 @@
             this.categoryTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.categoryTextBox.BackColor = System.Drawing.Color.Azure;
             this.categoryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Category", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "[No Category]"));
             this.categoryTextBox.Location = new System.Drawing.Point(133, 58);
             this.categoryTextBox.Name = "categoryTextBox";
             this.categoryTextBox.Size = new System.Drawing.Size(388, 22);
             this.categoryTextBox.TabIndex = 1;
-            this.categoryTextBox.TextChanged += new System.EventHandler(this.categoryTextBox_TextChanged);
             // 
             // pageBindingSource
             // 
@@ -178,6 +178,7 @@
             this.imageLargePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.imageLargePictureBox.BackColor = System.Drawing.Color.Azure;
             this.imageLargePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.pageBindingSource, "ImageLarge", true));
             this.imageLargePictureBox.Location = new System.Drawing.Point(133, 142);
             this.imageLargePictureBox.Name = "imageLargePictureBox";
@@ -190,6 +191,7 @@
             this.likesCountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.likesCountTextBox.BackColor = System.Drawing.Color.Azure;
             this.likesCountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "LikesCount", true));
             this.likesCountTextBox.Location = new System.Drawing.Point(133, 100);
             this.likesCountTextBox.Name = "likesCountTextBox";
@@ -201,17 +203,18 @@
             this.nameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.nameTextBox.BackColor = System.Drawing.Color.Azure;
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pageBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "[No Name]"));
             this.nameTextBox.Location = new System.Drawing.Point(133, 13);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(388, 22);
             this.nameTextBox.TabIndex = 7;
-            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // listBoxPages
             // 
             this.listBoxPages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxPages.BackColor = System.Drawing.Color.Azure;
             this.listBoxPages.FormattingEnabled = true;
             this.listBoxPages.ItemHeight = 16;
             this.listBoxPages.Location = new System.Drawing.Point(25, 59);
@@ -255,14 +258,14 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.pageBindingNavigatorSaveItem});
-            this.pageBindingNavigator.Location = new System.Drawing.Point(0, 526);
+            this.pageBindingNavigator.Location = new System.Drawing.Point(0, 522);
             this.pageBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.pageBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.pageBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.pageBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.pageBindingNavigator.Name = "pageBindingNavigator";
             this.pageBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.pageBindingNavigator.Size = new System.Drawing.Size(1182, 27);
+            this.pageBindingNavigator.Size = new System.Drawing.Size(1182, 31);
             this.pageBindingNavigator.TabIndex = 56;
             this.pageBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -272,13 +275,13 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -288,7 +291,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -297,7 +300,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -306,13 +309,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -327,7 +330,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -335,7 +338,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -344,13 +347,13 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // pageBindingNavigatorSaveItem
             // 
@@ -358,7 +361,7 @@
             this.pageBindingNavigatorSaveItem.Enabled = false;
             this.pageBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("pageBindingNavigatorSaveItem.Image")));
             this.pageBindingNavigatorSaveItem.Name = "pageBindingNavigatorSaveItem";
-            this.pageBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
+            this.pageBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 28);
             this.pageBindingNavigatorSaveItem.Text = "Save Data";
             // 
             // PagesForm

@@ -1,5 +1,4 @@
-﻿using BasicFacebookFeatures.BasicFacebookFeatures;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,44 +9,44 @@ namespace BasicFacebookFeatures
 {
     internal class FormBuilder
     {
-        private FormComposer m_formComposer;
-        private FormMain m_builtForm;
+        private FormComposer m_FormComposer;
+        private FormMain m_BuiltForm;
 
-        public FormBuilder(FormComposer i_formComposer)
+        public FormBuilder(FormComposer i_FormComposer)
         {
-            m_formComposer = i_formComposer;
+            m_FormComposer = i_FormComposer;
         }
 
         public FormMain Build()
         {
-            m_builtForm = new FormMain();
+            m_BuiltForm = new FormMain();
 
-            if (m_formComposer.IsShowPages)
+            if (m_FormComposer.IsShowPages)
             {
-                ExtarctTabFromFormAndAttach(StaticFormFactory.CreateForm(eFormType.Pages));
+                extarctTabFromFormAndAttach(StaticFormFactory.CreateForm(eFormType.Pages));
             }
 
-            if (m_formComposer.IsShowAlbums)
+            if (m_FormComposer.IsShowAlbums)
             {
-                ExtarctTabFromFormAndAttach(StaticFormFactory.CreateForm(eFormType.Albums));
+                extarctTabFromFormAndAttach(StaticFormFactory.CreateForm(eFormType.Albums));
             }
 
-            if (m_formComposer.IsShowPosts)
+            if (m_FormComposer.IsShowPosts)
             {
-                ExtarctTabFromFormAndAttach(StaticFormFactory.CreateForm(eFormType.Posts));
+                extarctTabFromFormAndAttach(StaticFormFactory.CreateForm(eFormType.Posts));
             }
 
-            return m_builtForm;
+            return m_BuiltForm;
         }
 
-        private void ExtarctTabFromFormAndAttach(AbstractForm i_Form)
+        private void extarctTabFromFormAndAttach(AbstractForm i_Form)
         {
-            TabControl mainTabControl = m_builtForm.Controls.OfType<TabControl>().FirstOrDefault();
+            TabControl mainTabControl = m_BuiltForm.Controls.OfType<TabControl>().FirstOrDefault();
             if (mainTabControl != null)
             {
                 TabControl productTabControl = i_Form.GetTabControl();
                 mainTabControl.Controls.Add(productTabControl.TabPages[0]);
             }
         }
-    }   
+    }
 }

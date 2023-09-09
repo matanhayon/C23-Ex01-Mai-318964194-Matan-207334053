@@ -1,6 +1,4 @@
-﻿using BasicFacebookFeatures.BasicFacebookFeatures;
-using FacebookWrapper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FacebookWrapper;
 
 namespace BasicFacebookFeatures
 {
     public partial class FakeBookLoginForm : Form
     {
-        private FacebookManager m_facebookManager;
-        private FormComposer m_formComposer;
+        private FacebookManager m_FacebookManager;
 
         public FakeBookLoginForm()
         {
@@ -39,13 +37,13 @@ namespace BasicFacebookFeatures
 
         private bool isLoggedIn()
         {
-            return m_facebookManager != null;
+            return m_FacebookManager != null;
         }
 
         private void login()
         {
             FacebookWrapper.LoginResult loginResult = FacebookService.Login(
-                "1576031996471164", //our app id
+                "1576031996471164", // our app id
                 /// requested permissions:
                 "email", "public_profile", "user_age_range", "user_birthday", "user_events",
                 "user_friends", "user_gender", "user_hometown", "user_likes", "user_link",
@@ -59,11 +57,12 @@ namespace BasicFacebookFeatures
                 buttonLogin.Enabled = false;
                 buttonLogout.Enabled = true;
                 FacebookManager.Initialize(loginResult);
-                m_facebookManager = FacebookManager.Instance;
-                EnableTabSelectionControls();
+                m_FacebookManager = FacebookManager.Instance;
+                enableTabSelectionControls();
             }
         }
-        private void EnableTabSelectionControls()
+
+        private void enableTabSelectionControls()
         {
             checkBoxAlbums.Enabled = true;
             checkBoxPages.Enabled = true;
@@ -88,6 +87,5 @@ namespace BasicFacebookFeatures
                 formMain.ShowDialog();
             }
         }
-
     }
 }

@@ -90,6 +90,7 @@
             // 
             // buttonDownloadAlbum
             // 
+            this.buttonDownloadAlbum.BackColor = System.Drawing.Color.Azure;
             this.buttonDownloadAlbum.Enabled = false;
             this.buttonDownloadAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDownloadAlbum.Location = new System.Drawing.Point(23, 166);
@@ -97,13 +98,13 @@
             this.buttonDownloadAlbum.Size = new System.Drawing.Size(150, 48);
             this.buttonDownloadAlbum.TabIndex = 84;
             this.buttonDownloadAlbum.Text = "Download Album";
-            this.buttonDownloadAlbum.UseVisualStyleBackColor = true;
+            this.buttonDownloadAlbum.UseVisualStyleBackColor = false;
             this.buttonDownloadAlbum.Click += new System.EventHandler(this.buttonDownloadAlbum_Click);
             // 
             // buttonNextPhoto
             // 
             this.buttonNextPhoto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonNextPhoto.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonNextPhoto.BackColor = System.Drawing.Color.Azure;
             this.buttonNextPhoto.Enabled = false;
             this.buttonNextPhoto.Location = new System.Drawing.Point(868, 421);
             this.buttonNextPhoto.Name = "buttonNextPhoto";
@@ -116,7 +117,7 @@
             // buttonPreviousPhoto
             // 
             this.buttonPreviousPhoto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonPreviousPhoto.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonPreviousPhoto.BackColor = System.Drawing.Color.Azure;
             this.buttonPreviousPhoto.Enabled = false;
             this.buttonPreviousPhoto.Location = new System.Drawing.Point(131, 421);
             this.buttonPreviousPhoto.Name = "buttonPreviousPhoto";
@@ -139,6 +140,7 @@
             // 
             this.listBoxAlbums.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxAlbums.BackColor = System.Drawing.Color.Azure;
             this.listBoxAlbums.DataSource = this.albumBindingSource;
             this.listBoxAlbums.DisplayMember = "Name";
             this.listBoxAlbums.FormattingEnabled = true;
@@ -173,6 +175,7 @@
             // tabPage3
             // 
             this.tabPage3.AutoScroll = true;
+            this.tabPage3.BackColor = System.Drawing.Color.LightBlue;
             this.tabPage3.Controls.Add(this.pictureBoxPhotos);
             this.tabPage3.Controls.Add(this.panel1);
             this.tabPage3.Controls.Add(this.buttonDownloadAlbum);
@@ -188,12 +191,11 @@
             this.tabPage3.Size = new System.Drawing.Size(1174, 524);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Albums";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // pictureBoxPhotos
             // 
             this.pictureBoxPhotos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBoxPhotos.BackColor = System.Drawing.Color.Gainsboro;
+            this.pictureBoxPhotos.BackColor = System.Drawing.Color.Azure;
             this.pictureBoxPhotos.Location = new System.Drawing.Point(245, 181);
             this.pictureBoxPhotos.Name = "pictureBoxPhotos";
             this.pictureBoxPhotos.Size = new System.Drawing.Size(589, 311);
@@ -223,6 +225,7 @@
             // 
             // descriptionTextBox
             // 
+            this.descriptionTextBox.BackColor = System.Drawing.Color.Azure;
             this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.albumBindingSource, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "[No Description]"));
             this.descriptionTextBox.Location = new System.Drawing.Point(177, 46);
             this.descriptionTextBox.Name = "descriptionTextBox";
@@ -231,6 +234,7 @@
             // 
             // comboBoxAlbumsSortOption
             // 
+            this.comboBoxAlbumsSortOption.BackColor = System.Drawing.Color.Azure;
             this.comboBoxAlbumsSortOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxAlbumsSortOption.Enabled = false;
             this.comboBoxAlbumsSortOption.FormattingEnabled = true;
@@ -271,14 +275,14 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.albumBindingNavigatorSaveItem});
-            this.albumBindingNavigator.Location = new System.Drawing.Point(0, 526);
+            this.albumBindingNavigator.Location = new System.Drawing.Point(0, 522);
             this.albumBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.albumBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.albumBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.albumBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.albumBindingNavigator.Name = "albumBindingNavigator";
             this.albumBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.albumBindingNavigator.Size = new System.Drawing.Size(1182, 27);
+            this.albumBindingNavigator.Size = new System.Drawing.Size(1182, 31);
             this.albumBindingNavigator.TabIndex = 56;
             this.albumBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -288,13 +292,13 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -304,7 +308,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -313,7 +317,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -322,18 +326,19 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -342,7 +347,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -350,7 +355,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -359,13 +364,13 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // albumBindingNavigatorSaveItem
             // 
@@ -373,7 +378,7 @@
             this.albumBindingNavigatorSaveItem.Enabled = false;
             this.albumBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("albumBindingNavigatorSaveItem.Image")));
             this.albumBindingNavigatorSaveItem.Name = "albumBindingNavigatorSaveItem";
-            this.albumBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
+            this.albumBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 28);
             this.albumBindingNavigatorSaveItem.Text = "Save Data";
             // 
             // AlbumsForm

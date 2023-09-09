@@ -82,6 +82,7 @@
             // 
             // buttonLogout
             // 
+            this.buttonLogout.BackColor = System.Drawing.Color.Azure;
             this.buttonLogout.Enabled = false;
             this.buttonLogout.Location = new System.Drawing.Point(151, 24);
             this.buttonLogout.Margin = new System.Windows.Forms.Padding(4);
@@ -89,28 +90,30 @@
             this.buttonLogout.Size = new System.Drawing.Size(120, 32);
             this.buttonLogout.TabIndex = 86;
             this.buttonLogout.Text = "Logout";
-            this.buttonLogout.UseVisualStyleBackColor = true;
+            this.buttonLogout.UseVisualStyleBackColor = false;
             // 
             // buttonLogin
             // 
+            this.buttonLogin.BackColor = System.Drawing.Color.Azure;
             this.buttonLogin.Location = new System.Drawing.Point(10, 24);
             this.buttonLogin.Margin = new System.Windows.Forms.Padding(4);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(120, 32);
             this.buttonLogin.TabIndex = 85;
             this.buttonLogin.Text = "Login";
-            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // buttonContinue
             // 
+            this.buttonContinue.BackColor = System.Drawing.Color.Azure;
             this.buttonContinue.Enabled = false;
             this.buttonContinue.Location = new System.Drawing.Point(10, 252);
             this.buttonContinue.Name = "buttonContinue";
             this.buttonContinue.Size = new System.Drawing.Size(261, 51);
             this.buttonContinue.TabIndex = 91;
             this.buttonContinue.Text = "Continue";
-            this.buttonContinue.UseVisualStyleBackColor = true;
+            this.buttonContinue.UseVisualStyleBackColor = false;
             this.buttonContinue.Click += new System.EventHandler(this.buttonContinue_Click);
             // 
             // FakeBookLoginForm

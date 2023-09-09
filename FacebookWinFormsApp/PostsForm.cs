@@ -1,6 +1,4 @@
-﻿using BasicFacebookFeatures.BasicFacebookFeatures;
-using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-
+using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
@@ -35,7 +33,7 @@ namespace BasicFacebookFeatures
 
         private void fetchPosts()
         {
-            if(!listBoxPosts.InvokeRequired)
+            if (!listBoxPosts.InvokeRequired)
             {
                 postBindingSource.DataSource = FacebookManager.Instance.Posts.AllPosts;
             }
@@ -53,7 +51,7 @@ namespace BasicFacebookFeatures
                     else
                     {
                         enablePostsControl();
-                        InitializeComboBoxPostsYears();
+                        initializeComboBoxPostsYears();
                     }
                 }));
             }
@@ -73,7 +71,7 @@ namespace BasicFacebookFeatures
             comboBoxPostsViewOption.SelectedIndex = 0;
         }
 
-        private void InitializeComboBoxPostsYears()
+        private void initializeComboBoxPostsYears()
         {
             comboBoxYears.Items.Clear();
             HashSet<int> yearsWithPosts = new HashSet<int>();
@@ -91,7 +89,7 @@ namespace BasicFacebookFeatures
 
             if (comboBoxYears.Items.Count > 0)
             {
-                comboBoxYears.Invoke(new Action(()=> { comboBoxYears.SelectedIndex = 0; }));
+                comboBoxYears.Invoke(new Action(() => { comboBoxYears.SelectedIndex = 0; }));
             }
         }
 
@@ -111,17 +109,17 @@ namespace BasicFacebookFeatures
                 chartPostCountByMonth.Visible = false;
                 chartTotalPosts.Visible = true;
 
-                CalculateTotalPostsChart();
+                calculateTotalPostsChart();
             }
         }
 
-        private void CalculateTotalPostsChart()
+        private void calculateTotalPostsChart()
         {
             Dictionary<int, int> totalPostsByYear = FacebookManager.Instance.Posts.CalculateTotalPostsByYear();
-            UpdateTotalPostsChart(totalPostsByYear);
+            updateTotalPostsChart(totalPostsByYear);
         }
 
-        private void UpdateTotalPostsChart(Dictionary<int, int> totalPostsByYear)
+        private void updateTotalPostsChart(Dictionary<int, int> i_TotalPostsByYear)
         {
             chartTotalPosts.Series.Clear();
 
@@ -130,7 +128,7 @@ namespace BasicFacebookFeatures
             series.BorderWidth = 3;
             series.Color = Color.Red;
             int totalPosts = 0;
-            foreach (var entry in totalPostsByYear)
+            foreach (var entry in i_TotalPostsByYear)
             {
                 DataPoint dataPoint = new DataPoint(entry.Key, entry.Value);
                 dataPoint.Label = entry.Value.ToString();
@@ -155,18 +153,17 @@ namespace BasicFacebookFeatures
 
         private void buttonAnalyzePosts_Click(object sender, EventArgs e)
         {
-            CalculatePostCountByMonthChart();
+            calculatePostCountByMonthChart();
         }
 
-        private void CalculatePostCountByMonthChart()
+        private void calculatePostCountByMonthChart()
         {
-                
             int selectedYear = (int)comboBoxYears.SelectedItem;
             Dictionary<int, int> postsByMonth = FacebookManager.Instance.Posts.CalculatePostCountByMonth(selectedYear);
-            UpdatePostCountByMonthChart(postsByMonth, selectedYear);
+            updatePostCountByMonthChart(postsByMonth, selectedYear);
         }
 
-        private void UpdatePostCountByMonthChart(Dictionary<int, int> postsByMonth, int selectedYear)
+        private void updatePostCountByMonthChart(Dictionary<int, int> i_PostsByMonth, int i_SelectedYear)
         {
             int totalPostsCount = 0;
             chartPostCountByMonth.Series.Clear();
@@ -176,7 +173,7 @@ namespace BasicFacebookFeatures
 
             for (int month = 1; month <= 12; month++)
             {
-                int count = postsByMonth.ContainsKey(month) ? postsByMonth[month] : 0;
+                int count = i_PostsByMonth.ContainsKey(month) ? i_PostsByMonth[month] : 0;
                 series.Points.AddXY(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month), count);
                 totalPostsCount += count;
             }
@@ -192,7 +189,7 @@ namespace BasicFacebookFeatures
 
             chartPostCountByMonth.Series.Add(series);
             chartPostCountByMonth.Titles.Clear();
-            chartPostCountByMonth.Titles.Add($"Total Posts in {selectedYear}: {totalPostsCount}");
+            chartPostCountByMonth.Titles.Add($"Total Posts in {i_SelectedYear}: {totalPostsCount}");
         }
     }
 }

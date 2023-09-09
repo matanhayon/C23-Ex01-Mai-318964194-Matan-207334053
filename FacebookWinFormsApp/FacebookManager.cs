@@ -1,54 +1,29 @@
-﻿using FacebookWrapper.ObjectModel;
+﻿using System;
+using FacebookWrapper;
+using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
-    using FacebookWrapper;
-    using FacebookWrapper.ObjectModel;
-    using System;
-
-    namespace BasicFacebookFeatures
+    internal class FacebookManager
     {
-        internal class FacebookManager
+        private static readonly object s_Lock = new object();
+        private static FacebookManager s_Instance;
+        private FacebookWrapper.LoginResult m_LoginResult;
+        private AlbumsManager m_AlbumsManager;
+        private PostsManager m_PostsManager;
+        private PagesManager m_PagesManager;
+
+        private FacebookManager(FacebookWrapper.LoginResult i_LoginResult)
         {
-            private static readonly object s_Lock = new object();
-            private static FacebookManager s_Instance;
-            private FacebookWrapper.LoginResult m_LoginResult;
-            private AlbumsManager m_albumsManager;
-            private PostsManager m_postsManager;
-            private PagesManager m_pagesManager;
+            m_LoginResult = i_LoginResult;
+            m_AlbumsManager = new AlbumsManager(i_LoginResult.LoggedInUser.Albums);
+            m_PostsManager = new PostsManager(i_LoginResult.LoggedInUser);
+            m_PagesManager = new PagesManager(i_LoginResult.LoggedInUser);
+        }
 
-            private FacebookManager(FacebookWrapper.LoginResult i_LoginResult)
-            {
-                m_LoginResult = i_LoginResult;
-                m_albumsManager = new AlbumsManager(i_LoginResult.LoggedInUser.Albums);
-                m_postsManager = new PostsManager(i_LoginResult.LoggedInUser);
-                m_pagesManager = new PagesManager(i_LoginResult.LoggedInUser);
-            }
-
-            public User getUser()
-            {
-                return m_LoginResult.LoggedInUser;
-            }
-
-            public static FacebookManager Instance
-            {
-                get
-                {
-                    if (s_Instance == null)
-                    {
-                        lock (s_Lock)
-                        {
-                            if (s_Instance == null)
-                            {
-                                throw new Exception("FacebookManager instance has not been initialized.");
-                            }
-                        }
-                    }
-                    return s_Instance;
-                }
-            }
-
-            public static void Initialize(FacebookWrapper.LoginResult loginResult)
+        public static FacebookManager Instance
+        {
+            get
             {
                 if (s_Instance == null)
                 {
@@ -56,32 +31,51 @@ namespace BasicFacebookFeatures
                     {
                         if (s_Instance == null)
                         {
-                            s_Instance = new FacebookManager(loginResult);
+                            throw new Exception("FacebookManager instance has not been initialized.");
                         }
                     }
                 }
-                else
+
+                return s_Instance;
+            }
+        }
+
+        public User User
+        {
+            get { return m_LoginResult.LoggedInUser; }
+        }
+
+        public AlbumsManager Albums
+        {
+            get { return m_AlbumsManager; }
+        }
+
+        public PostsManager Posts
+        {
+            get { return m_PostsManager; }
+        }
+
+        public PagesManager LikedPages
+        {
+            get { return m_PagesManager; }
+        }
+
+        public static void Initialize(FacebookWrapper.LoginResult i_LoginResult)
+        {
+            if (s_Instance == null)
+            {
+                lock (s_Lock)
                 {
-                    throw new Exception("FacebookManager instance has already been initialized.");
+                    if (s_Instance == null)
+                    {
+                        s_Instance = new FacebookManager(i_LoginResult);
+                    }
                 }
             }
-
-            public AlbumsManager Albums
+            else
             {
-                get { return m_albumsManager; }
-            }
-
-            public PostsManager Posts
-            {
-                get { return m_postsManager; }
-            }
-
-            public PagesManager LikedPages
-            {
-                get { return m_pagesManager; }
+                throw new Exception("FacebookManager instance has already been initialized.");
             }
         }
     }
-
 }
-

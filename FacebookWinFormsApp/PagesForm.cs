@@ -8,20 +8,20 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BasicFacebookFeatures.BasicFacebookFeatures;
 using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
     public partial class PagesForm : Form
     {
-        private User m_loggedInUser;
+        private User m_LoggedInUser;
+
         public PagesForm()
         {
             InitializeComponent();
-            if(FacebookManager.Instance != null)
+            if (FacebookManager.Instance != null)
             {
-                m_loggedInUser = FacebookManager.Instance.getUser();
+                m_LoggedInUser = FacebookManager.Instance.User;
             }
         }
 
@@ -32,7 +32,7 @@ namespace BasicFacebookFeatures
 
         private void fetchPages()
         {
-            if(!listBoxPages.InvokeRequired)
+            if (!listBoxPages.InvokeRequired)
             {
                 pageBindingSource.DataSource = FacebookManager.Instance.LikedPages.AllPages;
             }
@@ -46,16 +46,6 @@ namespace BasicFacebookFeatures
                     listBoxPages.DataSource = pageBindingSource;
                 }));
             }
-        }
-
-        private void nameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void categoryTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

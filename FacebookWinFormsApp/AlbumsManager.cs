@@ -1,9 +1,9 @@
-﻿using FacebookWrapper.ObjectModel;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 using static System.Net.WebRequestMethods;
 
 namespace BasicFacebookFeatures
@@ -38,12 +38,13 @@ namespace BasicFacebookFeatures
                     sortedAlbums = m_Albums;
                     break;
             }
+
             return sortedAlbums;
         }
 
-        public void DownloadAlbum(Album selectedAlbum)
+        public void DownloadAlbum(Album i_SelectedAlbum)
         {
-            if (selectedAlbum != null && selectedAlbum.Photos.Count > 0)
+            if (i_SelectedAlbum != null && i_SelectedAlbum.Photos.Count > 0)
             {
                 using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
                 {
@@ -51,12 +52,12 @@ namespace BasicFacebookFeatures
                     if (result == DialogResult.OK)
                     {
                         string destinationFolderPath = folderBrowserDialog.SelectedPath;
-                        string albumFolderPath = Path.Combine(destinationFolderPath, selectedAlbum.Name);
+                        string albumFolderPath = Path.Combine(destinationFolderPath, i_SelectedAlbum.Name);
                         Directory.CreateDirectory(albumFolderPath);
-                        for (int i = 0; i < selectedAlbum.Photos.Count; i++)
+                        for (int i = 0; i < i_SelectedAlbum.Photos.Count; i++)
                         {
-                            string photoUrl = selectedAlbum.Photos[i].PictureNormalURL;
-                            string photoFileName = $"{selectedAlbum.Name}_{i + 1}.jpg";
+                            string photoUrl = i_SelectedAlbum.Photos[i].PictureNormalURL;
+                            string photoFileName = $"{i_SelectedAlbum.Name}_{i + 1}.jpg";
                             string photoFilePath = Path.Combine(albumFolderPath, photoFileName);
                             using (WebClient webClient = new WebClient())
                             {
@@ -79,7 +80,7 @@ namespace BasicFacebookFeatures
             string defaultUrl = "https://designshack.net/wp-content/uploads/facebook-cover-image-tips.png";
             foreach (Album album in m_Albums)
             {
-                if(album.Name == "Cover photos")
+                if (album.Name == "Cover photos")
                 {
                     return album.Photos[0].PictureNormalURL;
                 }

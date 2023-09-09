@@ -97,6 +97,7 @@
     <Compile Include="AlbumsForm.Designer.cs">
       <DependentUpon>AlbumsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AlbumsFormProduct.cs" />
     <Compile Include="AlbumsManager.cs" />
     <Compile Include="eFormType.cs" />
     <Compile Include="FacebookManager.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="PagesForm.Designer.cs">
       <DependentUpon>PagesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PagesFormProduct.cs" />
     <Compile Include="PagesManager.cs" />
     <Compile Include="PostsForm.cs">
       <SubType>Form</SubType>
@@ -127,6 +129,7 @@
     <Compile Include="PostsForm.Designer.cs">
       <DependentUpon>PostsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PostsFormProduct.cs" />
     <Compile Include="PostsManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

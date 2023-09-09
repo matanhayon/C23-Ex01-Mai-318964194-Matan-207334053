@@ -24,7 +24,7 @@ namespace BasicFacebookFeatures
         {
             try
             {
-                if (!isLoggedIn())
+                if (!FacebookManager.IsLoggedIn())
                 {
                     login();
                 }
@@ -33,11 +33,6 @@ namespace BasicFacebookFeatures
             {
                 MessageBox.Show("Login failed: " + exception.Message);
             }
-        }
-
-        private bool isLoggedIn()
-        {
-            return m_FacebookManager != null;
         }
 
         private void login()
@@ -86,6 +81,32 @@ namespace BasicFacebookFeatures
                 FormMain formMain = formComposer.Build();
                 formMain.ShowDialog();
             }
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            if (m_FacebookManager != null)
+            {
+                FacebookService.LogoutWithUI();
+                m_FacebookManager.Reset();
+                disableControlsLogout();
+            }
+        }
+
+        private void disableControlsLogout()
+        {
+            buttonLogin.Enabled = true;
+            buttonLogin.Text = "Login";
+            buttonLogin.BackColor = buttonLogout.BackColor;
+            buttonLogout.Enabled = false;
+            pictureBoxProfile.Image = null;
+            buttonContinue.Enabled = false;
+            checkBoxAlbums.Enabled = false;
+            checkBoxPages.Enabled = false;
+            checkBoxPosts.Enabled = false;
+            checkBoxAlbums.Checked = false;
+            checkBoxPages.Checked = false;
+            checkBoxPosts.Checked = false;
         }
     }
 }

@@ -12,28 +12,4 @@ namespace BasicFacebookFeatures
     {
         public abstract TabControl GetTabControl();
     }
-
-    internal class AlbumsFormProduct : AbstractForm
-    {
-        public override TabControl GetTabControl()
-        {
-            return new AlbumsForm().Controls.OfType<TabControl>().FirstOrDefault();
-        }
-    }
-
-    internal class PagesFormProduct : AbstractForm
-    {
-        public override TabControl GetTabControl()
-        {
-            return new PagesForm().Controls.OfType<TabControl>().FirstOrDefault();
-        }
-    }
-
-    internal class PostsFormProduct : AbstractForm
-    {
-        public override TabControl GetTabControl()
-        {
-            return new PostsForm().Controls.OfType<TabControl>().FirstOrDefault();
-        }
-    }
 }

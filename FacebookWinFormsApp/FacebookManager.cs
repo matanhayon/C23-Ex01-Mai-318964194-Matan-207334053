@@ -45,6 +45,11 @@ namespace BasicFacebookFeatures
             get { return m_LoginResult.LoggedInUser; }
         }
 
+        public static bool IsLoggedIn()
+        {
+            return s_Instance != null;
+        }
+
         public AlbumsManager Albums
         {
             get { return m_AlbumsManager; }
@@ -76,6 +81,15 @@ namespace BasicFacebookFeatures
             {
                 throw new Exception("FacebookManager instance has already been initialized.");
             }
+        }
+
+        public void Reset()
+        {
+            s_Instance = null;
+            m_LoginResult = null;
+            m_AlbumsManager = null;
+            m_PostsManager = null;
+            m_PagesManager = null;
         }
     }
 }

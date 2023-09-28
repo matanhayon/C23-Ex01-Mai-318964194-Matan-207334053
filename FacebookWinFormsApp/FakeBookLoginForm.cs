@@ -5,8 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BasicFacebookFeatures.WithSingltonAppSettings;
 using FacebookWrapper;
 
 namespace BasicFacebookFeatures
@@ -19,6 +21,31 @@ namespace BasicFacebookFeatures
         {
             InitializeComponent();
         }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            ApplicationSettings.Instance.LoginFormLastWindowState = this.WindowState;
+            ApplicationSettings.Instance.LoginFormLastWindowSize = this.Size;
+            ApplicationSettings.Instance.LoginFormLastWindowLocation = this.Location;
+            ApplicationSettings.Instance.IsAutoLogin = this.checkBoxRememberMe.Checked;
+            ApplicationSettings.Instance.Save();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            this.WindowState = ApplicationSettings.Instance.LoginFormLastWindowState;
+            this.Location = ApplicationSettings.Instance.LoginFormLastWindowLocation;
+            this.checkBoxRememberMe.Checked = ApplicationSettings.Instance.IsAutoLogin;
+
+            if (ApplicationSettings.Instance.IsAutoLogin)
+            {
+                autoLogin();
+            }
+        }
+
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
@@ -56,15 +83,41 @@ namespace BasicFacebookFeatures
 
             if (!string.IsNullOrEmpty(loginResult.AccessToken))
             {
-                buttonLogin.Text = $"Logged in";
-                buttonLogin.BackColor = Color.LightGreen;
-                pictureBoxProfile.ImageLocation = loginResult.LoggedInUser.PictureLargeURL;
-                buttonLogin.Enabled = false;
-                buttonLogout.Enabled = true;
                 FacebookManager.Initialize(loginResult);
                 m_FacebookManager = FacebookManager.Instance;
+                ApplicationSettings.Instance.AccessToken = loginResult.AccessToken;
                 enableTabSelectionControls();
+                changeUiAfterLoggedIn();
             }
+        }
+
+        private void autoLogin()
+        {
+            try
+            {
+                LoginResult loginResult = FacebookService.Connect(ApplicationSettings.Instance.AccessToken);
+                if (!string.IsNullOrEmpty(loginResult.AccessToken))
+                {
+                    FacebookManager.Initialize(loginResult);
+                    m_FacebookManager = FacebookManager.Instance;
+                    ApplicationSettings.Instance.AccessToken = loginResult.AccessToken;
+                    enableTabSelectionControls();
+                    changeUiAfterLoggedIn();
+                }
+            }
+            catch (Exception ex)
+            {
+                this.Invoke(new Action(() => MessageBox.Show("Could not Auto-Connect")));
+            }
+        }
+
+        private void changeUiAfterLoggedIn()
+        {
+            buttonLogin.Text = $"Logged in";
+            buttonLogin.BackColor = Color.LightGreen;
+            pictureBoxProfile.ImageLocation = m_FacebookManager.User.PictureLargeURL;
+            buttonLogin.Enabled = false;
+            buttonLogout.Enabled = true;
         }
 
         private void enableTabSelectionControls()

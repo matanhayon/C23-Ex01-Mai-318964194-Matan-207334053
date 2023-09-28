@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using BasicFacebookFeatures.WithSingltonAppSettings;
 using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
@@ -36,6 +37,24 @@ namespace BasicFacebookFeatures
             {
                 MessageBox.Show("Loading posts failed: " + exception.Message);
             }
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            ApplicationSettings.Instance.BrowsingFormsLastWindowState = this.WindowState;
+            ApplicationSettings.Instance.BrowsingFormsLastWindowSize = this.Size;
+            ApplicationSettings.Instance.BrowsingFormsLastWindowLocation = this.Location;
+            ApplicationSettings.Instance.Save();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            this.Size = ApplicationSettings.Instance.BrowsingFormsLastWindowSize;
+            this.WindowState = ApplicationSettings.Instance.BrowsingFormsLastWindowState;
+            this.Location = ApplicationSettings.Instance.BrowsingFormsLastWindowLocation;
         }
 
         private void fetchPosts()

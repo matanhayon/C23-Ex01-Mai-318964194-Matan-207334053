@@ -11,6 +11,7 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using FacebookWrapper.ObjectModel;
+using BasicFacebookFeatures.WithSingltonAppSettings;
 
 namespace BasicFacebookFeatures
 {
@@ -52,6 +53,24 @@ namespace BasicFacebookFeatures
             {
                 MessageBox.Show("Loading albums failed: " + exception.Message);
             }
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            ApplicationSettings.Instance.BrowsingFormsLastWindowState = this.WindowState;
+            ApplicationSettings.Instance.BrowsingFormsLastWindowSize = this.Size;
+            ApplicationSettings.Instance.BrowsingFormsLastWindowLocation = this.Location;
+            ApplicationSettings.Instance.Save();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            this.Size = ApplicationSettings.Instance.BrowsingFormsLastWindowSize;
+            this.WindowState = ApplicationSettings.Instance.BrowsingFormsLastWindowState;
+            this.Location = ApplicationSettings.Instance.BrowsingFormsLastWindowLocation;
         }
 
         private void fetchAlbums()

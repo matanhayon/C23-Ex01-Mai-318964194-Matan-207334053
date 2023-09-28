@@ -35,6 +35,7 @@
             this.buttonLogout = new System.Windows.Forms.Button();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.buttonContinue = new System.Windows.Forms.Button();
+            this.checkBoxRememberMe = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +43,7 @@
             // 
             this.checkBoxAlbums.AutoSize = true;
             this.checkBoxAlbums.Enabled = false;
-            this.checkBoxAlbums.Location = new System.Drawing.Point(188, 135);
+            this.checkBoxAlbums.Location = new System.Drawing.Point(188, 166);
             this.checkBoxAlbums.Name = "checkBoxAlbums";
             this.checkBoxAlbums.Size = new System.Drawing.Size(74, 20);
             this.checkBoxAlbums.TabIndex = 90;
@@ -53,7 +54,7 @@
             // 
             this.checkBoxPages.AutoSize = true;
             this.checkBoxPages.Enabled = false;
-            this.checkBoxPages.Location = new System.Drawing.Point(188, 169);
+            this.checkBoxPages.Location = new System.Drawing.Point(188, 200);
             this.checkBoxPages.Name = "checkBoxPages";
             this.checkBoxPages.Size = new System.Drawing.Size(69, 20);
             this.checkBoxPages.TabIndex = 89;
@@ -64,7 +65,7 @@
             // 
             this.checkBoxPosts.AutoSize = true;
             this.checkBoxPosts.Enabled = false;
-            this.checkBoxPosts.Location = new System.Drawing.Point(188, 101);
+            this.checkBoxPosts.Location = new System.Drawing.Point(188, 132);
             this.checkBoxPosts.Name = "checkBoxPosts";
             this.checkBoxPosts.Size = new System.Drawing.Size(63, 20);
             this.checkBoxPosts.TabIndex = 88;
@@ -73,7 +74,7 @@
             // 
             // pictureBoxProfile
             // 
-            this.pictureBoxProfile.Location = new System.Drawing.Point(12, 67);
+            this.pictureBoxProfile.Location = new System.Drawing.Point(12, 98);
             this.pictureBoxProfile.Name = "pictureBoxProfile";
             this.pictureBoxProfile.Size = new System.Drawing.Size(160, 160);
             this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -109,7 +110,7 @@
             // 
             this.buttonContinue.BackColor = System.Drawing.Color.Azure;
             this.buttonContinue.Enabled = false;
-            this.buttonContinue.Location = new System.Drawing.Point(10, 252);
+            this.buttonContinue.Location = new System.Drawing.Point(17, 274);
             this.buttonContinue.Name = "buttonContinue";
             this.buttonContinue.Size = new System.Drawing.Size(261, 51);
             this.buttonContinue.TabIndex = 91;
@@ -117,12 +118,23 @@
             this.buttonContinue.UseVisualStyleBackColor = false;
             this.buttonContinue.Click += new System.EventHandler(this.buttonContinue_Click);
             // 
+            // checkBoxRememberMe
+            // 
+            this.checkBoxRememberMe.AutoSize = true;
+            this.checkBoxRememberMe.Location = new System.Drawing.Point(13, 66);
+            this.checkBoxRememberMe.Name = "checkBoxRememberMe";
+            this.checkBoxRememberMe.Size = new System.Drawing.Size(119, 20);
+            this.checkBoxRememberMe.TabIndex = 92;
+            this.checkBoxRememberMe.Text = "Remember Me";
+            this.checkBoxRememberMe.UseVisualStyleBackColor = true;
+            // 
             // FakeBookLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(318, 331);
+            this.Controls.Add(this.checkBoxRememberMe);
             this.Controls.Add(this.buttonContinue);
             this.Controls.Add(this.checkBoxAlbums);
             this.Controls.Add(this.checkBoxPages);
@@ -147,5 +159,6 @@
         private System.Windows.Forms.Button buttonLogout;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Button buttonContinue;
+        private System.Windows.Forms.CheckBox checkBoxRememberMe;
     }
 }

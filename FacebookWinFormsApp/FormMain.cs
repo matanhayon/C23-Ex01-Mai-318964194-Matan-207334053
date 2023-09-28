@@ -9,6 +9,9 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Runtime.CompilerServices;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
+using BasicFacebookFeatures.WithSingltonAppSettings;
+using System.ComponentModel;
+using System.Threading;
 
 namespace BasicFacebookFeatures
 {
@@ -31,6 +34,24 @@ namespace BasicFacebookFeatures
                 string url = m_FacebookManager.Albums.GetCoverPhotoUrl();
                 coverPictureBox.LoadAsync(url);
             }
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            ApplicationSettings.Instance.BrowsingFormsLastWindowState = this.WindowState;
+            ApplicationSettings.Instance.BrowsingFormsLastWindowSize = this.Size;
+            ApplicationSettings.Instance.BrowsingFormsLastWindowLocation = this.Location;
+            ApplicationSettings.Instance.Save();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            this.Size = ApplicationSettings.Instance.BrowsingFormsLastWindowSize;
+            this.WindowState = ApplicationSettings.Instance.BrowsingFormsLastWindowState;
+            this.Location = ApplicationSettings.Instance.BrowsingFormsLastWindowLocation;
         }
     }
 }

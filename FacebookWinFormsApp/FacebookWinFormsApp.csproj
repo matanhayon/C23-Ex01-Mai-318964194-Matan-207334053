@@ -99,6 +99,7 @@
     </Compile>
     <Compile Include="AlbumsFormProduct.cs" />
     <Compile Include="AlbumsManager.cs" />
+    <Compile Include="DynamicFormFactory .cs" />
     <Compile Include="eFormType.cs" />
     <Compile Include="FacebookManager.cs" />
     <Compile Include="FakeBookLoginForm.cs">
@@ -115,6 +116,7 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="IFormCommand.cs" />
     <Compile Include="PagesForm.cs">
       <SubType>Form</SubType>
     </Compile>

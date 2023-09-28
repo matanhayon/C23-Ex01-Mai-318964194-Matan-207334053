@@ -13,5 +13,13 @@ namespace BasicFacebookFeatures
         {
             return new PagesForm().Controls.OfType<TabControl>().FirstOrDefault();
         }
+
+        public class PagesFormCommand : IFormCommand
+        {
+            public AbstractForm Execute()
+            {
+                return new PagesFormProduct();
+            }
+        }
     }
 }

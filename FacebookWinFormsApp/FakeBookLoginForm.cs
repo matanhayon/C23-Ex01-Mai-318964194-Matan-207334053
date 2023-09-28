@@ -39,10 +39,20 @@ namespace BasicFacebookFeatures
         {
             FacebookWrapper.LoginResult loginResult = FacebookService.Login(
                 "1576031996471164", // our app id
-                /// requested permissions:
-                "email", "public_profile", "user_age_range", "user_birthday", "user_events",
-                "user_friends", "user_gender", "user_hometown", "user_likes", "user_link",
-                "user_location", "user_photos", "user_posts", "user_videos");
+                "email",
+                "public_profile",
+                "user_age_range",
+                "user_birthday",
+                "user_events",
+                "user_friends",
+                "user_gender",
+                "user_hometown",
+                "user_likes",
+                "user_link",
+                "user_location",
+                "user_photos",
+                "user_posts",
+                "user_videos");
 
             if (!string.IsNullOrEmpty(loginResult.AccessToken))
             {
@@ -67,6 +77,18 @@ namespace BasicFacebookFeatures
 
         private void buttonContinue_Click(object sender, EventArgs e)
         {
+            try
+            {
+                initiateBuilder();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Loading form failed: " + exception.Message);
+            }
+        }
+
+        private void initiateBuilder()
+        {
             bool showAlbums = checkBoxAlbums.Checked;
             bool showPages = checkBoxPages.Checked;
             bool showPosts = checkBoxPosts.Checked;
@@ -87,10 +109,15 @@ namespace BasicFacebookFeatures
         {
             if (m_FacebookManager != null)
             {
-                FacebookService.LogoutWithUI();
-                m_FacebookManager.Reset();
-                disableControlsLogout();
+                logOut();
             }
+        }
+
+        private void logOut()
+        {
+            FacebookService.LogoutWithUI();
+            m_FacebookManager.Reset();
+            disableControlsLogout();
         }
 
         private void disableControlsLogout()

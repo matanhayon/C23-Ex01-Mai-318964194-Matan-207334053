@@ -27,7 +27,14 @@ namespace BasicFacebookFeatures
 
         private void linkPages_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            new Thread(fetchPages).Start();
+            try
+            {
+                new Thread(fetchPages).Start();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Loading pages failed: " + exception.Message);
+            }
         }
 
         private void fetchPages()

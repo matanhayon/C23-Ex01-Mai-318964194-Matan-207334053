@@ -15,7 +15,6 @@ namespace BasicFacebookFeatures
     public partial class FormMain : Form
     {
         private FacebookManager m_FacebookManager = FacebookManager.Instance;
-        private int m_SelectedPhotoIndex = -1;
         private int m_CountityToFetch = int.MaxValue;
 
         public FormMain()

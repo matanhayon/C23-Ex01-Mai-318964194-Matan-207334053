@@ -44,7 +44,14 @@ namespace BasicFacebookFeatures
 
         private void linkAlbums_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            new Thread(fetchAlbums).Start();
+            try
+            {
+                new Thread(fetchAlbums).Start();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Loading albums failed: " + exception.Message);
+            }
         }
 
         private void fetchAlbums()

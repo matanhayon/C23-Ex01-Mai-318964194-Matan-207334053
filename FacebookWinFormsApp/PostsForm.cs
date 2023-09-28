@@ -28,7 +28,14 @@ namespace BasicFacebookFeatures
 
         private void linkPosts_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            new Thread(fetchPosts).Start();
+            try
+            {
+                new Thread(fetchPosts).Start();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Loading posts failed: " + exception.Message);
+            }
         }
 
         private void fetchPosts()

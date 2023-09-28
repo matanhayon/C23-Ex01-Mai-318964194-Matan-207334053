@@ -99,6 +99,7 @@
     </Compile>
     <Compile Include="AlbumsFormProduct.cs" />
     <Compile Include="AlbumsManager.cs" />
+    <Compile Include="ApplicationSettings.cs" />
     <Compile Include="eFormType.cs" />
     <Compile Include="FacebookManager.cs" />
     <Compile Include="FakeBookLoginForm.cs">

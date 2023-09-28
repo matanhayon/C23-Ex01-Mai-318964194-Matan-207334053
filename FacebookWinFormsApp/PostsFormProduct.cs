@@ -13,5 +13,14 @@ namespace BasicFacebookFeatures
         {
             return new PostsForm().Controls.OfType<TabControl>().FirstOrDefault();
         }
+
+
+        public class PostsFormCommand : IFormCommand
+        {
+            public AbstractForm Execute()
+            {
+                return new PostsFormProduct();
+            }
+        }
     }
 }

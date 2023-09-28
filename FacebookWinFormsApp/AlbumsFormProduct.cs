@@ -13,5 +13,13 @@ namespace BasicFacebookFeatures
         {
             return new AlbumsForm().Controls.OfType<TabControl>().FirstOrDefault();
         }
+
+        public class AlbumsFormCommand : IFormCommand
+        {
+            public AbstractForm Execute()
+            {
+                return new AlbumsFormProduct();
+            }
+        }
     }
 }

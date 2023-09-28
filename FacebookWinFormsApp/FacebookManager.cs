@@ -4,7 +4,7 @@ using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
-    internal class FacebookManager
+    internal sealed class FacebookManager
     {
         private static readonly object s_Lock = new object();
         private static FacebookManager s_Instance;

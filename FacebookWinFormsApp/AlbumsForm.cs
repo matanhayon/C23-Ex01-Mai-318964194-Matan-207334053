@@ -156,19 +156,20 @@ namespace BasicFacebookFeatures
         {
             if (FacebookManager.Instance != null)
             {
-                IEnumerable<Album> sortedAlbums;
-                string sortingOption;
-                if (comboBoxAlbumsSortOption.SelectedItem == null)
+                if (comboBoxAlbumsSortOption.SelectedItem != null)
                 {
-                    sortingOption = "Newest";
+                    string sortingOption = comboBoxAlbumsSortOption.SelectedItem.ToString();
+                    if (Enum.TryParse(sortingOption, out AlbumSortingOption o_Selection))
+                    {
+                        IAlbumSortingStrategy sortingStrategy = AlbumSortingStrategyFactory.CreateSortingStrategy(o_Selection);
+                        FacebookManager.Instance.Albums.SetSortingStrategy(sortingStrategy);
+                        albumBindingSource.DataSource = FacebookManager.Instance.Albums.SortAlbums();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid sorting option");
+                    }
                 }
-                else
-                {
-                    sortingOption = comboBoxAlbumsSortOption.SelectedItem.ToString();
-                }
-
-                sortedAlbums = FacebookManager.Instance.Albums.SortAlbums(sortingOption);
-                albumBindingSource.DataSource = sortedAlbums;
 
                 if (listBoxAlbums.Items.Count == 0)
                 {

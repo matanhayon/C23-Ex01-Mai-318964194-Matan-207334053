@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace BasicFacebookFeatures
 {
-    public interface ILoginStrategy
+    public enum AlbumSortingOption
     {
-        void Login();
+        Newest,
+        Oldest,
+        Largest,
+        Smallest
     }
 }

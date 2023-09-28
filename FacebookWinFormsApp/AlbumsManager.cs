@@ -11,35 +11,22 @@ namespace BasicFacebookFeatures
     internal class AlbumsManager
     {
         private FacebookObjectCollection<Album> m_Albums;
+        private IAlbumSortingStrategy m_SortingStrategy;
 
         public AlbumsManager(FacebookObjectCollection<Album> i_Albums)
         {
             m_Albums = i_Albums;
+            m_SortingStrategy = new NewestAlbumSortingStrategy();
         }
 
-        public IEnumerable<Album> SortAlbums(string i_sortingOption)
+        public IEnumerable<Album> SortAlbums()
         {
-            IEnumerable<Album> sortedAlbums;
-            switch (i_sortingOption)
-            {
-                case "Newest":
-                    sortedAlbums = m_Albums.OrderByDescending(album => album.CreatedTime);
-                    break;
-                case "Oldest":
-                    sortedAlbums = m_Albums.OrderBy(album => album.CreatedTime);
-                    break;
-                case "Largest":
-                    sortedAlbums = m_Albums.OrderByDescending(album => album.Count);
-                    break;
-                case "Smallest":
-                    sortedAlbums = m_Albums.OrderBy(album => album.Count);
-                    break;
-                default:
-                    sortedAlbums = m_Albums;
-                    break;
-            }
+            return m_SortingStrategy.SortAlbums(m_Albums);
+        }
 
-            return sortedAlbums;
+        public void SetSortingStrategy(IAlbumSortingStrategy i_SortingStrategy)
+        {
+            m_SortingStrategy = i_SortingStrategy;
         }
 
         public void DownloadAlbum(Album i_SelectedAlbum)

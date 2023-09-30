@@ -14,5 +14,4 @@ namespace BasicFacebookFeatures
             return albums.OrderBy(album => album.Count);
         }
     }
-
 }

@@ -37,10 +37,10 @@ namespace BasicFacebookFeatures
 
         private void initializeAlbumsSortingComboBox()
         {
-            comboBoxAlbumsSortOption.Items.Add("Newest");
-            comboBoxAlbumsSortOption.Items.Add("Oldest");
-            comboBoxAlbumsSortOption.Items.Add("Largest");
-            comboBoxAlbumsSortOption.Items.Add("Smallest");
+            foreach (eAlbumSortingOption sortingOption in Enum.GetValues(typeof(eAlbumSortingOption)))
+            {
+                comboBoxAlbumsSortOption.Items.Add(sortingOption.ToString());
+            }
         }
 
         private void linkAlbums_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -149,17 +149,17 @@ namespace BasicFacebookFeatures
 
         private void comboBoxAlbumsSortOption_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SortAlbums();
+            sortAlbums();
         }
 
-        private void SortAlbums()
+        private void sortAlbums()
         {
             if (FacebookManager.Instance != null)
             {
                 if (comboBoxAlbumsSortOption.SelectedItem != null)
                 {
                     string sortingOption = comboBoxAlbumsSortOption.SelectedItem.ToString();
-                    if (Enum.TryParse(sortingOption, out AlbumSortingOption o_Selection))
+                    if (Enum.TryParse(sortingOption, out eAlbumSortingOption o_Selection))
                     {
                         IAlbumSortingStrategy sortingStrategy = AlbumSortingStrategyFactory.CreateSortingStrategy(o_Selection);
                         FacebookManager.Instance.Albums.SetSortingStrategy(sortingStrategy);

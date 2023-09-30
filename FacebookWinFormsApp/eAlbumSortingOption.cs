@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BasicFacebookFeatures
 {
-    public enum AlbumSortingOption
+    public enum eAlbumSortingOption
     {
         Newest,
         Oldest,

@@ -8,20 +8,20 @@ namespace BasicFacebookFeatures
 {
     public static class AlbumSortingStrategyFactory
     {
-        public static IAlbumSortingStrategy CreateSortingStrategy(AlbumSortingOption i_Selection)
+        public static IAlbumSortingStrategy CreateSortingStrategy(eAlbumSortingOption i_Selection)
         {
             switch (i_Selection)
             {
-                case AlbumSortingOption.Newest:
+                case eAlbumSortingOption.Newest:
                     return new NewestAlbumSortingStrategy();
                     break;
-                case AlbumSortingOption.Oldest:
+                case eAlbumSortingOption.Oldest:
                     return new OldestAlbumSortingStrategy();
                     break;
-                case AlbumSortingOption.Largest:
+                case eAlbumSortingOption.Largest:
                     return new LargestAlbumSortingStrategy();
                     break;
-                case AlbumSortingOption.Smallest:
+                case eAlbumSortingOption.Smallest:
                     return new SmallestAlbumSortingStrategy();
                     break;
                 default:

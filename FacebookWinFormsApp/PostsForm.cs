@@ -14,7 +14,7 @@ using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
-    public partial class PostsForm : Form
+    public partial class PostsForm : Form, IObserver
     {
         public PostsForm()
         {
@@ -217,5 +217,12 @@ namespace BasicFacebookFeatures
             chartPostCountByMonth.Titles.Clear();
             chartPostCountByMonth.Titles.Add($"Total Posts in {i_SelectedYear}: {totalPostsCount}");
         }
+
+        public void Update()
+        {
+            fetchPosts();
+            MessageBox.Show("Posts are updated.", "Update Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
+   
 }

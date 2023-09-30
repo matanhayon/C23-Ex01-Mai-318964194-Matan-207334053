@@ -11,6 +11,7 @@
             IsShowPosts = i_IsShowPosts;
             m_FormBuilder = new FormBuilder(this);
         }
+       
 
         public bool IsShowAlbums { get; set; }
 

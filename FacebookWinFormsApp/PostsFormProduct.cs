@@ -9,9 +9,18 @@ namespace BasicFacebookFeatures
 {
     internal class PostsFormProduct : AbstractForm
     {
+        private PostsForm m_PostForm = new PostsForm();
+        
+       public PostsForm Form
+       {
+            get 
+            { 
+                return m_PostForm; 
+            }
+       }
         public override TabControl GetTabControl()
         {
-            return new PostsForm().Controls.OfType<TabControl>().FirstOrDefault();
+            return m_PostForm.Controls.OfType<TabControl>().FirstOrDefault();
         }
 
 

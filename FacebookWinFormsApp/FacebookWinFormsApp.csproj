@@ -101,6 +101,7 @@
     <Compile Include="AlbumsManager.cs" />
     <Compile Include="AlbumSortingStrategyStaticFactory.cs" />
     <Compile Include="AppSettings.cs" />
+    <Compile Include="DataUpdater.cs" />
     <Compile Include="DynamicFormFactory .cs" />
     <Compile Include="eAlbumSortingOption.cs" />
     <Compile Include="eFormType.cs" />
@@ -121,6 +122,7 @@
     </Compile>
     <Compile Include="IAlbumSortingStrategy.cs" />
     <Compile Include="IFormCommand.cs" />
+    <Compile Include="IObserver.cs" />
     <Compile Include="LargestAlbumSortingStrategy.cs" />
     <Compile Include="NewestAlbumSortingStrategy.cs" />
     <Compile Include="OldestAlbumSortingStrategy.cs" />

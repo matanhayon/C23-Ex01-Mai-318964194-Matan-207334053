@@ -15,7 +15,7 @@ using BasicFacebookFeatures.WithSingltonAppSettings;
 
 namespace BasicFacebookFeatures
 {
-    public partial class AlbumsForm : Form
+    public partial class AlbumsForm : Form, IObserver
     {
         private User m_LoggedInUser;
         private int m_SelectedPhotoIndex;
@@ -187,6 +187,12 @@ namespace BasicFacebookFeatures
         {
             Album album = listBoxAlbums.SelectedItem as Album;
             FacebookManager.Instance.Albums.DownloadAlbum(album);
+        }
+
+        public void Update()
+        {
+            fetchAlbums();
+            MessageBox.Show("Albums are updated.", "Update Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

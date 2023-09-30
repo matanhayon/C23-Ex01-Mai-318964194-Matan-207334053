@@ -13,7 +13,7 @@ using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
-    public partial class PagesForm : Form
+    public partial class PagesForm : Form, IObserver
     {
         private User m_LoggedInUser;
 
@@ -72,6 +72,12 @@ namespace BasicFacebookFeatures
                     listBoxPages.DataSource = pageBindingSource;
                 }));
             }
+        }
+        
+        public void Update()
+        {
+            fetchPages();
+            MessageBox.Show("Pages are updated.", "Update Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

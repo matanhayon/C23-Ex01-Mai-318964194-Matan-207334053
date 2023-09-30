@@ -9,9 +9,18 @@ namespace BasicFacebookFeatures
 {
     internal class AlbumsFormProduct : AbstractForm
     {
+        private AlbumsForm m_AlbumsForm = new AlbumsForm();
+
+        public AlbumsForm Form
+        {
+            get 
+            { 
+                return m_AlbumsForm; 
+            }
+        }
         public override TabControl GetTabControl()
         {
-            return new AlbumsForm().Controls.OfType<TabControl>().FirstOrDefault();
+            return m_AlbumsForm.Controls.OfType<TabControl>().FirstOrDefault();
         }
 
         public class AlbumsFormCommand : IFormCommand

@@ -15,6 +15,7 @@ namespace BasicFacebookFeatures
         private FormComposer m_FormComposer;
         private FormMain m_BuiltForm;
         private DynamicFormFactory m_DynamicFormFactory;
+        private DataUpdater m_DataUpdater = new DataUpdater();
 
 
         public FormBuilder(FormComposer i_FormComposer)
@@ -32,19 +33,25 @@ namespace BasicFacebookFeatures
 
             if (m_FormComposer.IsShowPages)
             {
-                extarctTabFromFormAndAttach(m_DynamicFormFactory.CreateForm(eFormType.Pages));
+                AbstractForm pagesForm = m_DynamicFormFactory.CreateForm(eFormType.Pages);
+                m_DataUpdater.AddObserver(((PagesFormProduct)pagesForm).Form);
+                extarctTabFromFormAndAttach(pagesForm);
             }
 
             if (m_FormComposer.IsShowAlbums)
             {
-                extarctTabFromFormAndAttach(m_DynamicFormFactory.CreateForm(eFormType.Albums));
+                AbstractForm albumsForm = m_DynamicFormFactory.CreateForm(eFormType.Albums);
+                m_DataUpdater.AddObserver(((AlbumsFormProduct)albumsForm).Form);
+                extarctTabFromFormAndAttach(albumsForm);
             }
 
             if (m_FormComposer.IsShowPosts)
             {
-                extarctTabFromFormAndAttach(m_DynamicFormFactory.CreateForm(eFormType.Posts));
+                AbstractForm postsForm = m_DynamicFormFactory.CreateForm(eFormType.Posts);
+                m_DataUpdater.AddObserver(((PostsFormProduct)postsForm).Form);
+                extarctTabFromFormAndAttach(postsForm);
             }
-
+            m_DataUpdater.StartUpdatingData();
             return m_BuiltForm;
         }
 

@@ -16,7 +16,7 @@ namespace BasicFacebookFeatures
         private FacebookManager(FacebookWrapper.LoginResult i_LoginResult)
         {
             m_LoginResult = i_LoginResult;
-            m_AlbumsManager = new AlbumsManager(i_LoginResult.LoggedInUser.Albums);
+            m_AlbumsManager = new AlbumsManager(i_LoginResult.LoggedInUser);
             m_PostsManager = new PostsManager(i_LoginResult.LoggedInUser);
             m_PagesManager = new PagesManager(i_LoginResult.LoggedInUser);
         }

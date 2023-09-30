@@ -10,13 +10,43 @@ namespace BasicFacebookFeatures
 {
     internal class AlbumsManager
     {
-        private FacebookObjectCollection<Album> m_Albums;
+        private User m_LoggedInUser;
+        private List<Album> m_Albums;
         private IAlbumSortingStrategy m_SortingStrategy;
 
-        public AlbumsManager(FacebookObjectCollection<Album> i_Albums)
+        public AlbumsManager(User i_LoggedInUser)
         {
-            m_Albums = i_Albums;
+            m_LoggedInUser = i_LoggedInUser;
             m_SortingStrategy = new NewestAlbumSortingStrategy();
+            m_Albums = fetchAllAlbums();
+        }
+
+        public List<Album> AllAlbums
+        {
+            get
+            {
+                if (m_Albums == null)
+                {
+                    m_Albums = fetchAllAlbums();
+                }
+
+                return m_Albums;
+            }
+        }
+
+        private List<Album> fetchAllAlbums()
+        {
+            List<Album> allAlbums = new List<Album>();
+
+            if (m_LoggedInUser != null)
+            {
+                foreach (Album album in m_LoggedInUser.Albums)
+                {
+                    allAlbums.Add(album);
+                }
+            }
+
+            return allAlbums;
         }
 
         public IEnumerable<Album> SortAlbums()

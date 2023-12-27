@@ -1,4 +1,3 @@
-
 Facebook Desktop Application
 Overview
 This GitHub project is a Facebook desktop application developed by Mai Chaouat and Matan Hayon. The application incorporates various design patterns to enhance functionality and maintainability.
@@ -55,5 +54,5 @@ Implemented with every access to the Facebook server to optimize running time an
 How to Use
 Clone the repository.
 Configure software: Choose debug and x64 configuration.
+[Additional setup instructions, if any]
 Start the application.
-

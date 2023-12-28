@@ -135,4 +135,5 @@ How to Use
 
 1.  Clone the repository.
 2.  Configure software: Choose debug and x64 configuration.
-3.  Start the applicatio
+3.  Choose relevant pages to show and log in to your facebook account.
+4.  Start the applicatio
